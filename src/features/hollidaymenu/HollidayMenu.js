@@ -7,7 +7,7 @@ import RenderingArrayOfObjects from 'components/hollidaymenu/Container'
 
 function HollidayMenu() {
   return (
-      <Grid className="container">
+      <Grid className="Container">
         <RenderingArrayOfObjects />
       </Grid>
 

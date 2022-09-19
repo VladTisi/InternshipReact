@@ -19,23 +19,27 @@ function RenderingArrayOfObjects() {
         { field: 'id', headerName: 'ID', width: 90, hidden: true, hideable: false },
         {
           field: 'inceput',
-          headerName: 'HollidayMenu.Inceput',
+          headerName: 'Inceput',
           width: 150,
           editable: false,
           hideable: false,
           headerAlign: 'center',
           align: 'center',
           flex:1,
+          sortable: false,
+          disableColumnMenu: true
         },
         {
           field: 'sfarsit',
-          headerName: 'HollidayMenu.Sfarsit',
+          headerName: 'Sfarsit',
           width: 150,
           editable: false,
           hideable: false,
           headerAlign: 'center',
           align: 'center',
           flex:1,
+          sortable: false,
+          disableColumnMenu: true
         },
         {
             field: 'status',
@@ -46,7 +50,8 @@ function RenderingArrayOfObjects() {
             headerAlign: 'center',
             align: 'center',
             flex:1,
-            disablePortal: true
+            sortable: false,
+            disableColumnMenu: true
           },
       ];
       const rows=lista
