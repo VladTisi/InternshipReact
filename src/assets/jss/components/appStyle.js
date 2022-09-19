@@ -10,8 +10,8 @@ const appStyle = theme => {
   return {
     wrapper: {
       ...defaultFont,
-      backgroundColor: theme.palette.bg.main,
-      color: theme.palette.activeColor,
+      backgroundColor: 'theme.palette.bg.main',
+      color: "theme.palette.activeColor",
       position: 'relative',
       top: '0',
       height: '100vh',
@@ -32,7 +32,8 @@ const appStyle = theme => {
       maxHeight: '100%',
       height: '100%',
       width: '100%',
-      overflowScrolling: 'touch'
+      overflowScrolling: 'touch',
+      backgroundColor: '#f9f5f0'
     },
     mainPanelSidebarMini: {
       [theme.breakpoints.up('md')]: {

@@ -88,7 +88,7 @@ const userMenuStyle = theme => {
       }
     },
     item: {
-      color: 'inherit',
+      color: '#f4991a',
       position: 'relative',
       display: 'block',
       textDecoration: 'none',

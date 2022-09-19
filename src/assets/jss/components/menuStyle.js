@@ -5,7 +5,7 @@
 import styles from 'assets/jss/styles'
 
 const menuStyle = theme => {
-  const { defaultFont, menuActiveColor, menuActiveBkColor, menuActiveBk } = styles(theme)
+  const { defaultFont } = styles(theme)
 
   return {
     menuList: {
@@ -25,7 +25,7 @@ const menuStyle = theme => {
       }
     },
     menuItem: {
-      color: 'inherit',
+      color: '#f4991a',
       position: 'relative',
       display: 'block',
       textDecoration: 'none',
@@ -48,13 +48,13 @@ const menuStyle = theme => {
       textDecoration: 'unset',
       '&:hover': {
         outline: 'none',
-        backgroundColor: theme.palette.sideMenu.hoverBgColor,
+        backgroundColor: '#f4991a',
         color: theme.palette.sideMenu.hoverTextColor,
         boxShadow: 'none'
       },
       '&:focus': {
         outline: 'none',
-        backgroundColor: props => (props.isSubMenu ? 'transparent' : theme.palette.sideMenu.focusBgColor),
+        backgroundColor: "#f4991a",
         boxShadow: 'none'
       },
       '&,&:focus': {
@@ -95,8 +95,8 @@ const menuStyle = theme => {
     },
     menuActiveColor: {
       '&,&:hover,&:focus': {
-        color: menuActiveColor,
-        background: ({ withGradient }) => (withGradient ? menuActiveBk : menuActiveBkColor)
+        color: "#f9f5f0",
+        background: "#f4991a"
       }
     },
     paddingLeft: {
