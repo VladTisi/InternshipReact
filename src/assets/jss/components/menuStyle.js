@@ -48,13 +48,13 @@ const menuStyle = theme => {
       textDecoration: 'unset',
       '&:hover': {
         outline: 'none',
-        backgroundColor: theme.palette.sideMenu.hoverBgColor,
+        backgroundColor: '#f4991a',
         color: theme.palette.sideMenu.hoverTextColor,
         boxShadow: 'none'
       },
       '&:focus': {
         outline: 'none',
-        backgroundColor: props => (props.isSubMenu ? 'transparent' : theme.palette.sideMenu.focusBgColor),
+        backgroundColor: props => (props.isSubMenu ? 'transparent' : '#f4991a'),
         boxShadow: 'none'
       },
       '&,&:focus': {
@@ -95,8 +95,8 @@ const menuStyle = theme => {
     },
     menuActiveColor: {
       '&,&:hover,&:focus': {
-        color: menuActiveColor,
-        background: ({ withGradient }) => (withGradient ? menuActiveBk : menuActiveBkColor)
+        color: 'menuActiveColor',
+        background: ({ withGradient }) => (withGradient ? menuActiveBk : '#f4991a')
       }
     },
     paddingLeft: {

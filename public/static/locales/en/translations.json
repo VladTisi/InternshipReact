@@ -15,6 +15,7 @@
   "NavBar": {
     "Dashboard": "Dashboard",
     "HollidayMenu": "Holliday menu",
+    "EmployeesMenu": "Employees",
     "Settings": "Settings",
     "Privacy": "Privacy",
     "Security": "Security"
