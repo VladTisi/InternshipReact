@@ -22,7 +22,7 @@ const headerStyle = theme => {
 
   return {
     appBar: {
-      backgroundColor: whiteColor,
+      backgroundColor: "orange",
       boxShadow: 'none',
       borderBottom: '0',
       marginBottom: '0',
