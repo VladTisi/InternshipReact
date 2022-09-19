@@ -1,0 +1,33 @@
+.space{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #f9f5f0;
+    border-radius: 30px;
+    padding:40px;
+}
+.tabela{
+    width:70%;
+    margin:40px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f2ead3;
+    border:1px solid #321313;
+    border-collapse: collapse;
+    padding:3px;
+}
+.rand{
+    flex:1;  
+    border:1px solid #321313;
+    border-collapse: collapse;
+    font-size: 18pt;
+    padding: 10px;
+    line-height: 1.5;
+}
+.cap{
+    background-color: #321313;
+    color: #f4991a;
+    font-size: 20pt;
+    line-height: 1.5;
+}
