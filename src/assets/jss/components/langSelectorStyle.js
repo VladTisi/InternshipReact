@@ -33,7 +33,7 @@ const langSelectorStyle = theme => {
       paddingLeft: '10px'
     },
     langSelectCaret: {
-      color: theme.palette.sideMenu.color,
+      color: "#f4991a",
       right: '10px'
     }
   }
