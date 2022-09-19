@@ -6,11 +6,14 @@ import  { DataGrid } from "@mui/x-data-grid"
 import { Button } from "@mui/material"
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
+import TextField from '@material-ui/core/TextField';
 
 const cache = createCache({
     key: 'css',
     prepend: true,
   });
+
+
 
 function RenderingArrayOfObjects() {
     const [filt, setFilt] = useState([])
@@ -48,6 +51,7 @@ function RenderingArrayOfObjects() {
             disablePortal: true
           },
       ];
+      
       const rows=lista
     return(
         <CacheProvider value={cache}>
@@ -59,6 +63,12 @@ function RenderingArrayOfObjects() {
             rows={rows}
             columns={columns}
             pageSize={5}
+            sx={{"& .MuiDataGrid-columnHeaders": {
+              backgroundColor: "#321313",
+              color: "#f4991a",
+              fontWeight: 'bold',
+              fontSize: 16
+            }}}
             rowsPerPageOptions={[5]}
             experimentalFeatures={{ newEditingApi: true }}
             disableColumnSelector
@@ -75,6 +85,7 @@ function RenderingArrayOfObjects() {
               }}
             className="table" />
             <div className="buttons-container">
+
            
             </div>
         </Box>
