@@ -81,8 +81,8 @@ const sidebarStyle = theme => {
     themeBackground: {
       color: menuColor,
       '&:after': {
-        background: menuBkColor,
-        opacity: menuBkOpacity
+        background: "#321313",
+       
       }
     },
     blueBackground: {

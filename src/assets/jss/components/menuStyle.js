@@ -25,7 +25,7 @@ const menuStyle = theme => {
       }
     },
     menuItem: {
-      color: 'inherit',
+      color: '#f4991a',
       position: 'relative',
       display: 'block',
       textDecoration: 'none',
@@ -54,7 +54,7 @@ const menuStyle = theme => {
       },
       '&:focus': {
         outline: 'none',
-        backgroundColor: props => (props.isSubMenu ? 'transparent' : '#f4991a'),
+        backgroundColor: "#f4991a",
         boxShadow: 'none'
       },
       '&,&:focus': {
@@ -95,8 +95,8 @@ const menuStyle = theme => {
     },
     menuActiveColor: {
       '&,&:hover,&:focus': {
-        color: 'menuActiveColor',
-        background: ({ withGradient }) => (withGradient ? menuActiveBk : '#f4991a')
+        color: "#f9f5f0",
+        background: "#f4991a"
       }
     },
     paddingLeft: {

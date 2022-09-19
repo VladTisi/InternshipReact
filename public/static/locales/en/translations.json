@@ -12,6 +12,10 @@
   "DECIMAL2": "{{number,intlDecimal2}}",
   "MyProfile": "My Profile",
   "Forbidden": "Not allowed to see this page!",
+  "HollidayMenu":{
+    "Inceput": "Starting Date",
+    "Sfarsit": "Ending Date"
+  },
   "NavBar": {
     "Dashboard": "Dashboard",
     "HollidayMenu": "Holliday menu",
