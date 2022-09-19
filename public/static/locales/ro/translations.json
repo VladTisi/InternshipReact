@@ -4,6 +4,10 @@
   "RowsPerPage": "Randuri pe pagina",
   "MyProfile": "Profilul meu",
   "Forbidden": "Nu aveti dreptul sa vedeti aceasta pagina!",
+  "HollidayMenu":{
+    "Inceput": "Data Inceput",
+    "Sfarsit": "Data Sfarsit"
+  },
   "NavBar": {
     "Dashboard": "Panou central",
     "HollidayMenu": "Panou concedii",

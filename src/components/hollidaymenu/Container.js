@@ -8,17 +8,18 @@ import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 
 const cache = createCache({
-    key: 'css',
-    prepend: true,
-  });
+  key: 'css',
+  prepend: true,
+});
 
 function RenderingArrayOfObjects() {
+  
     const [filt, setFilt] = useState([])
     const columns = [
         { field: 'id', headerName: 'ID', width: 90, hidden: true, hideable: false },
         {
           field: 'inceput',
-          headerName: 'Inceput',
+          headerName: 'HollidayMenu.Inceput',
           width: 150,
           editable: false,
           hideable: false,
@@ -28,7 +29,7 @@ function RenderingArrayOfObjects() {
         },
         {
           field: 'sfarsit',
-          headerName: 'Sfarsit',
+          headerName: 'HollidayMenu.Sfarsit',
           width: 150,
           editable: false,
           hideable: false,
@@ -54,11 +55,18 @@ function RenderingArrayOfObjects() {
         <Box sx={{ height: 400, width: '100%',
         '& .MuiDataGrid-cell:hover': {
             color: 'primary.main',
+            
           }, }}>
         <DataGrid
             rows={rows}
             columns={columns}
             pageSize={5}
+            sx={{"& .MuiDataGrid-columnHeaders": {
+              backgroundColor: "#321313",
+              color: "#f4991a",
+              fontWeight: 'bold',
+              fontSize: 16
+            }}}
             rowsPerPageOptions={[5]}
             experimentalFeatures={{ newEditingApi: true }}
             disableColumnSelector
