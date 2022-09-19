@@ -3,9 +3,11 @@ import lista from "./data"
 import Box from '@mui/material/Box'
 import 'assets/css/hollidaymenu.css'
 import  { DataGrid } from "@mui/x-data-grid"
-import { Button } from "@mui/material"
+import { Button } from "@material-ui/core"
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
+import { useTranslation } from 'react-i18next'
+
 
 const cache = createCache({
   key: 'css',
@@ -13,13 +15,13 @@ const cache = createCache({
 });
 
 function RenderingArrayOfObjects() {
-  
+    const { t } = useTranslation()
     const [filt, setFilt] = useState([])
     const columns = [
         { field: 'id', headerName: 'ID', width: 90, hidden: true, hideable: false },
         {
           field: 'inceput',
-          headerName: 'Inceput',
+          headerName: t('HollidayMenu.Inceput'),
           width: 150,
           editable: false,
           hideable: false,
@@ -31,7 +33,7 @@ function RenderingArrayOfObjects() {
         },
         {
           field: 'sfarsit',
-          headerName: 'Sfarsit',
+          headerName: t('HollidayMenu.Sfarsit'),
           width: 150,
           editable: false,
           hideable: false,
@@ -66,12 +68,18 @@ function RenderingArrayOfObjects() {
             rows={rows}
             columns={columns}
             pageSize={5}
-            sx={{"& .MuiDataGrid-columnHeaders": {
+            sx={{borderColor: '#321313',
+            border: 1,
+              "& .MuiDataGrid-columnHeaders": {
               backgroundColor: "#321313",
               color: "#f4991a",
               fontWeight: 'bold',
               fontSize: 16
-            }}}
+            },
+            '& .MuiDataGrid-cellGrid': {
+              color: '#321313',
+            },
+          }}
             rowsPerPageOptions={[5]}
             experimentalFeatures={{ newEditingApi: true }}
             disableColumnSelector
@@ -86,6 +94,7 @@ function RenderingArrayOfObjects() {
               filterModel={{
                 items: filt
               }}
+              autoPageSize
             className="table" />
             <div className="buttons-container">
             <Button className="buttons"
