@@ -24,7 +24,7 @@ function RenderingArrayOfObjects() {
     const [filt, setFilt] = useState([])
 
     const columns = [
-        { field: 'id', headerName: 'ID', width: 90, hidden: true, hideable: false },
+        
         {
           field: 'nume',
           headerName: 'Nume',
@@ -73,7 +73,8 @@ function RenderingArrayOfObjects() {
             columns={columns}
 
             pageSize={5}
-            sx={{"& .MuiDataGrid-columnHeaders": {
+            sx={{borderColor: '#321313',
+            border: 1,"& .MuiDataGrid-columnHeaders": {
               backgroundColor: "#321313",
               color: "#f4991a",
               fontWeight: 'bold',
