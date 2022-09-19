@@ -1,9 +1,8 @@
-import React, {useState} from "react"
+import React from "react"
 import lista from "./data"
 import Box from '@mui/material/Box'
 import 'assets/css/employeesmenu.css'
 import  { DataGrid } from "@mui/x-data-grid"
-import { Button } from "@mui/material"
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 
@@ -13,7 +12,6 @@ const cache = createCache({
   });
 
 function RenderingArrayOfObjects() {
-    const [filt, setFilt] = useState([])
     const columns = [
         { field: 'id', headerName: 'ID', width: 90, hidden: true, hideable: false },
         {
@@ -70,9 +68,7 @@ function RenderingArrayOfObjects() {
                   },
                 },
               }}
-              filterModel={{
-                items: filt
-              }}
+              
             className="table" />
             <div className="buttons-container">
            

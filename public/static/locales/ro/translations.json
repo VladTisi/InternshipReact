@@ -6,7 +6,8 @@
   "Forbidden": "Nu aveti dreptul sa vedeti aceasta pagina!",
   "HollidayMenu":{
     "Inceput": "Data Inceput",
-    "Sfarsit": "Data Sfarsit"
+    "Sfarsit": "Data Sfarsit",
+    "Status": "Stare"
   },
   "NavBar": {
     "Dashboard": "Panou central",
