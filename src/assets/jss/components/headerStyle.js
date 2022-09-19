@@ -28,7 +28,7 @@ const headerStyle = theme => {
       marginBottom: '0',
       width: '100%',
       zIndex: '1029',
-      color: activeColor,
+      color: 'red',
       border: '0',
       borderRadius: '3px',
       transition: 'all 150ms ease 0s',
