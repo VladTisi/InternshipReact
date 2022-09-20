@@ -18,10 +18,7 @@ const useStyles = makeStyles({
   }
 })
 
-
 export default function Containers() {
-  
-
   return (
     <div className='container1'>
       <div className='title'>
@@ -32,55 +29,76 @@ export default function Containers() {
       <body>
         <div className='card1'>
           <div className='nume'>
-            Nume: 
-            <div className ='textfield'><TextField></TextField></div> 
+            Nume:
+            <div className='textfield'>
+              <TextField></TextField>
+            </div>
           </div>
           <div className='nume'>
             Prenume:
-            <div className ='textfield'> <TextField></TextField></div>
-          </div>
-          <div className='nume'>
-            Echipa: 
-            <div className ='textfield'>
+            <div className='textfield'>
+              {' '}
               <TextField></TextField>
-              </div>
             </div>
-            <div className='nume'>
-            Functie:<div className ='textfield'> <TextField></TextField></div>
-            </div>
-            <div className='nume'>
-            Sex: <div className ='textfield'><TextField></TextField></div>
-            </div>
-
-        </div>
-          
-        <div className='card2'>
-          <div className = 'modif'>
-            Modificare date
-          </div>
-        <div className = 'iconset'> 
-        <SettingsApplicationsIcon/>
-          </div>
-        <div className='nume'>
-            Email:
-            <div className ='textfield'> <TextField></TextField></div>
           </div>
           <div className='nume'>
-            Numar telefon: 
-            <div className ='textfield'><TextField></TextField>
-              </div>
+            Echipa:
+            <div className='textfield'>
+              <TextField></TextField>
             </div>
-            <div className='nume'>
-            Salariu:<div className ='textfield'> <TextField></TextField></div>
+          </div>
+          <div className='nume'>
+            Functie:
+            <div className='textfield'>
+              {' '}
+              <TextField></TextField>
             </div>
-            <div className='nume'>
-            Overtime: <div className ='textfield'><TextField></TextField></div>
+          </div>
+          <div className='nume'>
+            Sex:{' '}
+            <div className='textfield'>
+              <TextField></TextField>
             </div>
-            <div className='nume'>
-            Data angajare: <div className ='textfield'><TextField></TextField></div>
+          </div>
+        </div>
+
+        <div className='card2'>
+          <div className='modif'>Modificare date</div>
+          <div className='iconset'>
+            <SettingsApplicationsIcon />
+          </div>
+          <div className='nume'>
+            Email:
+            <div className='textfield'>
+              {' '}
+              <TextField></TextField>
             </div>
-            
-       
+          </div>
+          <div className='nume'>
+            Numar telefon:
+            <div className='textfield'>
+              <TextField></TextField>
+            </div>
+          </div>
+          <div className='nume'>
+            Salariu:
+            <div className='textfield'>
+              {' '}
+              <TextField></TextField>
+            </div>
+          </div>
+          <div className='nume'>
+            Overtime:{' '}
+            <div className='textfield'>
+              <TextField></TextField>
+            </div>
+          </div>
+          <div className='nume'>
+            Data angajare:{' '}
+            <div className='textfield'>
+              <TextField></TextField>
+            </div>
+          </div>
         </div>
       </body>
     </div>
