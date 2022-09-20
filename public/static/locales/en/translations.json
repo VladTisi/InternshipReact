@@ -14,11 +14,13 @@
   "Forbidden": "Not allowed to see this page!",
   "HollidayMenu":{
     "Inceput": "Starting Date",
-    "Sfarsit": "Ending Date"
+    "Sfarsit": "Ending Date",
+    "Status": "Status"
   },
   "NavBar": {
     "Dashboard": "Dashboard",
     "HollidayMenu": "Holliday menu",
+    "HollidayList": "Holliday list",
     "EmployeesMenu": "Employees",
     "Settings": "Settings",
     "Privacy": "Privacy",

@@ -19,9 +19,7 @@ const sidebarStyle = theme => {
     warningColor,
     dangerColor,
     roseColor,
-    menuBkColor,
     menuColor,
-    menuBkOpacity
   } = styles(theme)
 
   return {

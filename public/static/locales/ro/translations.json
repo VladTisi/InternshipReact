@@ -6,12 +6,14 @@
   "Forbidden": "Nu aveti dreptul sa vedeti aceasta pagina!",
   "HollidayMenu":{
     "Inceput": "Data Inceput",
-    "Sfarsit": "Data Sfarsit"
+    "Sfarsit": "Data Sfarsit",
+    "Status": "Stare"
   },
   "NavBar": {
     "Dashboard": "Panou central",
     "EmployeesMenu":"Angajati",
     "HollidayMenu": "Panou concedii",
+    "HollidayList": "Lista concedii",
     "Settings": "Setari",
     "Privacy": "Confidentialitate",
     "Security": "Securitate"
