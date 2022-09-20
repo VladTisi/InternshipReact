@@ -9,9 +9,15 @@
     "Sfarsit": "Data Sfarsit",
     "Status": "Stare"
   },
+  "EmployeesMenu":{
+    "Nume": "Nume",
+    "Prenume": "Prenume",
+    "Functie": "Functie"
+  },
   "NavBar": {
     "Dashboard": "Panou central",
     "EmployeesMenu":"Angajati",
+    "TeamsMenu": "Echipe",
     "HollidayMenu": "Panou concedii",
     "HollidayList": "Lista concedii",
     "Settings": "Setari",
