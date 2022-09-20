@@ -1,7 +1,7 @@
 import React from 'react'
 import 'assets/css/hollidaymenu.css'
 import {Grid} from '@material-ui/core'
-import RenderingArrayOfObjects from 'components/employeesmenu/Container1'
+import RenderingArrayOfObjects from 'components/employeesmenu/ContainerBun'
 
 
 
@@ -10,7 +10,7 @@ function EmployeesMenu() {
 
   return (
 
-      <Grid className="container1">
+      <Grid className="containerbun">
         <RenderingArrayOfObjects />
       </Grid>
 
