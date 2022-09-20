@@ -41,7 +41,7 @@ const formLabelStyling = {
   paddingUp: 10
 }
 
-export default function SimpleCard() {
+export default function Containers() {
   const classes = useStyles()
 
   return (
