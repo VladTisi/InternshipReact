@@ -17,6 +17,11 @@
     "Sfarsit": "Ending Date",
     "Status": "Status"
   },
+  "EmployeesMenu":{
+    "Nume": "Last name",
+    "Prenume": "First name",
+    "Functie": "Position"
+  },
   "NavBar": {
     "Dashboard": "Dashboard",
     "HollidayMenu": "Holliday menu",
