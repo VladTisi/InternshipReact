@@ -1,23 +1,10 @@
-import React, { useState } from 'react'
-import Box from '@mui/material/Box'
+import React from 'react'
 import 'assets/css/userpage.css'
-import { DataGrid } from '@mui/x-data-grid'
-import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import Card from '@material-ui/core/Card'
-import FormLabel from '@mui/material/FormLabel'
 import TextField from '@mui/material/TextField'
-import CardContent from '@material-ui/core/CardContent'
+import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications';
 
-import Typography from '@material-ui/core/Typography'
-const commonStyles = {
-  bgcolor: 'background.paper',
-  borderColor: 'text.primary',
-  m: 1,
-  border: 1,
-  width: '5rem',
-  height: '5rem'
-}
+
 const useStyles = makeStyles({
   root: {
     minWidth: 155
@@ -30,19 +17,10 @@ const useStyles = makeStyles({
     marginBottom: 12
   }
 })
-const formLabelStyling = {
-  color: 'black',
-  maxWidth: 200,
-  whiteSpace: 'nowrap',
-  textOverflow: 'ellipsis',
-  overflow: 'hidden',
-  display: 'block',
-  paddingDown: 125,
-  paddingUp: 10
-}
+
 
 export default function Containers() {
-  const classes = useStyles()
+  
 
   return (
     <div className='container1'>
@@ -75,8 +53,14 @@ export default function Containers() {
             </div>
 
         </div>
-
+          
         <div className='card2'>
+          <div className = 'modif'>
+            Modificare date
+          </div>
+        <div className = 'iconset'> 
+        <SettingsApplicationsIcon/>
+          </div>
         <div className='nume'>
             Email:
             <div className ='textfield'> <TextField></TextField></div>
@@ -95,6 +79,7 @@ export default function Containers() {
             <div className='nume'>
             Data angajare: <div className ='textfield'><TextField></TextField></div>
             </div>
+            
        
         </div>
       </body>
