@@ -1,7 +1,7 @@
 .container1{
     background-color: #f9f5f0;
     font-family: 'Open Sans', sans-serif;
-    height: 550px;
+    height: 600px;
     border-radius: 20px;
     padding: 20px;
   
@@ -12,7 +12,7 @@
 .nume{
     padding-top: 30px ;
     font-size: large;
-   
+    font-family: 'Open Sans', sans-serif;
     
 
 }
@@ -48,4 +48,12 @@
 .card2{
     background-color: #f9f5f0;
     margin-left: 50%;
+}
+.iconset{
+    margin-left: 90%;
+}
+.modif{
+    margin-left:70%;
+    font-family: 'Open Sans', sans-serif;
+
 }

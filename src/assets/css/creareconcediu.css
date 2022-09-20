@@ -1,8 +1,7 @@
 .container22 {
-  background-color: white;
+  background-color: #f9f5f0;
   font-family: 'Open Sans', sans-serif;
   margin: 0 auto;
-  border-radius: 35px;
   width: 800px;
   height: 800px;
 }
@@ -20,14 +19,14 @@
   font-size: 15px;
   margin-top: 25px;
 }
-.title {
-  background-color: #f2ead3;
+.title22 {
+  background-color: #321313;
   text-align: center;
   height: 35px;
-  border: 3px;
+  border: 1.5px;
   border-style: solid;
   border-color: #f4991a;
-  border-radius: 15px;
+  color: #f4991a;
 }
 
 .tipConcediu {

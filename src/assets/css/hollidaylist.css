@@ -11,13 +11,14 @@
 }
 .tabela{
     width:70%;
-    margin:40px;
+    margin:30px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #f9f5f0;
+    background-color: white;
     border:2px solid #321313;
     border-collapse: collapse;
-    border-radius: 5px;
+    border-radius: 5px !important;
+
 }
 
 .rand{
@@ -27,7 +28,7 @@
     justify-content: center;
     font-size: 16pt;
     padding: 10px;
-    line-height: 2;
+    line-height: 1.5;
 }
 .celula{
     justify-content: center;
@@ -40,5 +41,28 @@
     line-height: 1.5;
 }
 .cap th{
-    border: 1px solid #f4991a ;
+    border-left: 1px solid #f4991a ;
+    border-right: 1px solid #f4991a ;
+}
+.buttons-container{
+    width: 70%;
+    display: flex;
+    flex-wrap:wrap;
+    gap: 15px;
+    padding:20px;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f9f5f0;
+}
+.buttons{
+    
+    flex:1;
+    box-shadow: 'none';
+    line-height: 1.5;
+    background-color: #321313 !important;
+    border-color: #321313 !important;
+    color: #f4991a !important;
+    margin:auto;
+    
 }
