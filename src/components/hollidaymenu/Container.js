@@ -1,94 +1,114 @@
-import React, {useState} from "react"
-import lista from "./data"
-import Box from '@mui/material/Box'
-import 'assets/css/hollidaymenu.css'
-import  { DataGrid } from "@mui/x-data-grid"
-import { Button} from "@material-ui/core"
+import React from 'react'
+import lista from './data'
+import { useTranslation } from 'react-i18next'
+import 'assets/css/hollidaylist.css'
+import { Button, TableContainer,TablePagination,Table, TableBody, TableHead, TableFooter,TableRow, TableCell } from '@material-ui/core';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
-import { useTranslation } from 'react-i18next'
 
 
 const cache = createCache({
   key: 'css',
   prepend: true,
 });
+export default function RenderingArrayOfObjects(){
+        const { t } = useTranslation()
+        const [page, setPage] = React.useState(0);
+        const [filt, setFilt] = React.useState([])
+        const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-function RenderingArrayOfObjects() {
-    const { t } = useTranslation()
-    const [filt, setFilt] = useState([])
-    const columns = [
-        {
-          field: 'inceput',
-          headerName: t('HollidayMenu.Inceput'),
-          width: 150,
-          editable: false,
-          hideable: false,
-          headerAlign: 'center',
-          align: 'center',
-          flex:1,
-          sortable: false,
-          disableColumnMenu: true
-        },
-        {
-          field: 'sfarsit',
-          headerName: t('HollidayMenu.Sfarsit'),
-          width: 150,
-          editable: false,
-          hideable: false,
-          headerAlign: 'center',
-          align: 'center',
-          flex:1,
-          sortable: false,
-          disableColumnMenu: true
-        },
-        {
-            field: 'status',
-            headerName: t('HollidayMenu.Status'),
-            width: 150,
-            editable: false,
-            hideable: false,
-            headerAlign: 'center',
-            align: 'center',
-            flex:1,
-            sortable: false,
-            disableColumnMenu: true
-          },
-      ];
-      const rows=lista
+        const [data, setData] = React.useState([]);
+        React.useEffect(() => {
+          
+            setData(lista);
+          }, []);
+          const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.length) : 0;
+        const handleChangePage = (event, newPage) => {
+            setPage(newPage);
+          };
+          
+          const handleChangeRowsPerPage = (event) => {
+            setRowsPerPage(parseInt(event.target.value, 10));
+            setPage(0);
+          };
     return(
         <CacheProvider value={cache}>
-        <Box sx={{ height: 400, width: '100%' }}>
-        <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={5}
-            sx={{borderColor: '#321313',
-              border: 1,
-              "& .MuiDataGrid-columnHeaders": {
-              backgroundColor: "#321313",
-              color: "#f4991a",
-              fontWeight: 'bold',
-              fontSize: 16
-            },
-          }}
-            rowsPerPageOptions={[5]}
-            experimentalFeatures={{ newEditingApi: true }}
-            disableColumnSelector
-            initialState={{
-                columns: {
-                  columnVisibilityModel: {
-                    // Hide columns status and traderName, the other columns will remain visible
-                    id: false,
-                  },
-                },
-              }}
-              filterModel={{
-                items: filt
-              }}
-              autoPageSize
-            className="table" />
+        <TableContainer className="space">
+        <Table className="tabela"
+        filterModel={{
+          items: filt
+        }}>
+            <TableHead className="cap">
+                        <TableRow>
+                            <th>{t('HollidayMenu.Inceput')}</th>
+                            <th>{t('HollidayMenu.Sfarsit')}</th>
+                            <th>{t('HollidayMenu.Status')}</th>
+                        </TableRow>
+                    </TableHead>
+            <TableBody>
+            {(rowsPerPage > 0
+              ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              : data
+            ).map((row) => (
+              <TableRow key={row.id} className="rand">
+                <TableCell style={{ width: 160 }} align="center">
+                  {row.inceput}
+                </TableCell>
+                <TableCell style={{ width: 160 }} align="center">
+                  {row.sfarsit}
+                </TableCell>
+                <TableCell style={{ width: 160 }} align="center">
+                  {row.status}
+                </TableCell>
+              </TableRow>
+            ))}
+
+            {emptyRows > 0 && (
+              <TableRow style={{ height: 53 * emptyRows }}>
+                <TableCell colSpan={6} />
+              </TableRow>
+            )}
+            </TableBody>
+            <TableFooter className="tblFoot">
+            <TablePagination 
+                rowsPerPageOptions={[5, 10]}
+                count={data.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                SelectProps={{
+                    inputProps: {
+                    "aria-label": "rows per page"
+                }
+                 }}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+                //ActionsComponent={TablePaginationActions}
+                //component={Box}
+                labelDisplayedRows={({ page }) => {
+                return `Page: ${page}`;
+                }}
+                backIconButtonProps={{
+                    color: "secondary"
+                }}
+                nextIconButtonProps={{ color: "secondary" }}
+                showFirstButton={true}
+                showLastButton={true}
+                labelRowsPerPage={<span>Rows:</span>}
+                sx={{
+                    ".MuiTablePagination-toolbar": {
+                    backgroundColor: "rgba(100,100,100,0.5)"
+                    },
+                    ".MuiTablePagination-selectLabel, .MuiTablePagination-input": {
+                    fontWeight: "bold",
+                    color: "blue"
+                    }
+                }}
+            />
+            </TableFooter>
+        </Table>
+        </TableContainer>
             <div className="buttons-container">
+            
             <Button className="buttons"
             variant="contained"
             onClick={() =>
@@ -138,10 +158,7 @@ function RenderingArrayOfObjects() {
             Reset Filters
             </Button>
             </div>
-        </Box>
         </CacheProvider>
         )
 
 }
-
-export default RenderingArrayOfObjects

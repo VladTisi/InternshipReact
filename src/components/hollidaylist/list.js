@@ -36,9 +36,9 @@ export default function ListGetter(){
         <Table className="tabela">
             <TableHead className="cap">
                         <TableRow>
-                            <th>Inceput</th>
-                            <th>Sfarsit</th>
-                            <th>Stare</th>
+                            <th>{t('HollidayMenu.Inceput')}</th>
+                            <th>{t('HollidayMenu.Sfarsit')}</th>
+                            <th>{t('HollidayMenu.Status')}</th>
                         </TableRow>
                     </TableHead>
             <TableBody>
