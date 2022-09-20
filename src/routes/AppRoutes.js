@@ -9,6 +9,8 @@ import Dashboard from 'features/dashboard/Dashboard'
 import creareConcediu from 'features/CreareConcediu/CreareConcediu'
 import HollidayMenu from 'features/hollidaymenu/HollidayMenu'
 import EmployeesMenu from 'features/employeesmenu/EmployeesMenu'
+import UserPage from 'features/userPage/UserPage'
+import HollidayList from 'features/hollidaylist/HollidayList'
 
 export default function AppRoutes() {
   return (
@@ -21,6 +23,10 @@ export default function AppRoutes() {
       <Redirect exact from='/' to='/employeesmenu' />
       <CustomRoute isPrivate={false} exact path='/hollidaymenu' component={HollidayMenu} />
       <Redirect exact from='/' to='/hollidaymenu' />
+      <CustomRoute isPrivate={false} exact path='/userPage' component={UserPage} />
+      <Redirect exact from='/' to='/userPage' />
+      <CustomRoute isPrivate={false} exact path='/hollidaylist' component={HollidayList} />
+      <Redirect exact from='/' to='/hollidaylist' />
       <CustomRoute isPrivate={false} exact path='/forbidden' component={Forbidden} />
       <CustomRoute isPrivate={false} render={() => <NotFound title='PageNotFound'></NotFound>} />
     </Switch>

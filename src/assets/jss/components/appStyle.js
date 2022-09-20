@@ -33,7 +33,7 @@ const appStyle = theme => {
       height: '100%',
       width: '100%',
       overflowScrolling: 'touch',
-      backgroundColor: '#f9f5f0'
+      backgroundColor: 'white'
     },
     mainPanelSidebarMini: {
       [theme.breakpoints.up('md')]: {
