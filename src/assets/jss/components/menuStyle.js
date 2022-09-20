@@ -5,7 +5,7 @@
 import styles from 'assets/jss/styles'
 
 const menuStyle = theme => {
-  const { defaultFont, menuActiveColor, menuActiveBkColor, menuActiveBk } = styles(theme)
+  const { defaultFont } = styles(theme)
 
   return {
     menuList: {

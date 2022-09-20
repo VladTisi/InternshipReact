@@ -6,6 +6,8 @@ import  { DataGrid } from "@mui/x-data-grid"
 import { Button } from "@material-ui/core"
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
+import { useTranslation } from 'react-i18next'
+
 
 const cache = createCache({
   key: 'css',
@@ -13,60 +15,63 @@ const cache = createCache({
 });
 
 function RenderingArrayOfObjects() {
-  
+    const { t } = useTranslation()
     const [filt, setFilt] = useState([])
     const columns = [
-        { field: 'id', headerName: 'ID', width: 90, hidden: true, hideable: false },
         {
           field: 'inceput',
-          headerName: 'HollidayMenu.Inceput',
+          headerName: t('HollidayMenu.Inceput'),
           width: 150,
           editable: false,
           hideable: false,
           headerAlign: 'center',
           align: 'center',
           flex:1,
+          sortable: false,
+          disableColumnMenu: true
         },
         {
           field: 'sfarsit',
-          headerName: 'HollidayMenu.Sfarsit',
+          headerName: t('HollidayMenu.Sfarsit'),
           width: 150,
           editable: false,
           hideable: false,
           headerAlign: 'center',
           align: 'center',
           flex:1,
+          sortable: false,
+          disableColumnMenu: true
         },
         {
             field: 'status',
-            headerName: 'Status',
+            headerName: t('HollidayMenu.Status'),
             width: 150,
             editable: false,
             hideable: false,
             headerAlign: 'center',
             align: 'center',
             flex:1,
-            disablePortal: true
+            sortable: false,
+            disableColumnMenu: true
           },
       ];
       const rows=lista
     return(
         <CacheProvider value={cache}>
-        <Box sx={{ height: 400, width: '100%',
-        '& .MuiDataGrid-cell:hover': {
-            color: 'primary.main',
-            
-          }, }}>
+        <Box sx={{ height: 400, width: '100%' }}>
         <DataGrid
             rows={rows}
             columns={columns}
             pageSize={5}
-            sx={{"& .MuiDataGrid-columnHeaders": {
+            sx={{borderColor: '#321313',
+              border: 1,
+              "& .MuiDataGrid-columnHeaders": {
               backgroundColor: "#321313",
               color: "#f4991a",
               fontWeight: 'bold',
               fontSize: 16
-            }}}
+            },
+          }}
             rowsPerPageOptions={[5]}
             experimentalFeatures={{ newEditingApi: true }}
             disableColumnSelector
@@ -81,6 +86,7 @@ function RenderingArrayOfObjects() {
               filterModel={{
                 items: filt
               }}
+              autoPageSize
             className="table" />
             <div className="buttons-container">
             <Button className="buttons"
