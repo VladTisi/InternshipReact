@@ -1,0 +1,50 @@
+.container22 {
+  background-color: white;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0 auto;
+  border-radius: 35px;
+  width: 800px;
+  height: 800px;
+}
+.card {
+}
+
+.titleText22 {
+  padding-top: 7px;
+}
+.dataInceperii {
+  font-size: 15px;
+}
+
+.dataSfarsitului {
+  font-size: 15px;
+  margin-top: 25px;
+}
+.title {
+  background-color: #f2ead3;
+  text-align: center;
+  height: 35px;
+  border: 3px;
+  border-style: solid;
+  border-color: #f4991a;
+  border-radius: 15px;
+}
+
+.tipConcediu {
+  margin-top: 25px;
+}
+.Inlocuitor {
+  margin-top: 25px;
+}
+
+.Comentarii {
+  margin-top: 25px;
+  display: flex;
+}
+.TextComentarii {
+  font-size: 15px;
+  margin-top: 7px;
+}
+.TextBoxComentarii {
+  margin-left: 20px;
+}
