@@ -42,3 +42,8 @@
 .cap th{
     border: 1px solid #f4991a ;
 }
+.buttons-container{
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
