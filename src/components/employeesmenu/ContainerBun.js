@@ -85,10 +85,6 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-function createData(nume, prenume, functie) {
-  return { nume, prenume, functie };
-}
-
 const rows = lista
 
 const useStyles2 = makeStyles({
