@@ -18,6 +18,10 @@
 //     console.log(response.data.person.name);
 //   });
 
+import 'date-fns'
+import Grid from '@material-ui/core/Grid'
+import DateFnsUtils from '@date-io/date-fns'
+import { MuiPickersUtilsProvider, KeyboardTimePicker, KeyboardDatePicker } from '@material-ui/pickers'
 import React, { useEffect, useState } from 'react'
 import ConcediiDataProvider from './QueriesCC.js'
 import DatePicker from 'react-datepicker'
@@ -46,7 +50,7 @@ function CreareConcediu() {
 
   return (
     <div className='container22'>
-      <div className='title'>
+      <div className='title22'>
         <div className='titleText22'>
           <header>Pagina Creare Concediu</header>
         </div>
@@ -54,8 +58,19 @@ function CreareConcediu() {
       <body>
         <div className='card'>
           <div className='dataInceperii'>
-            Data inceperii:
-            <DatePicker selected={dataInceperii} onChange={date => setDataInceperii(date)} />
+            {/* Data inceperii:
+            <DatePicker selected={dataInceperii} onChange={date => setDataInceperii(date)} /> */}
+            {/* <KeyboardDatePicker
+              margin='normal'
+              id='date-picker-dialog'
+              label='Date picker dialog'
+              format='MM/dd/yyyy'
+              value={dataInceperii}
+              onChange={setDataInceperii}
+              KeyboardButtonProps={{
+                'aria-label': 'change date'
+              }}
+            /> */}
           </div>
           <div className='dataSfarsitului'>
             Data sfarsitului:
