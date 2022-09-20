@@ -17,6 +17,7 @@
   "NavBar": {
     "Dashboard": "Panou central",
     "EmployeesMenu":"Angajati",
+    "TeamsMenu": "Echipe",
     "HollidayMenu": "Panou concedii",
     "HollidayList": "Lista concedii",
     "Settings": "Setari",

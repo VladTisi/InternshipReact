@@ -11,6 +11,7 @@ import HollidayMenu from 'features/hollidaymenu/HollidayMenu'
 import EmployeesMenu from 'features/employeesmenu/EmployeesMenu'
 import UserPage from 'features/userPage/UserPage'
 import HollidayList from 'features/hollidaylist/HollidayList'
+import TeamsMenu from 'features/teamsmenu/TeamsMenu'
 
 export default function AppRoutes() {
   return (
@@ -27,6 +28,8 @@ export default function AppRoutes() {
       <Redirect exact from='/' to='/userPage' />
       <CustomRoute isPrivate={false} exact path='/hollidaylist' component={HollidayList} />
       <Redirect exact from='/' to='/hollidaylist' />
+      <CustomRoute isPrivate={false} exact path='/teamsmenu' component={TeamsMenu} />
+      <Redirect exact from='/' to='/teamsmenu' />
       <CustomRoute isPrivate={false} exact path='/forbidden' component={Forbidden} />
       <CustomRoute isPrivate={false} render={() => <NotFound title='PageNotFound'></NotFound>} />
     </Switch>
