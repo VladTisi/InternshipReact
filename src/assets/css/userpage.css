@@ -1,0 +1,51 @@
+.container1{
+    background-color: #f9f5f0;
+    font-family: 'Open Sans', sans-serif;
+    height: 550px;
+    border-radius: 20px;
+    padding: 20px;
+  
+   
+
+    
+}
+.nume{
+    padding-top: 30px ;
+    font-size: large;
+   
+    
+
+}
+
+.textfield{
+    margin-left: 50%;
+    margin-top: -19px;
+}
+
+.title{
+    height: 55px;
+    text-align: center;
+    background-color: #f2ead3;
+    border: 0px;
+    border-bottom: 3px;
+    border-color: #f4991a;
+    border-style: groove;
+    border-radius: 20px;
+    padding: 20px;
+}
+.titletext{
+    
+    font-size: xx-large;
+    color: #3a252c;
+}
+
+.card1{
+    background-color: #f9f5f0;
+    width: 50%;
+    float:left
+}
+
+.card2{
+    background-color: #f9f5f0;
+    margin-left: 50%;
+}
