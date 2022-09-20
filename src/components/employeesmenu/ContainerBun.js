@@ -8,11 +8,13 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import lista from "./data1"
+import { useTranslation } from 'react-i18next'
 
 const useStyles1 = makeStyles((theme) => ({
   root: {
     flexShrink: 0,
     marginLeft: theme.spacing(2.5),
+
   },
 }));
 
@@ -24,6 +26,7 @@ const StyledTableCell = withStyles((theme) => ({
   },
   body: {
     fontSize: 14,
+
 
   },
 }))(TableCell);
@@ -98,6 +101,7 @@ const useStyles2 = makeStyles({
 });
 
 export default function CustomPaginationActionsTable() {
+  const { t } = useTranslation()
   const classes = useStyles2();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -118,9 +122,9 @@ export default function CustomPaginationActionsTable() {
       <Table className={classes.table} aria-label="custom pagination table">
               <TableHead>
                 <TableRow>
-                  <StyledTableCell align="center" >Nume</StyledTableCell >
-                  <StyledTableCell align="center">Prenume</StyledTableCell>
-                  <StyledTableCell align="center">Functie</StyledTableCell>
+                  <StyledTableCell align="center" >{t('EmployeesMenu.Nume')}</StyledTableCell >
+                  <StyledTableCell align="center">{t('EmployeesMenu.Prenume')}</StyledTableCell>
+                  <StyledTableCell align="center">{t('EmployeesMenu.Functie')}</StyledTableCell>
                 </TableRow>
               </TableHead>
         <TableBody>
@@ -129,13 +133,13 @@ export default function CustomPaginationActionsTable() {
             : rows
           ).map((row) => (
             <TableRow key={row.name}>
-              <TableCell style={{ width: 100 }} align="center">
+              <TableCell style={{height : 25, width: 50 }} align="center" >
                 {row.nume}
               </TableCell>
-              <TableCell style={{ width: 100 }} align="center">
+              <TableCell style={{ width: 50 }} align="center">
                 {row.prenume}
               </TableCell>
-              <TableCell style={{ width: 100 }} align="center">
+              <TableCell style={{ width: 50 }} align="center">
                 {row.functie}
               </TableCell>
             </TableRow>
