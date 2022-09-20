@@ -2,7 +2,7 @@ import React from 'react'
 import lista from './dummydata'
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next'
-import { makeStyles, useTheme, withStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme} from '@material-ui/core/styles';
 import 'assets/css/hollidaylist.css'
 import { TableContainer,TablePagination,Table, TableBody, TableHead, TableFooter,TableRow, TableCell, IconButton } from '@material-ui/core';
 import { CacheProvider } from '@emotion/react';
@@ -11,6 +11,7 @@ import FirstPageIcon from '@material-ui/icons/FirstPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
+
 
 
 const cache = createCache({
@@ -130,7 +131,7 @@ export default function ListGetter(){
             ))}
 
             {emptyRows > 0 && (
-              <TableRow style={{ height: 53 * emptyRows }}>
+              <TableRow style={{ height: 55.9 * emptyRows }}>
                 <TableCell colSpan={6} />
               </TableRow>
             )}

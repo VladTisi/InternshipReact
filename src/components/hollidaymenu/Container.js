@@ -99,13 +99,11 @@ export default function RenderingArrayOfObjects(){
             page: PropTypes.number.isRequired,
             rowsPerPage: PropTypes.number.isRequired,
           };
+          
     return(
         <CacheProvider value={cache}>
         <TableContainer className="space">
-        <Table className="tabela"
-        filterModel={{
-          items: filt
-        }}>
+        <Table className="tabela">
             <TableHead className="cap">
                         <TableRow>
                             <th>{t('HollidayMenu.Inceput')}</th>
@@ -132,7 +130,7 @@ export default function RenderingArrayOfObjects(){
             ))}
 
             {emptyRows > 0 && (
-              <TableRow style={{ height: 53 * emptyRows }}>
+              <TableRow style={{ height: 55.9 * emptyRows }}>
                 <TableCell colSpan={6} />
               </TableRow>
             )}
@@ -160,27 +158,17 @@ export default function RenderingArrayOfObjects(){
             <Button className="buttons"
             variant="contained"
             onClick={() =>
-            setFilt([
-                {
-                    columnField: "status",
-                    operatorValue: "startsWith",
-                    value: "Aprobat"
-                 }
-            ])
-            }
+              {setData(lista.filter(lista=> lista.status=='Aprobat'));
+              setPage(0)}
+              }
             >
                 Aprobate
             </Button>
             <Button className="buttons"
             variant="contained"
             onClick={() =>
-            setFilt([
-                {
-                    columnField: "status",
-                    operatorValue: "startsWith",
-                    value: "Refuzat"
-                 }
-            ])
+            {setData(lista.filter(lista=> lista.status=='Refuzat'));
+            setPage(0)}
             }
             >
                 Refuzate
@@ -188,20 +176,16 @@ export default function RenderingArrayOfObjects(){
             <Button className="buttons"
             variant="contained"
             onClick={() =>
-            setFilt([
-                {
-                    columnField: "status",
-                    operatorValue: "startsWith",
-                    value: "In Asteptare"
-                 }
-            ])
-            }
+              {setData(lista.filter(lista=> lista.status=='In Asteptare'));
+              setPage(0)}
+              }
             >
                 In Asteptare
             </Button>
             <Button className="buttons"
             variant="contained"
-                onClick={() => setFilt([])}
+                onClick={() => {setData(lista);
+            setPage(0)}}
             >
             Reset Filters
             </Button>
