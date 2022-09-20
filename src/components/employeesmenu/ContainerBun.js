@@ -9,6 +9,7 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import lista from "./data1"
 import { useTranslation } from 'react-i18next'
+import 'assets/css/hollidaylist.css' 
 
 const useStyles1 = makeStyles((theme) => ({
   root: {
@@ -118,13 +119,13 @@ export default function CustomPaginationActionsTable() {
   };
 
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="custom pagination table">
-              <TableHead>
+    <TableContainer className='space'>
+      <Table className='tabela' aria-label="custom pagination table">
+              <TableHead className='cap'>
                 <TableRow>
-                  <StyledTableCell align="center" >{t('EmployeesMenu.Nume')}</StyledTableCell >
-                  <StyledTableCell align="center">{t('EmployeesMenu.Prenume')}</StyledTableCell>
-                  <StyledTableCell align="center">{t('EmployeesMenu.Functie')}</StyledTableCell>
+                  <th align="center" >{t('EmployeesMenu.Nume')}</th >
+                  <th align="center">{t('EmployeesMenu.Prenume')}</th>
+                  <th align="center">{t('EmployeesMenu.Functie')}</th>
                 </TableRow>
               </TableHead>
         <TableBody>
@@ -133,7 +134,7 @@ export default function CustomPaginationActionsTable() {
             : rows
           ).map((row) => (
             <TableRow key={row.name}>
-              <TableCell style={{height : 25, width: 50 }} align="center" >
+              <TableCell style={{ width: 50 }} align="center" >
                 {row.nume}
               </TableCell>
               <TableCell style={{ width: 50 }} align="center">
