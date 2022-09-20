@@ -1,25 +1,18 @@
 import React from 'react'
 import lista from './data'
-import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next'
-import { makeStyles, useTheme } from '@material-ui/core/styles';
 import 'assets/css/hollidaylist.css'
-import { Button,TableContainer,TablePagination,Table, TableBody, TableHead, TableFooter,TableRow, TableCell, IconButton } from '@material-ui/core';
+import { Button,TableContainer,TablePagination,Table, TableBody, TableFooter,TableRow, TableCell } from '@material-ui/core';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
-import FirstPageIcon from '@material-ui/icons/FirstPage';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import LastPageIcon from '@material-ui/icons/LastPage';
-import Actions from './TablePagination';
+import Actions from './Actions';
 import Mapping from './Mapping';
+import TableHeader from './TableHeader';
 
 const cache = createCache({
   key: 'css',
   prepend: true,
 });
 export default function RenderingArrayOfObjects(){
-        const { t } = useTranslation()
         const [page, setPage] = React.useState(0);
         const [rowsPerPage, setRowsPerPage] = React.useState(5);
         const [data, setData] = React.useState([])
@@ -33,13 +26,7 @@ export default function RenderingArrayOfObjects(){
         <CacheProvider value={cache}>
         <TableContainer className="space">
         <Table className="tabela">
-            <TableHead className="cap">
-                        <TableRow>
-                            <th>{t('HollidayMenu.Inceput')}</th>
-                            <th>{t('HollidayMenu.Sfarsit')}</th>
-                            <th>{t('HollidayMenu.Status')}</th>
-                        </TableRow>
-                    </TableHead>
+          <TableHeader />
             <TableBody>
             {(rowsPerPage > 0
               ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : data )
@@ -52,15 +39,11 @@ export default function RenderingArrayOfObjects(){
             </TableBody>
             <TableFooter className="tblFoot">
             <TablePagination 
-                rowsPerPageOptions={[5, 10]}
+                rowsPerPageOptions={[]}
                 count={data.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
-                SelectProps={{
-                    inputProps: {
-                    "aria-label": "rows per page"
-                }
-                 }}
+                SelectProps={{inputProps: {"aria-label": "rows per page"}}}
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
                 ActionsComponent={Actions}
