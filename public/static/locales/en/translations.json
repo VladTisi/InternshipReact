@@ -17,8 +17,13 @@
     "Sfarsit": "Ending Date",
     "Status": "Status"
   },
+  "Button":{
+    "Refused":"Refused",
+    "Approved":"Approved",
+    "Pending" :"Pending"
+  },
   "PersonalHollidays":"Personal Hollidays",
-  "EveryonesHollidays":"Everyone's Hollidays",
+  "EveryonesHollidays":"Holliday Management",
   "EmployeesMenu":{
     "Nume": "Last name",
     "Prenume": "First name",

@@ -6,6 +6,7 @@ import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import Actions from './Actions';
 import Mapping from './Mapping';
+import { useTranslation } from 'react-i18next';
 import TableHeader from './TableHeader';
 
 const cache = createCache({
@@ -13,6 +14,7 @@ const cache = createCache({
   prepend: true,
 });
 export default function RenderingArrayOfObjects(){
+        const { t }= useTranslation()
         const [page, setPage] = React.useState(0);
         const [rowsPerPage, setRowsPerPage] = React.useState(5);
         const [data, setData] = React.useState([])
@@ -55,17 +57,17 @@ export default function RenderingArrayOfObjects(){
             <Button className="buttons"
               variant="contained"
               onClick={() =>{setData(lista.filter(lista=> lista.status=='Aprobat'));setPage(0)}}>
-            Aprobate
+            {t('Button.Approved')}
             </Button>
             <Button className="buttons"
               variant="contained"
               onClick={() =>{setData(lista.filter(lista=> lista.status=='Refuzat'));setPage(0)}}>
-            Refuzate
+            {t('Button.Refused')}
             </Button>
             <Button className="buttons"
               variant="contained"
               onClick={() =>{setData(lista.filter(lista=> lista.status=='In Asteptare'));setPage(0)}}>
-            In Asteptare
+            {t('Button.Pending')}
             </Button>
             <Button className="buttons"
               variant="contained"

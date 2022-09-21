@@ -1,13 +1,13 @@
 import React from 'react'
 import lista from './dummydata'
-import { useTranslation } from 'react-i18next'
 import 'assets/css/hollidaylist.css'
-import { TableContainer,TablePagination,Table, TableBody, TableFooter,TableRow, TableCell } from '@material-ui/core';
+import { Button,TableContainer,TablePagination,Table, TableBody, TableFooter,TableRow, TableCell } from '@material-ui/core';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import Actions from 'components/hollidaymenu/Actions';
 import TableHeader from 'components/hollidaymenu/TableHeader';
 import Mapping from 'components/hollidaymenu/Mapping';
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -16,12 +16,12 @@ const cache = createCache({
   prepend: true,
 });
 export default function ListGetter(){
-        const { t } = useTranslation()
+        const {t}= useTranslation()
         const [page, setPage] = React.useState(0);
         const [rowsPerPage, setRowsPerPage] = React.useState(5);
         const [data, setData] = React.useState([]);
         React.useEffect(() => {
-            setData(lista);
+            setData(lista.filter(lista=> lista.status=="In Asteptare"));
           }, []);
           const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.length) : 0;
         const handleChangePage = (event, newPage) => {
@@ -61,6 +61,23 @@ export default function ListGetter(){
             </TableFooter>
         </Table>
         </TableContainer>
+        <div className="buttons-container">
+            <Button className="buttons"
+              variant="contained"
+              onClick={() =>{setData(lista.filter(lista=> lista.status=='Aprobat'));setPage(0)}}>
+            {t('Button.Approved')}
+            </Button>
+            <Button className="buttons"
+              variant="contained"
+              onClick={() =>{setData(lista.filter(lista=> lista.status=='Refuzat'));setPage(0)}}>
+            {t('Button.Refused')}
+            </Button>
+            <Button className="buttons"
+              variant="contained"
+              onClick={() =>{setData(lista.filter(lista=> lista.status=='In Asteptare'));setPage(0)}}>
+            {t('Button.Pending')}
+            </Button>
+            </div>
         </CacheProvider>
     )
 }
