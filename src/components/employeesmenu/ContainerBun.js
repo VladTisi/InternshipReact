@@ -10,6 +10,7 @@ import LastPageIcon from '@material-ui/icons/LastPage';
 import lista from "./data1"
 import { useTranslation } from 'react-i18next'
 import 'assets/css/hollidaylist.css' 
+import MappingBun from './MappingBun'
 
 const useStyles1 = makeStyles((theme) => ({
   root: {
@@ -111,17 +112,7 @@ export default function CustomPaginationActionsTable() {
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
           ).map((row) => (
-            <TableRow key={row.name}>
-              <TableCell style={{ width: 50 }} align="center" >
-                {row.nume}
-              </TableCell>
-              <TableCell style={{ width: 50 }} align="center">
-                {row.prenume}
-              </TableCell>
-              <TableCell style={{ width: 50 }} align="center">
-                {row.functie}
-              </TableCell>
-            </TableRow>
+            MappingBun(row)
           ))}
 
           {emptyRows > 0 && (
