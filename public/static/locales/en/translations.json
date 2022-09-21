@@ -73,5 +73,19 @@
       "MinCharacters": "The length must be greater than {{min}}",
       "Unique": "The value of {{selector}} must be unique"
     }
+  },
+  "MyProfile" : {
+    "PersonalData": "PersonalData",
+    "Nume" : "Last name",
+    "Prenume" : "First name",
+    "Functie" : "Function",
+    "Echipa" : "Team",
+    "Email" : "Email",
+    "NumarTelefon" : "Telephone number",
+    "Salariu" : "Salary",
+    
+    "DataAngajare" : "Hiring date",
+    "ModificareDate" : "Edit data",
+    "SalvareDate" : "Save data"
   }
 }

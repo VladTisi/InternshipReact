@@ -1,12 +1,12 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField'
 
-function myTextField(props) {
+function myTextFieldNume(props) {
   return (
-    <div className='textfield'>
+    <div className='textfieldnume'>
       <TextField value={props.whattodisplay} />
     </div>
   )
 }
 
-export default myTextField
+export default myTextFieldNume
