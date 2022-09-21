@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import 'assets/css/userpage.css'
-import { makeStyles } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
 import CreateIcon from '@material-ui/icons/Create'
 import MyTextField from '../../components/homepagedata/myTextField.js'
 import Button from '@material-ui/core/Button'
