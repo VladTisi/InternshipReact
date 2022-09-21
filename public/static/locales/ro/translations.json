@@ -9,6 +9,8 @@
     "Sfarsit": "Data Sfarsit",
     "Status": "Stare"
   },
+  "PersonalHollidays":"Concedii Personale",
+  "EveryonesHollidays":"Concediile Tuturor",
   "EmployeesMenu":{
     "Nume": "Nume",
     "Prenume": "Prenume",

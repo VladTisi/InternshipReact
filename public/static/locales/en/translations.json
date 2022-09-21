@@ -17,6 +17,8 @@
     "Sfarsit": "Ending Date",
     "Status": "Status"
   },
+  "PersonalHollidays":"Personal Hollidays",
+  "EveryonesHollidays":"Everyone's Hollidays",
   "EmployeesMenu":{
     "Nume": "Last name",
     "Prenume": "First name",
