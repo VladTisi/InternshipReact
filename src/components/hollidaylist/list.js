@@ -1,14 +1,14 @@
 import React from 'react'
 import lista from './dummydata'
-import { useTranslation } from 'react-i18next'
 import 'assets/css/hollidaylist.css'
-import { TableContainer,TablePagination,Table, TableBody, TableFooter,TableRow, TableCell } from '@material-ui/core';
+import { TableContainer,TablePagination,Table, TableFooter} from '@material-ui/core';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import Actions from 'components/hollidaymenu/Actions';
 import TableHeader from 'components/hollidaymenu/TableHeader';
-import Mapping from 'components/hollidaymenu/Mapping';
-
+import { useTranslation } from 'react-i18next';
+import TableB from 'components/hollidaymenu/TableBody';
+import HLButtons from './hlButtons';
 
 
 const cache = createCache({
@@ -16,12 +16,12 @@ const cache = createCache({
   prepend: true,
 });
 export default function ListGetter(){
-        const { t } = useTranslation()
+        const {t}= useTranslation()
         const [page, setPage] = React.useState(0);
         const [rowsPerPage, setRowsPerPage] = React.useState(5);
         const [data, setData] = React.useState([]);
         React.useEffect(() => {
-            setData(lista);
+            setData(lista.filter(lista=> lista.status=="In Asteptare"));
           }, []);
           const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.length) : 0;
         const handleChangePage = (event, newPage) => {
@@ -31,22 +31,14 @@ export default function ListGetter(){
             setRowsPerPage(parseInt(event.target.value, 10));
             setPage(0);
           };
+          const prop={emptyRows,rowsPerPage,page,data}
+          const prop2={setData,setPage,lista}
     return(
         <CacheProvider value={cache}>
         <TableContainer className="space">
         <Table className="tabela">
             <TableHeader/>
-            <TableBody>
-            {(rowsPerPage > 0
-              ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              : data
-            ).map((row) => (Mapping(row)))}
-            {emptyRows > 0 && (
-              <TableRow style={{ height: 55.9 * emptyRows }}>
-                <TableCell colSpan={6} />
-              </TableRow>
-            )}
-            </TableBody>
+            <TableB {...prop}/>
             <TableFooter className="tblFoot">
             <TablePagination 
                 rowsPerPageOptions={[]}
@@ -61,6 +53,7 @@ export default function ListGetter(){
             </TableFooter>
         </Table>
         </TableContainer>
+        <HLButtons {...prop2}/>
         </CacheProvider>
     )
 }

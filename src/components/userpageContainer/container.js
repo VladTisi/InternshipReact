@@ -1,14 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import 'assets/css/userpage.css'
-import { makeStyles } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
 import CreateIcon from '@material-ui/icons/Create'
 import MyTextField from '../../components/homepagedata/myTextField.js'
-
-// const person = [{nume: 'Mihai', prenume: 'Alin', echipa: 'GameOfThrones', functie: 'Manager', sex: 'M', email: 'mihaialin@totalsoft.com', nrtelf: 0754585956, salariu: 7000, overtime: '6h', dataAngajare: '10/09/2020'},{nume: 'Ion', prenume: 'Emil', echipa: 'GameOfThrones', functie: 'DataAnalyst', sex: 'M', email: 'emilion@totalsoft.com', nrtelf: 0778451236, salariu: 7000, overtime: '3h', dataAngajare: '07/11/2021'} ]
-// person.forEach(obj=> {
-//       .... obj.name
-// })
+import Button from '@material-ui/core/Button'
+import ContainedButtons from 'components/homepagedata/buttonModif.js'
+import miniLogo from '../../assets/img/default-avatar.png'
+import plumi from '../../assets/img/plumeria.png'
+import MyTextFieldNume from 'components/homepagedata/myTextFieldNume.js'
+const person = [
+  {
+    nume: 'Mihai',
+    prenume: 'Alin',
+    echipa: 'GameOfThrones',
+    functie: 'Manager',
+    sex: 'M',
+    email: 'mihaialin@totalsoft.com',
+    nrtelf: '0754585956',
+    salariu: 7000,
+    overtime: '6h',
+    dataAngajare: '10/09/2020'
+  },
+  {
+    nume: 'Ion',
+    prenume: 'Emil',
+    echipa: 'GameOfThrones',
+    functie: 'DataAnalyst',
+    sex: 'M',
+    email: 'emilion@totalsoft.com',
+    nrtelf: '0778451236',
+    salariu: 7000,
+    overtime: '3h',
+    dataAngajare: '07/11/2021'
+  }
+]
 
 export default function MyProfileContainers() {
   return (
@@ -18,47 +42,37 @@ export default function MyProfileContainers() {
           <header>Date personale</header>
         </div>
       </div>
+      <ContainedButtons>
+        <button className='modificare'>
+          Modificare date
+          <CreateIcon />
+        </button>
+      </ContainedButtons>
       <body className='corp'>
         <div className='card1'>
-          <div className='nume'>
-            Nume: <MyTextField></MyTextField>
+          <div className='card1-1'>
+            <div><img className='boxImg' src={plumi} width='150' height='180' /></div>
+            <div className ='cevrei'>
+            <div className='nume-prenume'>Nume: {MyTextFieldNume({ whattodisplay: person[0].nume })}</div>
+            <div className='nume-prenume'>Prenume: {MyTextFieldNume({ whattodisplay: person[0].prenume })}</div>
+            </div>
           </div>
-          <div className='nume'>
-            Prenume: <MyTextField></MyTextField>
-          </div>
-          <div className='nume'>
-            Echipa: <MyTextField></MyTextField>
-          </div>
-          <div className='nume'>
-            Functie: <MyTextField></MyTextField>
-          </div>
-          <div className='nume'>
-            Sex: <MyTextField></MyTextField>
+          
+          <div className='card1-2'>
+          <div className='nume'>Echipa: {MyTextField({ whattodisplay: person[0].echipa })}</div>
+          <div className='nume'>Functie: {MyTextField({ whattodisplay: person[0].functie })}</div>
+          <div className='nume'>Sex: {MyTextField({ whattodisplay: person[0].sex })}</div>
           </div>
         </div>
 
         <div className='card2'>
-          <div className='nume'>
-            Email: <MyTextField></MyTextField>
-          </div>
-          <div className='nume'>
-            Numar telefon: <MyTextField></MyTextField>
-          </div>
-          <div className='nume'>
-            Salariu: <MyTextField></MyTextField>
-          </div>
-          <div className='nume'>
-            Overtime: <MyTextField></MyTextField>
-          </div>
-          <div className='nume'>
-            Data angajare: <MyTextField></MyTextField>
-          </div>
+          <div className='txtemail'>Email: {MyTextField({ whattodisplay: person[0].email })}</div>
+          <div className='nume'>Numar telefon: {MyTextField({ whattodisplay: person[0].nrtelf })}</div>
+          <div className='txtsod'>Salariu: {MyTextField({ whattodisplay: person[0].salariu })}</div>
+          <div className='txtsod'>Overtime: {MyTextField({ whattodisplay: person[0].overtime })}</div>
+          <div className='txtsod'>Data angajare: {MyTextField({ whattodisplay: person[0].dataAngajare })}</div>
         </div>
       </body>
-      <button className='modificare'>
-        Modificare date
-        <CreateIcon />
-      </button>
     </div>
   )
 }

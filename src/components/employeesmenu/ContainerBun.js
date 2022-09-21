@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {TableBody,TableHead, Table, TableCell,TableContainer,
@@ -10,6 +10,7 @@ import LastPageIcon from '@material-ui/icons/LastPage';
 import lista from "./data1"
 import { useTranslation } from 'react-i18next'
 import 'assets/css/hollidaylist.css' 
+import 'assets/css/SearchBar.css'
 import MappingBun from './MappingBun'
 
 const useStyles1 = makeStyles((theme) => ({
@@ -97,8 +98,19 @@ export default function CustomPaginationActionsTable() {
     setPage(0);
   };
 
+  const[searchTerm,setSearchTerm]= useState("");
   return (
+    
     <TableContainer className='space'>
+      <div className='search'><input
+      type = "text"
+      placeholder="Search..."
+      onChange={(event)=> {
+        setSearchTerm(event.target.value
+          )
+      }}
+      /></div>
+      
       <Table className='tabela' aria-label="custom pagination table">
               <TableHead className='cap'>
                 <TableRow>
@@ -107,20 +119,43 @@ export default function CustomPaginationActionsTable() {
                   <th align="center">{t('EmployeesMenu.Functie')}</th>
                 </TableRow>
               </TableHead>
-        <TableBody>
-          {(rowsPerPage > 0
-            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : rows
-          ).map((row) => (
-            MappingBun(row)
-          ))}
+              <TableBody>
 
-          {emptyRows > 0 && (
-            <TableRow style={{ height: 53 * emptyRows }}>
-              <TableCell colSpan={6} />
-            </TableRow>
-          )}
-        </TableBody>
+{(rowsPerPage > 0
+
+  ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+
+  : rows
+
+).filter((rows)=>{
+            if(searchTerm == "")
+            {
+              return rows
+            }
+            else if(JSON.stringify(rows.nume).toLowerCase().includes(searchTerm.toLowerCase()))
+            {
+              return rows 
+            }
+            
+          }).map((rows) => (
+
+  MappingBun(rows)
+
+))}
+
+
+
+{emptyRows > 0 && (
+
+  <TableRow style={{ height: 53 * emptyRows }}>
+
+    <TableCell colSpan={6} />
+
+  </TableRow>
+
+)}
+
+</TableBody>
         <TableFooter>
           <TableRow>
             <TablePagination

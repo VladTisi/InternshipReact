@@ -17,7 +17,6 @@ const headerStyle = theme => {
     warningColor,
     dangerColor,
     topBarBkColor,
-    activeColor
   } = styles(theme)
 
   return {

@@ -9,8 +9,13 @@
     "Sfarsit": "Data Sfarsit",
     "Status": "Stare"
   },
+  "Button":{
+    "Refused":"Refuzate",
+    "Approved":"Aprobate",
+    "Pending" :"In Asteptare"
+  },
   "PersonalHollidays":"Concedii Personale",
-  "EveryonesHollidays":"Concediile Tuturor",
+  "EveryonesHollidays":"Gestionare Concedii",
   "EmployeesMenu":{
     "Nume": "Nume",
     "Prenume": "Prenume",
@@ -60,5 +65,21 @@
       "MinCharacters": "Lungimea trebuie sa fie mai mare decat {{min}}",
       "Unique": "Valoarea pentru {{selector}} trebuie sa fie unica"
     }
+  },
+  "MyProfile" : {
+    "PersonalData": "Date Personale",
+    "Nume" : "Nume",
+    "Prenume" : "Prenume",
+    "Functie" : "Functie",
+    "Echipa" : "Echipa",
+    "Email" : "Email",
+    "NumarTelefon" : "Numar telefon",
+    "Salariu" : "Salariu",
+   
+    "DataAngajare" : "Data angajare",
+    "ModificareDate" : "Modificare date",
+    "SalvareDate" : "Salvare date"
   }
+
+  
 }

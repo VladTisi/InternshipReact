@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 export default function HollidayList(){
     const { t }= useTranslation()
     return(
-        <Card className="card-container" style={{paddingBottom:20}}>
+        <Card className="card-container">
             <h2 className="card-header">{t('EveryonesHollidays')}</h2>
             <ListGetter />
         </Card>
