@@ -70,7 +70,7 @@ export default function RenderingArrayOfObjects(){
             <Button className="buttons"
               variant="contained"
               onClick={() => {setData(lista);setPage(0)}}>
-            Reset Filters
+            Reset 
             </Button>
             </div>
         </CacheProvider>

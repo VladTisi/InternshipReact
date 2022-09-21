@@ -49,7 +49,7 @@ export default function ListGetter(){
             </TableBody>
             <TableFooter className="tblFoot">
             <TablePagination 
-                rowsPerPageOptions={[5, 10]}
+                rowsPerPageOptions={[]}
                 count={data.length}
                 rowsPerPage={rowsPerPage}
                 page={page}

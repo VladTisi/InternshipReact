@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, CardHeader} from '@material-ui/core'
+import {Card} from '@material-ui/core'
 import RenderingArrayOfObjects from 'components/hollidaymenu/Container'
 import { useTranslation } from 'react-i18next'
 import 'assets/css/hollidaylist.css'

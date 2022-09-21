@@ -75,8 +75,8 @@ function SimpleCard(props) {
         </IconButton>
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <div style = {{fontSize:14}}>
+        <CardContent >
+          <div style = {{fontSize:14, marginLeft:-10}}>
             {lista.map((row) => MappingBun(row)
             )}
             </div>
