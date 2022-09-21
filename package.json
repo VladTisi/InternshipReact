@@ -54,6 +54,7 @@
     "moment": "2.29.1",
     "oidc-client": "^1.11.5",
     "omit-deep-lodash": "^1.1.5",
+    "prop-types": "^15.8.1",
     "ramda": "^0.27.1",
     "react": "16.14.0",
     "react-datepicker": "^4.8.0",

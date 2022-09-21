@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {TableBody,TableHead, Table, TableCell,TableContainer,
@@ -11,6 +11,8 @@ import lista from "./data1"
 import { useTranslation } from 'react-i18next'
 import 'assets/css/hollidaylist.css' 
 import MappingBun from './MappingBun'
+import Actions from 'components/hollidaymenu/Actions';
+import { ListAltOutlined } from '@material-ui/icons';
 
 const useStyles1 = makeStyles((theme) => ({
   root: {
@@ -87,7 +89,8 @@ export default function CustomPaginationActionsTable() {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
-
+  const [data, setData] = React.useState([])
+        React.useEffect(() => {setData(lista)}, [])
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -97,49 +100,66 @@ export default function CustomPaginationActionsTable() {
     setPage(0);
   };
 
+  const[searchTerm,setSearchTerm]= useState("");
   return (
+    
     <TableContainer className='space'>
-      <Table className='tabela' aria-label="custom pagination table">
-              <TableHead className='cap'>
-                <TableRow>
-                  <th align="center" >{t('EmployeesMenu.Nume')}</th >
-                  <th align="center">{t('EmployeesMenu.Prenume')}</th>
-                  <th align="center">{t('EmployeesMenu.Functie')}</th>
-                </TableRow>
-              </TableHead>
-        <TableBody>
-          {(rowsPerPage > 0
-            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : rows
-          ).map((row) => (
-            MappingBun(row)
-          ))}
+      <input
+      type = "text"
+      placeholder="Search..."
+      onChange={(event)=> {
+        setSearchTerm(event.target.value
+          )
+      }}
+      />
+        <Table className="tabela">
+        <TableHead className='cap'>
 
-          {emptyRows > 0 && (
-            <TableRow style={{ height: 53 * emptyRows }}>
-              <TableCell colSpan={6} />
-            </TableRow>
-          )}
-        </TableBody>
-        <TableFooter>
           <TableRow>
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-              colSpan={3}
-              count={rows.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              SelectProps={{
-                inputProps: { 'aria-label': 'rows per page' },
-                native: true,
-              }}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              ActionsComponent={TablePaginationActions}
-            />
+
+            <th align="center" >{t('EmployeesMenu.Nume')}</th >
+
+            <th align="center">{t('EmployeesMenu.Prenume')}</th>
+
+            <th align="center">{t('EmployeesMenu.Functie')}</th>
+
           </TableRow>
-        </TableFooter>
-      </Table>
-    </TableContainer>
+
+          </TableHead>
+            <TableBody>
+              
+            {(rowsPerPage > 0
+              ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : data )
+              .map((row) => (MappingBun(row)))}
+              
+                  {/* {if(searchTerm == "")
+                  {
+                    setData(lista)
+                  }
+                  else
+                  {
+                    setData(lista.filter((lista)=> lista.nume.toLowerCase().includes(searchTerm.toLowerCase())))
+                  }} */}
+            {emptyRows > 0 && (
+              <TableRow style={{ height: 55.9 * emptyRows }}>
+                <TableCell colSpan={6} />
+              </TableRow>
+            )}
+            </TableBody>
+            <TableFooter className="tblFoot">
+            <TablePagination 
+                rowsPerPageOptions={[]}
+                count={data.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                SelectProps={{inputProps: {"aria-label": "rows per page"}}}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+                ActionsComponent={Actions}
+            />
+            </TableFooter>
+        </Table>
+        </TableContainer>
+
   );
 }
