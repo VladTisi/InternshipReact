@@ -13,28 +13,22 @@ const useStyles1 = makeStyles((theme) => ({
       marginLeft: theme.spacing(2.5),
     },
   }));
-
  export default function Actions(props) {
             const classes = useStyles1();
             const theme = useTheme();
             const { count, page, rowsPerPage, onPageChange } = props;
-          
             const handleFirstPageButtonClick = (event) => {
               onPageChange(event, 0);
             };
-          
             const handleBackButtonClick = (event) => {
               onPageChange(event, page - 1);
             };
-          
             const handleNextButtonClick = (event) => {
               onPageChange(event, page + 1);
             };
-          
             const handleLastPageButtonClick = (event) => {
               onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
             };
-          
             return (
               <div className={classes.root}>
                 <IconButton
@@ -64,7 +58,6 @@ const useStyles1 = makeStyles((theme) => ({
               </div>
             );
           }
-          
           Actions.propTypes = {
             count: PropTypes.number.isRequired,
             onPageChange: PropTypes.func.isRequired,
