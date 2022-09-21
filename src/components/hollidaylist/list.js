@@ -1,14 +1,14 @@
 import React from 'react'
 import lista from './dummydata'
 import 'assets/css/hollidaylist.css'
-import { Button,TableContainer,TablePagination,Table, TableFooter} from '@material-ui/core';
+import { TableContainer,TablePagination,Table, TableFooter} from '@material-ui/core';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import Actions from 'components/hollidaymenu/Actions';
 import TableHeader from 'components/hollidaymenu/TableHeader';
 import { useTranslation } from 'react-i18next';
 import TableB from 'components/hollidaymenu/TableBody';
-
+import HLButtons from './hlButtons';
 
 
 const cache = createCache({
@@ -32,6 +32,7 @@ export default function ListGetter(){
             setPage(0);
           };
           const prop={emptyRows,rowsPerPage,page,data}
+          const prop2={setData,setPage,lista}
     return(
         <CacheProvider value={cache}>
         <TableContainer className="space">
@@ -52,23 +53,7 @@ export default function ListGetter(){
             </TableFooter>
         </Table>
         </TableContainer>
-        <div className="buttons-container">
-            <Button className="buttons"
-              variant="contained"
-              onClick={() =>{setData(lista.filter(lista=> lista.status=='Aprobat'));setPage(0)}}>
-            {t('Button.Approved')}
-            </Button>
-            <Button className="buttons"
-              variant="contained"
-              onClick={() =>{setData(lista.filter(lista=> lista.status=='Refuzat'));setPage(0)}}>
-            {t('Button.Refused')}
-            </Button>
-            <Button className="buttons"
-              variant="contained"
-              onClick={() =>{setData(lista.filter(lista=> lista.status=='In Asteptare'));setPage(0)}}>
-            {t('Button.Pending')}
-            </Button>
-            </div>
+        <HLButtons {...prop2}/>
         </CacheProvider>
     )
 }
