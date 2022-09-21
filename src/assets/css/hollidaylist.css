@@ -1,4 +1,4 @@
-.space{
+/* .space{
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -8,10 +8,14 @@
     padding-left: 20px;
     padding-right: 20px;
     
+} */
+@font-face {
+    font-family: 'MyFont';
+    src:url(https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap);
 }
 .tabela{
     width:70%;
-    margin:30px;
+    margin:0px;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
@@ -19,6 +23,7 @@
     border-collapse: collapse;
     border-radius: 5px !important;
     height:60vh;
+    font-family: 'MyFont';
 }
 
 .rand{
@@ -29,10 +34,12 @@
     font-size: 16pt;
     padding: 10px;
     line-height: 1.5;
+    font-family: 'MyFont';
 }
 .celula{
     justify-content: center;
     flex:1;
+    font-family: 'MyFont' !important;
 }
 .cap{
     background-color: #321313;
@@ -43,26 +50,36 @@
 .cap th{
     border-left: 1px solid #f4991a ;
     border-right: 1px solid #f4991a ;
+    font-family: 'MyFont';
 }
 .buttons-container{
     width: 70%;
     display: flex;
     flex-wrap:wrap;
     gap: 15px;
-    padding:20px;
+    padding:10px;
     border-radius: 30px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #f9f5f0;
 }
 .buttons{
     
     flex:1;
     box-shadow: 'none';
-    line-height: 1.5;
     background-color: #321313 !important;
     border-color: #321313 !important;
     color: #f4991a !important;
-    margin:auto;
+    font-family: 'MyFont' !important;
     
+}
+.card-container{
+    background-color: #fcba03 !important;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px !important;
+    border-image: url(https://i.stack.imgur.com/BqC5N.png) 30 fill / 10px / 5px space;
+    font-family: 'MyFont' !important;
+}
+.title{
+    font-family: 'MyFont' !important;
 }
