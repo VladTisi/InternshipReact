@@ -1,81 +1,50 @@
-import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import { alpha, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
+import { useState, useEffect } from "react";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
+export const useTableSearch = ({ searchVal, retrieve }) => {
+  const [filteredData, setFilteredData] = useState([]);
+  const [origData, setOrigData] = useState([]);
+  const [searchIndex, setSearchIndex] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  search: {
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: '#321313',
-    '&:hover': {
-      backgroundColor: '#321313',
-    },
-    marginLeft: 0,
-    width: '70%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(18),
-      width: '70%',
-    },
-  },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: '70%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  inputRoot: {
-    color: 'white',
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '70%',
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
-      '&:focus': {
-        width: '10ch',
-      },
-    },
-  },
-}));
+  useEffect(() => {
+    setLoading(true);
+    const crawl = (user, allValues) => {
+      if (!allValues) allValues = [];
+      for (var key in user) {
+        if (typeof user[key] === "object") crawl(user[key], allValues);
+        else allValues.push(user[key] + " ");
+      }
+      return allValues;
+    };
+    const fetchData = async () => {
+      const { data: users } = await retrieve();
+      setOrigData(users);
+      setFilteredData(users);
+      const searchInd = users.map(user => {
+        const allValues = crawl(user);
+        return { allValues: allValues.toString() };
+      });
+      setSearchIndex(searchInd);
+      if (users) setLoading(false);
+    };
+    fetchData();
+  }, [retrieve]);
 
-export default function SearchAppBar() {
-  const classes = useStyles();
+  useEffect(() => {
+    if (searchVal) {
+      const reqData = searchIndex.map((user, index) => {
+        if (user.allValues.toLowerCase().indexOf(searchVal.toLowerCase()) >= 0)
+          return origData[index];
+        return null;
+      });
+      setFilteredData(
+        reqData.filter(user => {
+          if (user) return true;
+          return false;
+        })
+      );
+    } else setFilteredData(origData);
+  }, [searchVal, origData, searchIndex]);
 
-  return (
-    <div className={classes.root}>
-
-
-
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
-       
-    </div>
-  );
-}
+  return { filteredData, loading };
+};
