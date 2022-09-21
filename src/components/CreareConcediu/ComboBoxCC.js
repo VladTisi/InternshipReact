@@ -10,6 +10,7 @@ function ComboBoxCC(props) {
         style={{ width: 300 }}
         getOptionLabel={option => option.name}
         value={props.id}
+        onChange={props.func}
         renderInput={params => <TextField {...params} label='Tip Concediu' />}
       />
     )
