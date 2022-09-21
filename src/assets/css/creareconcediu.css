@@ -1,31 +1,65 @@
 .container22 {
   background-color: #f9f5f0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif !important;
   margin: 0 auto;
+  border-radius: 50px;
   width: 800px;
-  height: 800px;
+  height: 900px;
+  overflow: auto;
 }
 .card {
+  height: 500px;
+
+  margin-top: 50px;
+  margin-left: 15px;
 }
 
 .titleText22 {
+  font-size: 18px !important;
   padding-top: 7px;
 }
 .dataInceperii {
+  margin-left: -66%;
   font-size: 15px;
+}
+.TextComentarii {
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 18px !important;
+}
+
+.ZileRamase {
+  margin-top: 30px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+}
+
+.ZileRamaseOdihna {
+  margin-top: 25px;
+}
+.ZileRamaseDeces {
+  margin-top: 25px;
+}
+.ZileRamaseMedical {
+  margin-top: 25px;
+}
+.ZileRamaseNeplatite {
+  margin-top: 25px;
 }
 
 .dataSfarsitului {
   font-size: 15px;
+  margin-left: -66%;
   margin-top: 25px;
 }
 .title22 {
+  margin-top: 0px;
   background-color: #321313;
   text-align: center;
   height: 35px;
   border: 1.5px;
   border-style: solid;
   border-color: #f4991a;
+  border-radius: 50px;
   color: #f4991a;
 }
 

@@ -9,6 +9,13 @@
     "Sfarsit": "Data Sfarsit",
     "Status": "Stare"
   },
+  "Button":{
+    "Refused":"Refuzate",
+    "Approved":"Aprobate",
+    "Pending" :"In Asteptare"
+  },
+  "PersonalHollidays":"Concedii Personale",
+  "EveryonesHollidays":"Gestionare Concedii",
   "EmployeesMenu":{
     "Nume": "Nume",
     "Prenume": "Prenume",
