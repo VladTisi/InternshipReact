@@ -22,6 +22,7 @@ import Grid from '@material-ui/core/Grid'
 import DateFnsUtils from '@date-io/date-fns'
 import { MuiPickersUtilsProvider, KeyboardTimePicker, KeyboardDatePicker } from '@material-ui/pickers'
 import DateTimePicker from '../../components/CreareConcediu/DateTimePicker.js'
+import ComboBoxCC from '../../components/CreareConcediu/ComboBoxCC.js'
 import React, { useEffect, useState, useReducer } from 'react'
 import ConcediiDataProvider from './QueriesCC.js'
 import TextField from '@material-ui/core/TextField'
@@ -71,7 +72,7 @@ function CreareConcediu() {
   }
 
   console.log(setDataSfarsitului)
-  const [option, setOption] = useState('')
+  //const [option, setOption] = useState('')
   // useEffect(() => {
   //   console.log(initialState.dataInceperii)
   // }, [initialState.dataInceperii, initialState.dataSfarsitului])
@@ -82,7 +83,6 @@ function CreareConcediu() {
         <div className='titleText22'>Pagina Creare Concediu</div>
       </div>
       <div className='card'>
-        <importname></importname>
         <div className='dataInceperii'>
           {DateTimePicker({
             label: 'Data Inceperii',
@@ -97,26 +97,8 @@ function CreareConcediu() {
             func: e => dispatch({ type: 'setDataSfarsitului', e: e })
           })}
         </div>
-        <div className='tipConcediu'>
-          <Autocomplete
-            options={data}
-            id='cmbTipConcediu'
-            style={{ width: 300 }}
-            getOptionLabel={option => option.name}
-            value={option.id}
-            renderInput={params => <TextField {...params} label='Tip Concediu' />}
-          />
-        </div>
-        <div className='Inlocuitor'>
-          <Autocomplete
-            options={data2}
-            id='cmbInlocuitor'
-            style={{ width: 300 }}
-            getOptionLabel={option => option.name}
-            value={option.id}
-            renderInput={params => <TextField {...params} label='Inlocuitor' />}
-          />
-        </div>
+        <div className='tipConcediu'>{ComboBoxCC(data)}</div>
+        <div className='Inlocuitor'>{ComboBoxCC(data2)}</div>
         <div className='Comentarii'>
           <div className='TextComentarii'>Comentarii:</div>
           <div className='TextBoxComentarii'>
