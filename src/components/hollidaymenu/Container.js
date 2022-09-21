@@ -8,11 +8,14 @@ import Actions from './Actions';
 import Mapping from './Mapping';
 import { useTranslation } from 'react-i18next';
 import TableHeader from './TableHeader';
+import TableB from './TableBody';
+
 
 const cache = createCache({
   key: 'css',
   prepend: true,
 });
+
 export default function RenderingArrayOfObjects(){
         const { t }= useTranslation()
         const [page, setPage] = React.useState(0);
@@ -24,21 +27,13 @@ export default function RenderingArrayOfObjects(){
           const handleChangeRowsPerPage = (event) => {
             setRowsPerPage(parseInt(event.target.value, 10))
             setPage(0)}
+            const prop={emptyRows,rowsPerPage,page,data}
     return(
         <CacheProvider value={cache}>
         <TableContainer className="space">
         <Table className="tabela">
           <TableHeader />
-            <TableBody>
-            {(rowsPerPage > 0
-              ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : data )
-              .map((row) => (Mapping(row)))}
-            {emptyRows > 0 && (
-              <TableRow style={{ height: 55.9 * emptyRows }}>
-                <TableCell colSpan={6} />
-              </TableRow>
-            )}
-            </TableBody>
+            <TableB {...prop}/>
             <TableFooter className="tblFoot">
             <TablePagination 
                 rowsPerPageOptions={[]}
@@ -77,5 +72,4 @@ export default function RenderingArrayOfObjects(){
             </div>
         </CacheProvider>
         )
-
 }
