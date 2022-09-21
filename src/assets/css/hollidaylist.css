@@ -73,13 +73,20 @@
     
 }
 .card-container{
-    background-color: #fcba03 !important;
+    background-color: #f2ead3 !important;
+    width:95%;
+    margin-left: auto;
+    margin-right: auto;
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 20px !important;
     border-image: url(https://i.stack.imgur.com/BqC5N.png) 30 fill / 10px / 5px space;
     font-family: 'MyFont' !important;
 }
-.title{
+.card-header{
+    text-align: center;
+    font-size: 30pt;
     font-family: 'MyFont' !important;
+    font-weight: 900;
+    color:#321313;
 }

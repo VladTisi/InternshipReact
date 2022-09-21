@@ -7,8 +7,7 @@ export default function HollidayList(){
     const { t }= useTranslation()
     return(
         <Card className="card-container" style={{paddingBottom:20}}>
-            <CardHeader className="card-header" titleTypographyProps={{variant:'h3' , align:'center',fontStyle:"Calibri" }}
-        title={t('EveryonesHollidays')}/>
+            <h2 className="card-header">{t('EveryonesHollidays')}</h2>
             <ListGetter />
         </Card>
     )
