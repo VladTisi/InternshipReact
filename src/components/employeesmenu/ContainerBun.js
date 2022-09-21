@@ -1,32 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, useTheme, withStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {TableBody,TableHead, Table, TableCell,TableContainer,
-TableFooter,TablePagination,TableRow,Paper,IconButton} from '@material-ui/core';
+TableFooter,TablePagination,TableRow,IconButton} from '@material-ui/core';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import lista from "./data1"
+import { useTranslation } from 'react-i18next'
+import 'assets/css/hollidaylist.css' 
+import MappingBun from './MappingBun'
 
 const useStyles1 = makeStyles((theme) => ({
   root: {
     flexShrink: 0,
     marginLeft: theme.spacing(2.5),
+
   },
 }));
 
-const StyledTableCell = withStyles((theme) => ({
-  head: {
-    backgroundColor: '#321313',
-    color: '#f4991a',
-
-  },
-  body: {
-    fontSize: 14,
-
-  },
-}))(TableCell);
 function TablePaginationActions(props) {
   const classes = useStyles1();
   const theme = useTheme();
@@ -85,20 +78,11 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-function createData(nume, prenume, functie) {
-  return { nume, prenume, functie };
-}
-
 const rows = lista
 
-const useStyles2 = makeStyles({
-  table: {
-    minWidth: 500,
-  },
-});
 
 export default function CustomPaginationActionsTable() {
-  const classes = useStyles2();
+  const { t } = useTranslation()
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -114,13 +98,13 @@ export default function CustomPaginationActionsTable() {
   };
 
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="custom pagination table">
-              <TableHead>
+    <TableContainer className='space'>
+      <Table className='tabela' aria-label="custom pagination table">
+              <TableHead className='cap'>
                 <TableRow>
-                  <StyledTableCell align="center" >Nume</StyledTableCell >
-                  <StyledTableCell align="center">Prenume</StyledTableCell>
-                  <StyledTableCell align="center">Functie</StyledTableCell>
+                  <th align="center" >{t('EmployeesMenu.Nume')}</th >
+                  <th align="center">{t('EmployeesMenu.Prenume')}</th>
+                  <th align="center">{t('EmployeesMenu.Functie')}</th>
                 </TableRow>
               </TableHead>
         <TableBody>
@@ -128,17 +112,7 @@ export default function CustomPaginationActionsTable() {
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
           ).map((row) => (
-            <TableRow key={row.name}>
-              <TableCell style={{ width: 100 }} align="center">
-                {row.nume}
-              </TableCell>
-              <TableCell style={{ width: 100 }} align="center">
-                {row.prenume}
-              </TableCell>
-              <TableCell style={{ width: 100 }} align="center">
-                {row.functie}
-              </TableCell>
-            </TableRow>
+            MappingBun(row)
           ))}
 
           {emptyRows > 0 && (

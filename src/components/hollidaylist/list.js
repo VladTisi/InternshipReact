@@ -2,9 +2,13 @@ import React from 'react'
 import lista from './dummydata'
 import { useTranslation } from 'react-i18next'
 import 'assets/css/hollidaylist.css'
-import { TableContainer,TablePagination,Table, TableBody, TableHead, TableFooter,TableRow, TableCell } from '@material-ui/core';
+import { TableContainer,TablePagination,Table, TableBody, TableFooter,TableRow, TableCell } from '@material-ui/core';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
+import Actions from 'components/hollidaymenu/Actions';
+import TableHeader from 'components/hollidaymenu/TableHeader';
+import Mapping from 'components/hollidaymenu/Mapping';
+
 
 
 const cache = createCache({
@@ -15,17 +19,14 @@ export default function ListGetter(){
         const { t } = useTranslation()
         const [page, setPage] = React.useState(0);
         const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
         const [data, setData] = React.useState([]);
         React.useEffect(() => {
-          
             setData(lista);
           }, []);
           const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.length) : 0;
         const handleChangePage = (event, newPage) => {
             setPage(newPage);
           };
-          
           const handleChangeRowsPerPage = (event) => {
             setRowsPerPage(parseInt(event.target.value, 10));
             setPage(0);
@@ -34,33 +35,14 @@ export default function ListGetter(){
         <CacheProvider value={cache}>
         <TableContainer className="space">
         <Table className="tabela">
-            <TableHead className="cap">
-                        <TableRow>
-                            <th>Inceput</th>
-                            <th>Sfarsit</th>
-                            <th>Stare</th>
-                        </TableRow>
-                    </TableHead>
+            <TableHeader/>
             <TableBody>
             {(rowsPerPage > 0
               ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               : data
-            ).map((row) => (
-              <TableRow key={row.id} className="rand">
-                <TableCell style={{ width: 160 }} align="center">
-                  {row.inceput}
-                </TableCell>
-                <TableCell style={{ width: 160 }} align="center">
-                  {row.sfarsit}
-                </TableCell>
-                <TableCell style={{ width: 160 }} align="center">
-                  {row.status}
-                </TableCell>
-              </TableRow>
-            ))}
-
+            ).map((row) => (Mapping(row)))}
             {emptyRows > 0 && (
-              <TableRow style={{ height: 53 * emptyRows }}>
+              <TableRow style={{ height: 55.9 * emptyRows }}>
                 <TableCell colSpan={6} />
               </TableRow>
             )}
@@ -71,34 +53,10 @@ export default function ListGetter(){
                 count={data.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
-                SelectProps={{
-                    inputProps: {
-                    "aria-label": "rows per page"
-                }
-                 }}
+                SelectProps={{inputProps: {"aria-label": "rows per page"}}}
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
-                //ActionsComponent={TablePaginationActions}
-                //component={Box}
-                labelDisplayedRows={({ page }) => {
-                return `Page: ${page}`;
-                }}
-                backIconButtonProps={{
-                    color: "secondary"
-                }}
-                nextIconButtonProps={{ color: "secondary" }}
-                showFirstButton={true}
-                showLastButton={true}
-                labelRowsPerPage={<span>Rows:</span>}
-                sx={{
-                    ".MuiTablePagination-toolbar": {
-                    backgroundColor: "rgba(100,100,100,0.5)"
-                    },
-                    ".MuiTablePagination-selectLabel, .MuiTablePagination-input": {
-                    fontWeight: "bold",
-                    color: "blue"
-                    }
-                }}
+                ActionsComponent={Actions}
             />
             </TableFooter>
         </Table>
