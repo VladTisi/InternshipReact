@@ -9,6 +9,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import lista from 'components/employeesmenu/data1';
 import MappingBun from 'components/employeesmenu/MappingBun'
+import 'assets/css/TeamContainer.css'
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -56,7 +57,7 @@ function SimpleCard(props) {
           image="https://moneyinc.com/wp-content/uploads/2020/11/Game-of-Thrones-750x422.jpg"
           title="Game of Thrones"
         />
-        <CardContent>
+        <CardContent >
           <Typography className={classes.title} color="textSecondary">
             Game of Thrones Team 
           </Typography>
