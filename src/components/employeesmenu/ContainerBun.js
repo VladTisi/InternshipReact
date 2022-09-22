@@ -26,22 +26,22 @@ export default function CustomPaginationActionsTable() {
   };
   const[searchTerm,setSearchTerm]= useState(data);
 
-  const handleFilter = input => {
+  // const handleFilter = input => {
 
-    const value = input.target.value
+  //   const value = input.target.value
 
-    const newArray =  data.filter(nou => {
-      if (value === '') {
-        return nou
-      } 
-      else {
-        return (nou.nume.toLowerCase().includes(value))
-      }
+  //   const newArray =  data.filter(nou => {
+  //     if (value === '') {
+  //       return nou
+  //     } 
+  //     else {
+  //       return (nou.nume.toLowerCase().includes(value))
+  //     }
 
-    })
-    setSearchTerm(newArray);
-    return
-  }
+  //   })
+  //   setSearchTerm(newArray);
+  //   return
+  // }
   const prop={rowsPerPage,data,emptyRows,page,searchTerm,handleChangePage,handleChangeRowsPerPage}
   const searchProp={setSearchTerm}
   return (
