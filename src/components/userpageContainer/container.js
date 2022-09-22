@@ -40,6 +40,7 @@ const person = [
   }
 ]
 
+
 export default function MyProfileContainers() {
   const [state, dispatch] = useReducer(reducer, initialState)
   return (
@@ -76,6 +77,7 @@ export default function MyProfileContainers() {
 
         <div className='card2'>
           <div className='txtemail'>Email: {MyTextField({ whattodisplay: person[0].email })}</div>
+
           <div className='nume'>Numar telefon: {MyTextField({ whattodisplay: person[0].nrtelf })}</div>
           <div className='txtsod'>Salariu: {MyTextField({ whattodisplay: person[0].salariu })}</div>
           <div className='txtsod'>Overtime: {MyTextField({ whattodisplay: person[0].overtime })}</div>
