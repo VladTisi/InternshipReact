@@ -13,8 +13,8 @@ import reducer from './reducerHook.js'
 const initialState = {
   dataInceperii: new Date(),
   dataSfarsitului: new Date(),
-  cmbInlocuitor: 0,
-  cmbTipConcediu: 0
+  cmbInlocuitor: 1,
+  cmbTipConcediu: 1
 }
 var data = [
   { id: 0, name: 'Concediu Odihna' },
@@ -28,6 +28,9 @@ var data2 = [
 ]
 
 function ComponentaCreareConcediu() {
+  function consolelogs() {
+    console.log(state.cmbTipConcediu)
+  }
   const [state, dispatch] = useReducer(reducer, initialState)
   return (
     <div className='container22'>
@@ -49,8 +52,28 @@ function ComponentaCreareConcediu() {
             func: e => dispatch({ type: 'update', e: e, propname: 'dataSfarsitului' })
           })}
         </div>
-        <div className='tipConcediu'>{ComboBoxCC(data)}</div>
-        <div className='Inlocuitor'>{ComboBoxCC(data2)}</div>
+        <div className='tipConcediu'>
+          <ComboBoxCC
+            data={data}
+            value={state.cmbTipConcediu}
+            dispatch={dispatch}
+            propname='cmbTipConcediu'
+            labelname='Tip Concediu'
+          ></ComboBoxCC>
+          {consolelogs()}
+          {/* {ComboBoxCC({
+            data: data,
+            value: state.cmbTipConcediu,
+            func: e => dispatch({ type: 'update', e: e, propname: 'cmbTipConcediu' })
+          })} */}
+        </div>
+        <ComboBoxCC
+          data={data2}
+          value={state.cmbInlocuitor}
+          dispatch={dispatch}
+          propname='cmbInlocuitor'
+          labelname='Inlocuitor'
+        ></ComboBoxCC>
         <div className='Comentarii'>
           <div className='TextComentarii'>Comentarii:</div>
           <div className='TextBoxComentarii'>
