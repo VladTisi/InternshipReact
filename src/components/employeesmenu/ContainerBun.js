@@ -24,24 +24,7 @@ export default function CustomPaginationActionsTable() {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  const[searchTerm,setSearchTerm]= useState(data);
-
-  // const handleFilter = input => {
-
-  //   const value = input.target.value
-
-  //   const newArray =  data.filter(nou => {
-  //     if (value === '') {
-  //       return nou
-  //     } 
-  //     else {
-  //       return (nou.nume.toLowerCase().includes(value))
-  //     }
-
-  //   })
-  //   setSearchTerm(newArray);
-  //   return
-  // }
+  const[searchTerm,setSearchTerm]= useState("");
   const prop={rowsPerPage,data,emptyRows,page,searchTerm,handleChangePage,handleChangeRowsPerPage}
   const searchProp={setSearchTerm}
   return (
