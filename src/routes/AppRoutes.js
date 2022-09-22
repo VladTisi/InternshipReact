@@ -12,7 +12,7 @@ import EmployeesMenu from 'features/employeesmenu/EmployeesMenu'
 import UserPage from 'features/userPage/UserPage'
 import HollidayList from 'features/hollidaylist/HollidayList'
 import TeamsMenu from 'features/teamsmenu/TeamsMenu'
-
+import ChangePassword from 'features/ChangePassword/changepassword.js'
 export default function AppRoutes() {
   return (
     <Switch>
@@ -26,6 +26,8 @@ export default function AppRoutes() {
       <Redirect exact from='/' to='/hollidaymenu' />
       <CustomRoute isPrivate={false} exact path='/userPage' component={UserPage} />
       <Redirect exact from='/' to='/userPage' />
+      <CustomRoute isPrivate={false} exact path='/changePassword' component={ChangePassword} />
+      <Redirect exact from='/' to='/changePassword' />
       <CustomRoute isPrivate={false} exact path='/hollidaylist' component={HollidayList} />
       <Redirect exact from='/' to='/hollidaylist' />
       <CustomRoute isPrivate={false} exact path='/teamsmenu' component={TeamsMenu} />

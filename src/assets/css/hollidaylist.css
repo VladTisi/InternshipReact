@@ -78,7 +78,8 @@
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 20px !important;
-    border-image: url(https://i.stack.imgur.com/BqC5N.png) 30 fill / 10px / 5px space;
+    border: 1px solid #321313 !important;
+
 }
 .card-header{
     text-align: center;
