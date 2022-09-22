@@ -15,6 +15,8 @@ export function reducer(state, action) {
     case 'setDataSfarsitului':
       newState = { ...state, dataSfarsitului: action.e }
       break
+      
+   
     default:
       throw new Error()
   }
