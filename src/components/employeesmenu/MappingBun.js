@@ -21,6 +21,7 @@ export default function Mapping(props) {
                 width: 350,
                 maxHeight: { xs: 75, md: 75 },
                 maxWidth: { xs: 75, md: 75 },
+                borderRadius:10,
               }}
               className="poza"
               alt="The house from the offer."
