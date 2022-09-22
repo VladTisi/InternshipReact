@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card } from '@material-ui/core'
-import ListGetter from 'components/hollidaylist/list'
+import HollidayL from 'components/hollidaylist/Container'
 import { useTranslation } from 'react-i18next'
 
 export default function HollidayList(){
@@ -8,7 +8,7 @@ export default function HollidayList(){
     return(
         <Card className="card-container">
             <h2 className="card-header">{t('EveryonesHollidays')}</h2>
-            <ListGetter />
+            <HollidayL/>
         </Card>
     )
 }

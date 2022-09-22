@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 export default function HMButtons(props){
     const {t}=useTranslation()
     const {setData,setPage,lista} = props
-    try {
     return(
         <div className="buttons-container">
             <Button className="buttons"
@@ -31,9 +30,6 @@ export default function HMButtons(props){
             </Button>
             </div>
     )
-} catch (err) {
-    console.log(err)
-  }
 }
 HMButtons.propTypes = {
   lista: PropTypes.object.isRequired,

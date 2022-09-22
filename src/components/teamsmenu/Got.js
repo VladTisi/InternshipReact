@@ -49,7 +49,6 @@ function SimpleCard(props) {
     setExpanded(!expanded);
   };
   return (
-    <div>
       <Card className={classes.card} >
       <CardMedia
           component = 'img'  
@@ -83,8 +82,7 @@ function SimpleCard(props) {
         </CardContent>
       </Collapse>
       </Card>
-    </div>
-  );
+        );
 }
 
 SimpleCard.propTypes = {
