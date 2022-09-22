@@ -29,7 +29,6 @@ export default function CustomPaginationActionsTable() {
 
   const[searchTerm,setSearchTerm]= useState("");
   return (
-    
     <TableContainer  style={{paddingBottom:20}}>
       <div className='search'><input
       type = "text"
@@ -39,65 +38,63 @@ export default function CustomPaginationActionsTable() {
           )
       }}
       /></div>
-      
       <Table className='tabela' aria-label="custom pagination table">
               <Head/>
               <TableBody>
+                  {(rowsPerPage > 0
 
-{(rowsPerPage > 0
+                    ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 
-  ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    : rows
 
-  : rows
+                  ).filter((rows)=>{
+                              if(searchTerm == "")
+                              {
+                                return rows
+                              }
+                              else if(JSON.stringify(rows.nume).toLowerCase().includes(searchTerm.toLowerCase()))
+                              {
+                                return rows 
+                              }
+                              
+                            }).map((rows) => (
 
-).filter((rows)=>{
-            if(searchTerm == "")
-            {
-              return rows
-            }
-            else if(JSON.stringify(rows.nume).toLowerCase().includes(searchTerm.toLowerCase()))
-            {
-              return rows 
-            }
-            
-          }).map((rows) => (
+                    MappingBun(rows)
 
-  MappingBun(rows)
-
-))}
-
+                  ))}
 
 
-{emptyRows > 0 && (
 
-  <TableRow style={{ height: 53 * emptyRows }}>
+                  {emptyRows > 0 && (
 
-    <TableCell colSpan={6} />
+                    <TableRow style={{ height: 53 * emptyRows }}>
 
-  </TableRow>
+                      <TableCell colSpan={6} />
 
-)}
+                    </TableRow>
 
-</TableBody>
-        <TableFooter>
-          <TableRow>
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-              colSpan={3}
-              count={rows.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              SelectProps={{
-                inputProps: { 'aria-label': 'rows per page' },
-                native: true,
-              }}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              ActionsComponent={Actions}
-            />
-          </TableRow>
-        </TableFooter>
-      </Table>
-    </TableContainer>
-  );
+                  )}
+
+                  </TableBody>
+                          <TableFooter>
+                            <TableRow>
+                              <TablePagination
+                                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                                colSpan={3}
+                                count={rows.length}
+                                rowsPerPage={rowsPerPage}
+                                page={page}
+                                SelectProps={{
+                                  inputProps: { 'aria-label': 'rows per page' },
+                                  native: true,
+                                }}
+                                onPageChange={handleChangePage}
+                                onRowsPerPageChange={handleChangeRowsPerPage}
+                                ActionsComponent={Actions}
+                              />
+                            </TableRow>
+                          </TableFooter>
+                        </Table>
+                      </TableContainer>
+                    );
 }
