@@ -2,8 +2,7 @@ import React from 'react'
 import 'assets/css/changepassword.css'
 import { TextField } from '@material-ui/core'
 import ContainedButtons from 'components/changePassword/buttonSave.js'
-import CreateIcon from '@material-ui/icons/Create'
-
+import DoneIcon from '@material-ui/icons/Done';
 export default ChangePasswordContainers
 
 function ChangePasswordContainers() {
@@ -29,8 +28,7 @@ function ChangePasswordContainers() {
         </div>
         <ContainedButtons>
         <button >
-          
-          <CreateIcon />
+           <DoneIcon />
         </button>
       </ContainedButtons>
       </div>
