@@ -3,8 +3,10 @@ import React from 'react'
 import MappingBun from './MappingBun'
 import  PropTypes  from 'prop-types'
 
+
 export default function TableBBun(props){
     const{rowsPerPage,page,data,searchTerm,emptyRows}= props
+
     return(
         <TableBody>
                   {(rowsPerPage > 0
