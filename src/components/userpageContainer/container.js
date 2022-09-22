@@ -39,10 +39,10 @@ const person = [
     dataAngajare: '07/11/2021'
   }
 ]
-const initialState = {
-  dataAngajarii: new Date(),
-  echipa: person[0].echipa
-}
+// const initialState = {
+//   dataAngajarii: new Date(),
+//   echipa: person[0].echipa
+// }
 
 export default function MyProfileContainers() {
   const [state, dispatch] = useReducer(reducer, initialState)
