@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField'
 function myTextField(props) {
   return (
     <div className='textfield'>
-      <TextField value={props.whattodisplay} />
+      <TextField defaultValue={props.whattodisplay} />
     </div>
   )
 }

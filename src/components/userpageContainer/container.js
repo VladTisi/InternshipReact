@@ -10,9 +10,7 @@ import MyTextFieldNume from 'components/homepagedata/myTextFieldNume.js'
 import DatePick from 'components/CreareConcediu/DateTimePicker.js'
 import reducer from '../../features/CreareConcediu/reducerHook.js'
 
-const initialState = {
-  dataAngajarii: new Date(),
- }
+
 const person = [
   {
     nume: 'Mihai',
@@ -39,6 +37,10 @@ const person = [
     dataAngajare: '07/11/2021'
   }
 ]
+const initialState = {
+  dataAngajarii: new Date(),
+  echipa: person[0].echipa
+}
 
 export default function MyProfileContainers() {
   const [state, dispatch] = useReducer(reducer, initialState)
@@ -76,15 +78,19 @@ export default function MyProfileContainers() {
 
         <div className='card2'>
           <div className='txtemail'>Email: {MyTextField({ whattodisplay: person[0].email })}</div>
+
           <div className='nume'>Numar telefon: {MyTextField({ whattodisplay: person[0].nrtelf })}</div>
           <div className='txtsod'>Salariu: {MyTextField({ whattodisplay: person[0].salariu })}</div>
           <div className='txtsod'>Overtime: {MyTextField({ whattodisplay: person[0].overtime })}</div>
           <div className='dataAngajare'>Data angajare:</div>
-          <div className='date'> {DatePick({
-            label:null,
-            value: state.dataAngajarii,
-            func: e => dispatch({ type: 'update', e: e, propname: 'dataAngajarii' })
-          })}</div>
+          <div className='date'>
+            {' '}
+            {DatePick({
+              label: null,
+              value: state.dataAngajarii,
+              func: e => dispatch({ type: 'update', e: e, propname: 'dataAngajarii' })
+            })}
+          </div>
         </div>
       </body>
     </div>
