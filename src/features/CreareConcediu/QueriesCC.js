@@ -3,7 +3,7 @@ import { useApolloClient } from '@apollo/client'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 import { gql } from '@apollo/client'
 
-const CONCEDII_QUERY = gql`
+export const CONCEDII_QUERY = gql`
   query concediiData {
     tipConcedii {
       id

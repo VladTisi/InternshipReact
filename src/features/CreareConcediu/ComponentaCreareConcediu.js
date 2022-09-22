@@ -37,6 +37,7 @@ function ComponentaCreareConcediu(props) {
             <DateTimePicker
               label='Data Inceperii'
               value={state.dataInceperii}
+              onChangeHandler={onChangeHandler}
               func={e => onChangeHandler(e, 'dataInceperii')}
             ></DateTimePicker>
             {/* {DateTimePicker({

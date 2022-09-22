@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 function ComboBoxCC(props) {
@@ -10,8 +10,8 @@ function ComboBoxCC(props) {
         options={data}
         style={{ width: 300 }}
         getOptionLabel={option => option.name}
-        value={value}
         onChange={(event, value) => onChangeHandler(value.id, propname)}
+        //onChange={handleChange}
         renderInput={params => <TextField {...params} label={labelname} />}
       />
     )
