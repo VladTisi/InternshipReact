@@ -1,22 +1,25 @@
 .container22 {
-  background-color: #f9f5f0;
+  background-color: #f2ead3;
   font-family: 'Open Sans', sans-serif !important;
   margin: 0 auto;
   border-radius: 50px;
   width: 800px;
   height: 900px;
   overflow: auto;
+  border: 1px solid #321313 !important;
+
 }
 .card {
+  display: flex none;
   height: 500px;
-
   margin-top: 50px;
   margin-left: 15px;
 }
 
 .titleText22 {
-  font-size: 18px !important;
+  font-size: 35px !important;
   padding-top: 7px;
+  text-decoration: underline;
 }
 .dataInceperii {
   margin-left: -66%;
@@ -44,6 +47,7 @@
 }
 .ZileRamaseNeplatite {
   margin-top: 25px;
+  align: auto;
 }
 
 .dataSfarsitului {
@@ -52,15 +56,12 @@
   margin-top: 25px;
 }
 .title22 {
-  margin-top: 0px;
-  background-color: #321313;
+  
+  margin-top: 10px;
   text-align: center;
   height: 35px;
-  border: 1.5px;
-  border-style: solid;
-  border-color: #f4991a;
-  border-radius: 50px;
-  color: #f4991a;
+  border-radius: 30px;
+  color: #321313;
 
 }
 

@@ -35,7 +35,7 @@ function ComponentaCreareConcediu() {
   return (
     <div className='container22'>
       <div className='title22'>
-        <div className='titleText22'>Pagina Creare Concediu</div>
+        <h2 className='titleText22'>Pagina Creare Concediu</h2>
       </div>
       <div className='card'>
         <div className='dataInceperii'>
@@ -44,6 +44,7 @@ function ComponentaCreareConcediu() {
             value: state.dataInceperii,
             func: e => dispatch({ type: 'update', e: e, propname: 'dataInceperii' })
           })}
+          
         </div>
         <div className='dataSfarsitului'>
           {DateTimePicker({
