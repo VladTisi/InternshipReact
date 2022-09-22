@@ -51,17 +51,19 @@ export default function MyProfileContainers() {
       <body className='corp'>
         <div className='card1'>
           <div className='card1-1'>
-            <div><img className='boxImg' src={plumi} width='150' height='180' /></div>
-            <div className ='cevrei'>
-            <div className='nume-prenume'>Nume: {MyTextFieldNume({ whattodisplay: person[0].nume })}</div>
-            <div className='nume-prenume'>Prenume: {MyTextFieldNume({ whattodisplay: person[0].prenume })}</div>
+            <div>
+              <img className='boxImg' src={plumi} width='150' height='180' />
+            </div>
+            <div className='cevrei'>
+              <div className='nume-prenume'>Nume: {MyTextFieldNume({ whattodisplay: person[0].nume })}</div>
+              <div className='nume-prenume'>Prenume: {MyTextFieldNume({ whattodisplay: person[0].prenume })}</div>
             </div>
           </div>
-          
+
           <div className='card1-2'>
-          <div className='nume'>Echipa: {MyTextField({ whattodisplay: person[0].echipa })}</div>
-          <div className='nume'>Functie: {MyTextField({ whattodisplay: person[0].functie })}</div>
-          <div className='nume'>Sex: {MyTextField({ whattodisplay: person[0].sex })}</div>
+            <div className='nume'>Echipa: {MyTextField({ whattodisplay: person[0].echipa })}</div>
+            <div className='nume'>Functie: {MyTextField({ whattodisplay: person[0].functie })}</div>
+            <div className='nume'>Sex: {MyTextField({ whattodisplay: person[0].sex })}</div>
           </div>
         </div>
 
