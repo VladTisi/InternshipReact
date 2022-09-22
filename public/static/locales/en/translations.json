@@ -26,6 +26,7 @@
   "PersonalHollidays":"Personal Hollidays",
   "EveryonesHollidays":"Holliday Management",
   "EmployeesMenu":{
+    "Picture": "Picture",
     "Nume": "Last name",
     "Prenume": "First name",
     "Functie": "Position"

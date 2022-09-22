@@ -7,6 +7,7 @@ export default function Head(){
     return(
         <TableHead className='cap'>
                 <TableRow>
+                    <th align="center" >{t('EmployeesMenu.Picture')}</th >
                   <th align="center" >{t('EmployeesMenu.Nume')}</th >
                   <th align="center">{t('EmployeesMenu.Prenume')}</th>
                   <th align="center">{t('EmployeesMenu.Functie')}</th>

@@ -13,18 +13,17 @@
   padding-left: 15px;
   padding-bottom: 15px;
   font-weight: 550;
-  margin:0;
+  margin: 0;
 }
-.nume-prenume{
-    margin-top: 55px ;
-    font-size: large;
-    font-family: 'Open Sans', sans-serif;
-    color: #f4991a;
-    font-weight: 550;
-    margin-left: 10%;
-    width: max-content;
-    align-items: right;
-  
+.nume-prenume {
+  margin-top: 55px;
+  font-size: large;
+  font-family: 'Open Sans', sans-serif;
+  color: #f4991a;
+  font-weight: 550;
+  margin-left: 10%;
+  width: max-content;
+  align-items: right;
 }
 .textfield {
   margin-left: 50%;
@@ -32,14 +31,12 @@
   font-family: 'Open Sans', sans-serif;
   color: #f4991a;
 }
-.textfieldnume{
-    margin-right: 1%;
-    margin-left: 50%;
-    margin-top: -28px;
-    font-family: 'Open Sans', sans-serif;
-    color: #f4991a;
-    
-
+.textfieldnume {
+  margin-right: 1%;
+  margin-left: 50%;
+  margin-top: -28px;
+  font-family: 'Open Sans', sans-serif;
+  color: #f4991a;
 }
 
 .title {
@@ -84,27 +81,25 @@
 .iconset {
   width: 4%;
 }
-.txtemail{
-
-    padding-top: 20px;
+.txtemail {
+  padding-top: 20px;
   font-size: large;
   font-family: 'Open Sans', sans-serif;
   color: #f4991a;
   padding-left: 15px;
   padding-bottom: 25px;
   font-weight: 550;
-  margin:0;
+  margin: 0;
 }
-.txtsod{
-    padding-top: 28px;
-    font-size: large;
-    font-family: 'Open Sans', sans-serif;
-    color: #f4991a;
-    padding-left: 15px;
-    padding-bottom: 25px;
-    font-weight: 550;
-    margin:0;
-
+.txtsod {
+  padding-top: 28px;
+  font-size: large;
+  font-family: 'Open Sans', sans-serif;
+  color: #f4991a;
+  padding-left: 15px;
+  padding-bottom: 25px;
+  font-weight: 550;
+  margin: 0;
 }
 .modificare {
   width: 34%;
@@ -126,22 +121,32 @@
   margin-left: 20px;
   margin-top: 20px;
   border-radius: 10%;
-  
- 
 }
 .card1-1 {
-    
-    height: 45%;
-    display: flex;
-   
-   
+  height: 45%;
+  display: flex;
 }
 .card1-2 {
-    
-    height: 50%;
+  height: 50%;
 }
 .cevrei {
-    display:inline;
-    width:fit-content;
-    
+  display: inline;
+  width: fit-content;
+}
+.dataAngajare{
+  max-width: 350px;
+  padding-top: 28px;
+  font-size: large;
+  font-family: 'Open Sans', sans-serif;
+  color: #f4991a;
+  padding-left: 50px;
+  padding-bottom: 25px;
+  font-weight: 550;
+  margin-left: -35px;
+  display: flex;
+}
+.date{
+  margin-left: 250px;
+  max-width: 210px;
+  margin-top: -75px;
 }
