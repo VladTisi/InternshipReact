@@ -98,7 +98,24 @@ export default function CustomPaginationActionsTable() {
     setPage(0);
   };
 
-  const[searchTerm,setSearchTerm]= useState("");
+  const[searchTerm,setSearchTerm]= useState(rows);
+
+  const handleFilter = input => {
+
+    const value = input.target.value
+
+    const newArray =  rows.filter(nou => {
+      if (value === '') {
+        return nou
+      } 
+      else {
+        return (nou.nume.toLowerCase().includes(value))
+      }
+
+    })
+    setSearchTerm(newArray);
+    return
+  }
   return (
     
     <TableContainer className='space'>
@@ -106,7 +123,7 @@ export default function CustomPaginationActionsTable() {
       type = "text"
       placeholder="Search..."
       onChange={(event)=> {
-        setSearchTerm(event.target.value
+        handleFilter(event.target.value
           )
       }}
       /></div>
@@ -127,17 +144,7 @@ export default function CustomPaginationActionsTable() {
 
   : rows
 
-).filter((rows)=>{
-            if(searchTerm == "")
-            {
-              return rows
-            }
-            else if(JSON.stringify(rows.nume).toLowerCase().includes(searchTerm.toLowerCase()))
-            {
-              return rows 
-            }
-            
-          }).map((rows) => (
+).map((rows) => (
 
   MappingBun(rows)
 
