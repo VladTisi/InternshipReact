@@ -9,7 +9,7 @@ import TableHeader from './TableHeader';
 import TableB from './TableBody';
 import HMButtons from './hmButtons';
 import { useReducer } from 'react';
-import reducer from 'features/CreareConcediu/reducerHook';
+import { reducer } from 'features/CreareConcediu/reducerHook';
 
 
 const cache = createCache({
