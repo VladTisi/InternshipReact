@@ -6,6 +6,7 @@ import { TableRow, TableCell} from '@material-ui/core'
 export default function Mapping(props) {
   try {
     return (
+        
           <TableRow key={props.id} className='rand'>
             <TableCell style={{ width: 160 }} align='center' className="celula">
               {props.inceput}
