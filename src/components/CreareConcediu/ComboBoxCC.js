@@ -2,7 +2,7 @@ import React from 'react'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 function ComboBoxCC(props) {
-  const { data, value, dispatch, propname, labelname } = props
+  const { onChangeHandler, data, value, propname, labelname } = props
 
   try {
     return (
@@ -11,10 +11,11 @@ function ComboBoxCC(props) {
         style={{ width: 300 }}
         getOptionLabel={option => option.name}
         value={value}
-        onChange={(event, value) => dispatch({ type: 'update', e: value, propname: propname })}
+        onChange={(event, value) => onChangeHandler(value.id, propname)}
         renderInput={params => <TextField {...params} label={labelname} />}
       />
     )
+    //dispatch({ type: 'update', e: value, propname: propname }
   } catch (err) {
     console.log(err)
   }
