@@ -18,6 +18,7 @@
   "PersonalHollidays":"Concedii Personale",
   "EveryonesHollidays":"Gestionare Concedii",
   "EmployeesMenu":{
+    "Picture": "Poza",
     "Nume": "Nume",
     "Prenume": "Prenume",
     "Functie": "Functie"
