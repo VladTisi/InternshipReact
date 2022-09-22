@@ -13,7 +13,7 @@ const cache = createCache({
   key: 'css',
   prepend: true,
 });
-export default function RenderingArrayOfObjects(){
+export default function HollidayM(){
         const [page, setPage] = React.useState(0);
         const [rowsPerPage, setRowsPerPage] = React.useState(5);
         const [data, setData] = React.useState([])
