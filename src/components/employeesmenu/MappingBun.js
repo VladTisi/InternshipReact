@@ -13,15 +13,16 @@ export default function Mapping(props) {
   try {
     return (
           <TableRow key={props.id} className='rand'>
-            <TableCell style={{ width: 100 }} align='center'>
+            <TableCell style={{ width: 50, height: 50, margin:0 }} align='center'>
             <Box
               component="img"
               sx={{
-                height: 233,
-                width: 350,
-                maxHeight: { xs: 75, md: 75 },
-                maxWidth: { xs: 75, md: 75 },
+                height: 60,
+                width: 60,
+                maxHeight: { xs: 60, md: 60 },
+                maxWidth: { xs: 60, md: 60},
                 borderRadius:10,
+                margin:0,
               }}
               className="poza"
               alt="The house from the offer."
