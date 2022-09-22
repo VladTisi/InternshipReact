@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     transform: 'scale(0.8)',
   },
   expand: {
+
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
@@ -70,6 +71,7 @@ function SimpleCard(props) {
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
+          title ="Show more"
         >
           <ExpandMoreIcon />
         </IconButton>

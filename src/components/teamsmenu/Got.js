@@ -69,6 +69,7 @@ function SimpleCard(props) {
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
+          title ="Show more"
         >
           <ExpandMoreIcon />
         </IconButton>

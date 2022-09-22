@@ -10,7 +10,7 @@ export default function FixedContainer() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container className='space'>
+      <Container className='TeamS'>
         <div className='myImages'>
         <div className="First_image">
             <Got/>
