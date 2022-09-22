@@ -1,8 +1,7 @@
 import React from 'react'
-import { TablePagination } from '@material-ui/core'
+import { TablePagination,TableFooter } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import Actions from './PagActions'
-import TableFooter from '@material-ui/core'
 
 export default function TableFoot(props){
     const {data,rowsPerPage,page,handleChangePage,handleChangeRowsPerPage} =props

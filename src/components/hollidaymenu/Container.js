@@ -23,8 +23,7 @@ export default function RenderingArrayOfObjects(){
         const handleChangeRowsPerPage = (event) => {
             setRowsPerPage(parseInt(event.target.value, 10))
             setPage(0)}
-        const prop={emptyRows,rowsPerPage,page,data,handleChangeRowsPerPage,handleChangePage}
-        const prop2={setData,setPage,lista}
+        const prop={setData,setPage,lista,emptyRows,rowsPerPage,page,data,handleChangeRowsPerPage,handleChangePage}
     return(
         <CacheProvider value={cache}>
         <TableContainer className="space">
@@ -33,7 +32,7 @@ export default function RenderingArrayOfObjects(){
             <TableB {...prop}/>
             <TableFoot {...prop}/>
         </Table>
-        <HMButtons {...prop2}/>
+        <HMButtons {...prop}/>
         </TableContainer>
         </CacheProvider>
         )

@@ -29,8 +29,7 @@ export default function ListGetter(){
           setRowsPerPage(parseInt(event.target.value, 10));
           setPage(0);
         };
-        const prop={emptyRows,rowsPerPage,page,data,handleChangeRowsPerPage,handleChangePage}
-        const prop2={setData,setPage,lista}
+        const prop={setData,setPage,lista,emptyRows,rowsPerPage,page,data,handleChangeRowsPerPage,handleChangePage}
     return(
         <CacheProvider value={cache}>
         <TableContainer className="space">
@@ -40,7 +39,7 @@ export default function ListGetter(){
             <TableFoot {...prop}/>
         </Table>
         </TableContainer>
-        <HLButtons {...prop2}/>
+        <HLButtons {...prop}/>
         </CacheProvider>
     )
 }
