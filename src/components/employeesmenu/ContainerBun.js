@@ -101,7 +101,7 @@ export default function CustomPaginationActionsTable() {
   const[searchTerm,setSearchTerm]= useState("");
   return (
     
-    <TableContainer className='space'>
+    <TableContainer  style={{paddingBottom:30}}>
       <div className='search'><input
       type = "text"
       placeholder="Search..."

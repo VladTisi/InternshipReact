@@ -32,7 +32,7 @@ export default function ListGetter(){
         const prop={setData,setPage,lista,emptyRows,rowsPerPage,page,data,handleChangeRowsPerPage,handleChangePage}
     return(
         <CacheProvider value={cache}>
-        <TableContainer className="space">
+        <TableContainer>
         <Table className="tabela">
             <TableHeader/>
             <TableB {...prop}/>
