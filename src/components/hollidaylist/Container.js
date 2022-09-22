@@ -14,7 +14,7 @@ const cache = createCache({
   key: 'css',
   prepend: true,
 });
-export default function ListGetter(){
+export default function HollidayL(){
         const [page, setPage] = React.useState(0);
         const [rowsPerPage, setRowsPerPage] = React.useState(5);
         const [data, setData] = React.useState([]);
@@ -32,7 +32,7 @@ export default function ListGetter(){
         const prop={setData,setPage,lista,emptyRows,rowsPerPage,page,data,handleChangeRowsPerPage,handleChangePage}
     return(
         <CacheProvider value={cache}>
-        <TableContainer className="space">
+        <TableContainer>
         <Table className="tabela">
             <TableHeader/>
             <TableB {...prop}/>
