@@ -1,4 +1,11 @@
-function reducer(state, action) {
+export const initialState = {
+  dataInceperii: new Date(),
+  dataSfarsitului: new Date(),
+  cmbInlocuitor: null,
+  cmbTipConcediu: null
+}
+
+export function reducer(state, action) {
   let newState
   const { propname } = action
   switch (action.type) {
@@ -13,5 +20,3 @@ function reducer(state, action) {
   }
   return newState
 }
-
-export default reducer

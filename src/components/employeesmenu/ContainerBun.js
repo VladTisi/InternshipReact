@@ -8,11 +8,7 @@ import 'assets/css/hollidaylist.css'
 import 'assets/css/SearchBar.css'
 import SearchBar from './SearchBox';
 
-
-
 const data = lista
-
-
 export default function CustomPaginationActionsTable() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -29,11 +25,11 @@ export default function CustomPaginationActionsTable() {
   const searchProp={setSearchTerm}
   return (
     <TableContainer  style={{paddingBottom:20}}>
-      <SearchBar{...searchProp}/>
+      <SearchBar {...searchProp}/>
       <Table className='tabela' aria-label="custom pagination table">
           <Head/>
-          <TableBBun{...prop}/>
-          <TableFoot{...prop}/>
+          <TableBBun {...prop}/>
+          <TableFoot {...prop}/>
         </Table>
       </TableContainer>
   );
