@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState, useReducer } from 'react'
 import 'assets/css/userpage.css'
 import CreateIcon from '@material-ui/icons/Create'
 import MyTextField from '../../components/homepagedata/myTextField.js'
@@ -7,6 +7,12 @@ import ContainedButtons from 'components/homepagedata/buttonModif.js'
 import miniLogo from '../../assets/img/default-avatar.png'
 import plumi from '../../assets/img/plumeria.png'
 import MyTextFieldNume from 'components/homepagedata/myTextFieldNume.js'
+import DatePick from 'components/CreareConcediu/DateTimePicker.js'
+import reducer from '../../features/CreareConcediu/reducerHook.js'
+
+const initialState = {
+  dataAngajarii: new Date(),
+ }
 const person = [
   {
     nume: 'Mihai',
@@ -35,6 +41,7 @@ const person = [
 ]
 
 export default function MyProfileContainers() {
+  const [state, dispatch] = useReducer(reducer, initialState)
   return (
     <div className='container1'>
       <div className='title'>
@@ -72,7 +79,12 @@ export default function MyProfileContainers() {
           <div className='nume'>Numar telefon: {MyTextField({ whattodisplay: person[0].nrtelf })}</div>
           <div className='txtsod'>Salariu: {MyTextField({ whattodisplay: person[0].salariu })}</div>
           <div className='txtsod'>Overtime: {MyTextField({ whattodisplay: person[0].overtime })}</div>
-          <div className='txtsod'>Data angajare: {MyTextField({ whattodisplay: person[0].dataAngajare })}</div>
+          <div className='dataAngajare'>Data angajare:</div>
+          <div className='date'> {DatePick({
+            label:null,
+            value: state.dataAngajarii,
+            func: e => dispatch({ type: 'update', e: e, propname: 'dataAngajarii' })
+          })}</div>
         </div>
       </body>
     </div>
