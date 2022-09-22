@@ -9,13 +9,8 @@ import ConcediiDataProvider from './QueriesCC.js'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import 'assets/css/creareconcediu.css'
-import reducer from './reducerHook.js'
-const initialState = {
-  dataInceperii: new Date(),
-  dataSfarsitului: new Date(),
-  cmbInlocuitor: 1,
-  cmbTipConcediu: 1
-}
+import { reducer, initialState } from './reducerHook.js'
+
 var data = [
   { id: 0, name: 'Concediu Odihna' },
   { id: 1, name: 'Concediu Maternitate' },
@@ -27,69 +22,77 @@ var data2 = [
   { id: 2, name: 'Inloc 3' }
 ]
 
-function ComponentaCreareConcediu() {
-  function consolelogs() {
-    console.log(state.cmbTipConcediu)
-  }
-  const [state, dispatch] = useReducer(reducer, initialState)
-  return (
-    <div className='container22'>
-      <div className='title22'>
-        <div className='titleText22'>Pagina Creare Concediu</div>
-      </div>
-      <div className='card'>
-        <div className='dataInceperii'>
-          {DateTimePicker({
-            label: 'Data Inceperii',
-            value: state.dataInceperii,
-            func: e => dispatch({ type: 'update', e: e, propname: 'dataInceperii' })
-          })}
+function ComponentaCreareConcediu(props) {
+  try {
+    const { state, onChangeHandler } = props
+    console.log(state)
+    console.log(onChangeHandler)
+    return (
+      <div className='container22'>
+        <div className='title22'>
+          <div className='titleText22'>Pagina Creare Concediu</div>
         </div>
-        <div className='dataSfarsitului'>
-          {DateTimePicker({
-            label: 'Data Sfarsitului',
-            value: state.dataSfarsitului,
-            func: e => dispatch({ type: 'update', e: e, propname: 'dataSfarsitului' })
-          })}
-        </div>
-        <div className='tipConcediu'>
-          <ComboBoxCC
-            data={data}
-            value={state.cmbTipConcediu}
-            dispatch={dispatch}
-            propname='cmbTipConcediu'
-            labelname='Tip Concediu'
-          ></ComboBoxCC>
-          {consolelogs()}
-          {/* {ComboBoxCC({
-            data: data,
-            value: state.cmbTipConcediu,
-            func: e => dispatch({ type: 'update', e: e, propname: 'cmbTipConcediu' })
-          })} */}
-        </div>
-        <ComboBoxCC
-          data={data2}
-          value={state.cmbInlocuitor}
-          dispatch={dispatch}
-          propname='cmbInlocuitor'
-          labelname='Inlocuitor'
-        ></ComboBoxCC>
-        <div className='Comentarii'>
-          <div className='TextComentarii'>Comentarii:</div>
-          <div className='TextBoxComentarii'>
-            <TextField></TextField>
+        <div className='card'>
+          <div className='dataInceperii'>
+            <DateTimePicker
+              label='Data Inceperii'
+              value={state.dataInceperii}
+              onChangeHandler={onChangeHandler}
+              func={e => onChangeHandler(e, 'dataInceperii')}
+            ></DateTimePicker>
+            {/* {DateTimePicker({
+              label: 'Data Inceperii',
+              value: state.dataInceperii,
+              func: e => onChangeHandler(e, 'dataInceperii')
+            })} */}
+          </div>
+          <div className='dataSfarsitului'>
+            {/* {DateTimePicker({
+              label: 'Data Sfarsitului',
+              value: state.dataSfarsitului,
+              func: e => onChangeHandler(e, 'dataSfarsitului')
+            })} */}
+            <DateTimePicker
+              label='Data Sfarsitului'
+              value={state.dataSfarsitului}
+              func={e => onChangeHandler(e, 'dataSfarsitului')}
+            ></DateTimePicker>
+          </div>
+          <div className='tipConcediu'>
+            <ComboBoxCC
+              onChangeHandler={onChangeHandler}
+              data={data}
+              value={state.cmbTipConcediu}
+              propname='cmbTipConcediu'
+              labelname='Tip Concediu'
+            ></ComboBoxCC>
+          </div>
+          {/* <ComboBoxCC
+            data={data2}
+            value={state.cmbInlocuitor}
+            onChangeHandler={this.onChangeHandler}
+            propname='cmbInlocuitor'
+            labelname='Inlocuitor'
+          ></ComboBoxCC> */}
+          <div className='Comentarii'>
+            <div className='TextComentarii'>Comentarii:</div>
+            <div className='TextBoxComentarii'>
+              <TextField></TextField>
+            </div>
+          </div>
+          <div className='ZileRamase'>
+            <div className='ZileRamaseText'>Zile ramase: </div>
+            <div className='ZileRamaseOdihna'>Odihna: </div>
+            <div className='ZileRamaseDeces'>Deces: </div>
+            <div className='ZileRamaseMedical'>Medical: </div>
+            <div className='ZileRamaseNeplatite'>Neplatite: </div>
           </div>
         </div>
-        <div className='ZileRamase'>
-          <div className='ZileRamaseText'>Zile ramase: </div>
-          <div className='ZileRamaseOdihna'>Odihna: </div>
-          <div className='ZileRamaseDeces'>Deces: </div>
-          <div className='ZileRamaseMedical'>Medical: </div>
-          <div className='ZileRamaseNeplatite'>Neplatite: </div>
-        </div>
       </div>
-    </div>
-  )
+    )
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 export default ComponentaCreareConcediu
