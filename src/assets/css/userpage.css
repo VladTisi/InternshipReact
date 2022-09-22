@@ -133,3 +133,20 @@
   display: inline;
   width: fit-content;
 }
+.dataAngajare{
+  max-width: 350px;
+  padding-top: 28px;
+  font-size: large;
+  font-family: 'Open Sans', sans-serif;
+  color: #f4991a;
+  padding-left: 50px;
+  padding-bottom: 25px;
+  font-weight: 550;
+  margin-left: -35px;
+  display: flex;
+}
+.date{
+  margin-left: 250px;
+  max-width: 210px;
+  margin-top: -75px;
+}
