@@ -15,11 +15,13 @@ export default function ContainedButtons() {
 
   return (
     <div className='modificare'>
-      <Button>Salvare date <CreateIcon/> </Button>
-    
-    
-      <Button>Modificare date <CreateIcon/> </Button>
+      <Button>
+        Salvare date <CreateIcon />{' '}
+      </Button>
+
+      <Button>
+        Modificare date <CreateIcon />{' '}
+      </Button>
     </div>
   )
 }
-
