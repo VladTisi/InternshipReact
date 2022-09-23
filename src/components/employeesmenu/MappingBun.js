@@ -10,34 +10,32 @@ function Mapping(props) {
   const { row } = props
   try {
     return (
-      <div style={{ fontSize: 14, marginLeft: -10 }}>
-        <TableRow key={row.id} className='rand'>
-          <TableCell style={{ width: 100 }} align='center'>
-            <Box
-              component='img'
-              sx={{
-                height: 233,
-                width: 350,
-                maxHeight: { xs: 75, md: 75 },
-                maxWidth: { xs: 75, md: 75 },
-                borderRadius: 10
-              }}
-              className='poza'
-              alt='The house from the offer.'
-              src={row.poza}
-            />
-          </TableCell>
-          <TableCell style={{ width: 160 }} align='center'>
-            {row.nume}
-          </TableCell>
-          <TableCell style={{ width: 160 }} align='center'>
-            {row.prenume}
-          </TableCell>
-          <TableCell style={{ width: 160 }} align='center'>
-            {row.functie}
-          </TableCell>
-        </TableRow>
-      </div>
+      <TableRow key={row.id} className='rand'>
+        <TableCell style={{ width: 100 }} align='center'>
+          <Box
+            component='img'
+            sx={{
+              height: 233,
+              width: 350,
+              maxHeight: { xs: 75, md: 75 },
+              maxWidth: { xs: 75, md: 75 },
+              borderRadius: 10
+            }}
+            className='poza'
+            alt='The house from the offer.'
+            src={row.poza}
+          />
+        </TableCell>
+        <TableCell style={{ width: 160 }} align='center'>
+          {row.nume}
+        </TableCell>
+        <TableCell style={{ width: 160 }} align='center'>
+          {row.prenume}
+        </TableCell>
+        <TableCell style={{ width: 160 }} align='center'>
+          {row.functie}
+        </TableCell>
+      </TableRow>
     )
   } catch (err) {
     console.log(err)
