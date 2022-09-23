@@ -2,8 +2,7 @@ import React from 'react'
 import 'assets/css/changepassword.css'
 import { TextField } from '@material-ui/core'
 import ContainedButtons from 'components/changePassword/buttonSave.js'
-import DoneIcon from '@material-ui/icons/Done';
-export default ChangePasswordContainers
+import DoneIcon from '@material-ui/icons/Done'
 
 function ChangePasswordContainers() {
   return (
@@ -27,11 +26,12 @@ function ChangePasswordContainers() {
           <TextField label='Confirmare parola noua '></TextField>
         </div>
         <ContainedButtons>
-        <button >
-           <DoneIcon />
-        </button>
-      </ContainedButtons>
+          <button>
+            <DoneIcon />
+          </button>
+        </ContainedButtons>
       </div>
     </div>
   )
 }
+export default ChangePasswordContainers
