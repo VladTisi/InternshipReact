@@ -8,7 +8,7 @@ import miniLogo from '../../assets/img/default-avatar.png'
 import plumi from '../../assets/img/plumeria.png'
 import MyTextFieldNume from 'components/homepagedata/myTextFieldNume.js'
 import DatePick from 'components/CreareConcediu/DateTimePicker.js'
-import { reducer } from '../../features/CreareConcediu/reducerHook.js'
+import {reducer} from '../../features/CreareConcediu/reducerHook.js'
 
 const initialState = {
   dataAngajarii: new Date()
