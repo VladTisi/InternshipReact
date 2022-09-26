@@ -3,7 +3,6 @@ import 'assets/css/changepassword.css'
 import { TextField } from '@material-ui/core'
 import ContainedButtons from 'components/changePassword/buttonSave.js'
 import DoneIcon from '@material-ui/icons/Done'
-export default ChangePasswordContainers
 
 function ChangePasswordContainers() {
   return (
@@ -35,3 +34,4 @@ function ChangePasswordContainers() {
     </div>
   )
 }
+export default ChangePasswordContainers

@@ -4,11 +4,10 @@ import CreateIcon from '@material-ui/icons/Create'
 import MyTextField from '../homepagedata/MyTextField.js'
 import Button from '@material-ui/core/Button'
 import ContainedButtons from 'components/homepagedata/buttonModif.js'
-import miniLogo from '../../assets/img/default-avatar.png'
 import plumi from '../../assets/img/plumeria.png'
 import MyTextFieldNume from 'components/homepagedata/MyTextFieldNume.js'
 import DatePick from 'components/CreareConcediu/DateTimePicker.js'
-import {reducer} from '../../features/CreareConcediu/reducerHook.js'
+import { reducer } from '../../features/CreareConcediu/reducerHook.js'
 
 const initialState = {
   dataAngajarii: new Date()
@@ -24,7 +23,9 @@ const person = [
     nrtelf: '0754585956',
     salariu: 7000,
     overtime: '6h',
-    dataAngajare: '10/09/2020'
+    dataAngajare: '10/09/2020',
+    poza: 'jhyuhjgfhtg'
+
   },
   {
     nume: 'Ion',
@@ -39,7 +40,6 @@ const person = [
     dataAngajare: '07/11/2021'
   }
 ]
-
 
 export default function MyProfileContainers() {
   const [state, dispatch] = useReducer(reducer, initialState)
