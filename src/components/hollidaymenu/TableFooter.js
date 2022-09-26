@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 import PagActions from './PagActions'
 
 export default function TableFoot(props) {
-  const { data, rowsPerPage, page, handleChangePage, handleChangeRowsPerPage } = props
+  const { lista, rowsPerPage, page, handleChangePage, handleChangeRowsPerPage } = props
   return (
     <TableFooter>
       <TablePagination
         rowsPerPageOptions={[]}
-        count={data.length}
+        count={lista.length}
         rowsPerPage={rowsPerPage}
         page={page}
         SelectProps={{ inputProps: { 'aria-label': 'rows per page' } }}
@@ -21,7 +21,7 @@ export default function TableFoot(props) {
   )
 }
 TableFoot.propTypes = {
-  data: PropTypes.object.isRequired,
+  lista: PropTypes.array.isRequired,
   page: PropTypes.number.isRequired,
   rowsPerPage: PropTypes.number.isRequired,
   handleChangeRowsPerPage: PropTypes.func.isRequired,

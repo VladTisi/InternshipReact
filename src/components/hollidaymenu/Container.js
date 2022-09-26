@@ -10,14 +10,18 @@ import TableB from './TableBody'
 import HMButtons from './HMButtons'
 import { useReducer } from 'react'
 import { reducer } from 'features/CreareConcediu/reducerHook'
+import { useQueryWithErrorHandling } from 'hooks/errorHandling'
+import { GET_ALL } from './QuerriesHM'
 
 const cache = createCache({
   key: 'css',
   prepend: true
 })
 
-const initialState = { lista }
+
 export default function HollidayM() {
+  var a= useQueryWithErrorHandling(GET_ALL, {variables: {allId : 2}})
+  const lista=a.data.all
   const [page, setPage] = React.useState(0)
   const [rowsPerPage, setRowsPerPage] = React.useState(5)
   const [data, setData] = React.useState([])
@@ -28,12 +32,12 @@ export default function HollidayM() {
   const handleChangePage = (event, newPage) => {
     setPage(newPage)
   }
-  const [state, dispatch] = useReducer(reducer, initialState)
+ 
   const handleChangeRowsPerPage = event => {
     setRowsPerPage(parseInt(event.target.value, 10))
     setPage(0)
   }
-  const prop = { dispatch, setData, setPage, lista, emptyRows, rowsPerPage, page, data, handleChangeRowsPerPage, handleChangePage }
+  const prop = {  setData, setPage, all: data ? data.all : [], emptyRows, rowsPerPage, page, data, handleChangeRowsPerPage, handleChangePage }
   return (
     <CacheProvider value={cache}>
       <TableContainer>
