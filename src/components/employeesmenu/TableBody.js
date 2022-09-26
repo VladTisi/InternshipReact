@@ -4,11 +4,11 @@ import MappingBun from './MappingBun'
 import PropTypes from 'prop-types'
 
 export default function TableBBun(props) {
-  const { rowsPerPage, page, data, searchTerm, emptyRows } = props
+  const { rowsPerPage, page, allemp, searchTerm, emptyRows } = props
 
   return (
     <TableBody>
-      {(rowsPerPage > 0 ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : data).map((row, index) => (
+      {(rowsPerPage > 0 ? allemp.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : allemp).map((row, index) => (
         <MappingBun row={row} key={index}></MappingBun>
       ))}
       {emptyRows > 0 && (
@@ -20,7 +20,7 @@ export default function TableBBun(props) {
   )
 }
 TableBBun.propTypes = {
-  data: PropTypes.object.isRequired,
+  allemp: PropTypes.array.isRequired,
   emptyRows: PropTypes.number.isRequired,
   page: PropTypes.number.isRequired,
   rowsPerPage: PropTypes.number.isRequired,

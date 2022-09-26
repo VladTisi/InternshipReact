@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import PropTypes from 'prop-types'
 import { withStyles, makeStyles } from '@material-ui/core/styles'
@@ -7,10 +7,10 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Typography from '@material-ui/core/Typography'
-import lista from 'components/employeesmenu/data1'
 import 'assets/css/TeamContainer.css'
-import List from './list'
-import MappingBun from 'components/employeesmenu/MappingBun'
+import { useQueryWithErrorHandling } from 'hooks/errorHandling'
+import MappingBun from './MappingTeam'
+import { GET_GOT } from './queries'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -48,7 +48,15 @@ function SimpleCard(props) {
   const handleExpandClick = () => {
     setExpanded(!expanded)
   }
-  const prop = { lista }
+
+  const [state, setState] = useState(null)
+
+  const { data, loading } = useQueryWithErrorHandling(GET_GOT, { variables: { id: null }, onCompleted: data => setState(data.team) })
+
+  useEffect(() => {
+    if (loading || !data) return setState(data?.team)
+  }, [data])
+
   return (
     <Card className={classes.card}>
       <CardMedia
@@ -77,7 +85,7 @@ function SimpleCard(props) {
       </CardActions>
       <Collapse in={expanded} timeout='auto' unmountOnExit>
         <CardContent>
-          {lista.map((row, index) => (
+          {data?.team.map((row, index) => (
             <MappingBun row={row} key={index}></MappingBun>
           ))}
         </CardContent>

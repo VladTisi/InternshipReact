@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import clsx from 'clsx'
+import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 import PropTypes from 'prop-types'
 import { withStyles, makeStyles } from '@material-ui/core/styles'
 import { Card, CardMedia, IconButton, Collapse } from '@material-ui/core'
@@ -7,8 +8,8 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Typography from '@material-ui/core/Typography'
-import lista from 'components/employeesmenu/data1'
-import MappingBun from 'components/employeesmenu/MappingBun'
+import MappingBun from './MappingTeam'
+import { GET_BB } from './queries'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -45,11 +46,19 @@ function SimpleCard(props) {
   const handleExpandClick = () => {
     setExpanded(!expanded)
   }
-  const prop = { lista }
+  const [state, setState] = useState(null)
+
+  const { data, loading } = useQueryWithErrorHandling(GET_BB, { variables: { id: null }, onCompleted: data => setState(data.teamBB) })
+
+  useEffect(() => {
+    if (loading || !data) return setState(data?.teamBB)
+  }, [data])
+
   return (
     <div>
       <Card className={classes.card}>
         <CardMedia
+          sx={{ maxHeight: { xs: 60, md: 60 }, maxWidth: { xs: 60, md: 60 } }}
           component='img'
           alt='Breaking Bad'
           image='https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Breaking_Bad_logo.svg/2560px-Breaking_Bad_logo.svg.png'
@@ -75,7 +84,7 @@ function SimpleCard(props) {
         </CardActions>
         <Collapse in={expanded} timeout='auto' unmountOnExit>
           <CardContent>
-            {lista.map((row, index) => (
+            {data?.teamBB.map((row, index) => (
               <MappingBun row={row} key={index}></MappingBun>
             ))}
           </CardContent>
