@@ -23,7 +23,9 @@ const person = [
     nrtelf: '0754585956',
     salariu: 7000,
     overtime: '6h',
-    dataAngajare: '10/09/2020'
+    dataAngajare: '10/09/2020',
+    poza: 'jhyuhjgfhtg'
+
   },
   {
     nume: 'Ion',
