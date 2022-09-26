@@ -1,19 +1,32 @@
 .container22 {
   background-color: #f2ead3;
   font-family: 'Open Sans', sans-serif !important;
-  margin: 0 auto;
   border-radius: 50px;
-  width: 800px;
-  height: 900px;
+  width: 90%;
+  height: 70%;
   overflow: auto;
   border: 1px solid #321313 !important;
-
+  padding: 30px;
+  padding-bottom: 40px;
+  margin: 20px;
+  margin-left: 5%;
 }
-.card {
-  display: flex none;
-  height: 500px;
-  margin-top: 50px;
-  margin-left: 15px;
+
+.corpCC {
+  display: flex;
+}
+.card111 {
+  
+  align-items: 'center';
+  text-align: 'center';
+  width: 50%;
+}
+.card222 {
+  
+  
+  align-items: 'center';
+  text-align: 'center';
+  width: 50%;
 }
 
 .titleText22 {
@@ -22,18 +35,20 @@
   text-decoration: underline;
 }
 .dataInceperii {
-  margin-left: -66%;
+  margin-left: -22%;
   font-size: 15px;
 }
 .TextComentarii {
   font-family: 'Open Sans', sans-serif !important;
   font-size: 18px !important;
+  margin-left: 8%;
 }
 
 .ZileRamase {
   margin-top: 30px;
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
+  margin-left: 8%;
 }
 
 .ZileRamaseOdihna {
@@ -52,21 +67,21 @@
 
 .dataSfarsitului {
   font-size: 15px;
-  margin-left: -66%;
+  margin-left: -22%;
   margin-top: 25px;
 }
 .title22 {
-  
   margin-top: 10px;
   text-align: center;
   height: 35px;
   border-radius: 30px;
   color: #321313;
-
+  margin-bottom: 5%;
 }
 
 .tipConcediu {
   margin-top: 25px;
+  margin-left: 8%;
 }
 .Inlocuitor {
   margin-top: 25px;
@@ -83,3 +98,4 @@
 .TextBoxComentarii {
   margin-left: 20px;
 }
+
