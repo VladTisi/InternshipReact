@@ -1,21 +1,19 @@
-import { gql } from '@apollo/client'
+import React, { useEffect } from 'react'
+import {useQuerry, gql} from '@apollo/client'
+import {LOAD_DATA} from '../userpageContainer/QueriesData'
 
-export const UPDATE_DATA = gql`
-  mutation userUpdated($input: personUpd!) {
-    userUpdated(input: $input) {
-      Id
-      Nume
-      Prenume
-      Echipa {Nume}
-      Functie
-      {Nume}
-      Sex
-      Email {Email}
-      Numar_telefon
-      Salariu
-      Overtime
-      Data_angajarii
-      #Poza
-    }
-  }
-`
+function GetData() {
+ 
+const {error, loading, data} = useQuerry(LOAD_DATA)
+
+useEffect(() => {
+console.log(data);
+}, [data])
+    return(
+
+        <p>buna</p>
+    )
+
+}
+
+export default GetData

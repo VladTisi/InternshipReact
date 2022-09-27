@@ -8,6 +8,7 @@ import plumi from '../../assets/img/plumeria.png'
 import MyTextFieldNume from 'components/homepagedata/MyTextFieldNume.js'
 import DatePick from 'components/CreareConcediu/DateTimePicker.js'
 import { reducer } from '../../features/CreareConcediu/reducerHook.js'
+import { ApolloProvider } from '@apollo/client'
 
 const initialState = {
   dataAngajarii: new Date()
@@ -42,8 +43,12 @@ const person = [
 ]
 
 export default function MyProfileContainers() {
+  
+  
   const [state, dispatch] = useReducer(reducer, initialState)
   return (
+    
+
     <div className='container1'>
       <div className='title'>
         <div className='titletext'>
