@@ -2,18 +2,16 @@ import React from 'react'
 import { Button } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
-import { GET_APROBATE } from './QuerriesHM'
-import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 export default function HMButtons(props) {
   const { t } = useTranslation()
-  const { setData, setPage, aprobate, refuzate } = props
+  const { setState, setPage, aprobate } = props
   return (
     <div className='buttons-container'>
       <Button
         className='buttons'
         variant='contained'
         onClick={() => {
-          setData(aprobate.filter(lista => lista.status == 'Aprobat'))
+          setState(aprobate.filter(aprobate => aprobate.stareConcediuId == 2))
           setPage(0)
         }}
       >
@@ -23,7 +21,7 @@ export default function HMButtons(props) {
         className='buttons'
         variant='contained'
         onClick={() => {
-          setData(refuzate.filter(lista => lista.status == 'Refuzat'))
+          setState(aprobate.filter(aprobate => aprobate.stareConcediuId == 3))
           setPage(0)
         }}
       >
@@ -33,28 +31,17 @@ export default function HMButtons(props) {
         className='buttons'
         variant='contained'
         onClick={() => {
-          setData(aprobate.filter(lista => lista.status == 'In Asteptare'))
+          setState(aprobate.filter(aprobate => aprobate.stareConcediuId == 1))
           setPage(0)
         }}
       >
         {t('Button.Pending')}
-      </Button>
-      <Button
-        className='buttons'
-        variant='contained'
-        onClick={() => {
-          setData(aprobate)
-          setPage(0)
-        }}
-      >
-        Reset
       </Button>
     </div>
   )
 }
 HMButtons.propTypes = {
   aprobate: PropTypes.array.isRequired,
-  refuzate: PropTypes.array.isRequired,
-  setPage: PropTypes.func.isRequired,
-  setData: PropTypes.func.isRequired
+  setState: PropTypes.func.isRequired,
+  setPage: PropTypes.func.isRequired
 }
