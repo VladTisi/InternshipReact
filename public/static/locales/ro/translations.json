@@ -9,6 +9,14 @@
     "Sfarsit": "Data Sfarsit",
     "Status": "Stare"
   },
+  "HollidayList":{
+    "Inceput": "Data Inceput",
+    "Sfarsit": "Data Sfarsit",
+    "Status": "Stare",
+    "Name": "Nume",
+    "FirstName": "Prenume",
+    "Role": "Functie"
+  },
   "EmployeeList": "Lista Angajati",
   "Button":{
     "Refused":"Refuzate",
@@ -23,6 +31,7 @@
     "Prenume": "Prenume",
     "Functie": "Functie"
   },
+  "SearchByName": "Cautare dupa nume...",
   "NavBar": {
     "Dashboard": "Panou central",
     "EmployeesMenu":"Angajati",

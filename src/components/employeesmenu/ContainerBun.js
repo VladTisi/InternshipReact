@@ -11,20 +11,20 @@ import { Get_All } from './queries'
 
 export default function CustomPaginationActionsTable() {
   const [state, setState] = useState(null)
-
+  const [searchTerm, setSearchTerm] = useState("");
   const { data, loading } = useQueryWithErrorHandling(Get_All, {
     onCompleted: data => {
-      setState(data.allemp), console.log(data)
+      setState(data.allemp)
     }
   })
 
   useEffect(() => {
     if (loading || !data) return setState(data?.allemp)
-  }, [data])
-
+  }, [data, loading])
+  
+  
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(5)
-  const emptyRows = rowsPerPage - Math.min(rowsPerPage, data?.allemp.length - page * rowsPerPage)
   const handleChangePage = (event, newPage) => {
     setPage(newPage)
   }
@@ -33,12 +33,11 @@ export default function CustomPaginationActionsTable() {
     setPage(0)
   }
 
-  const [searchTerm, setSearchTerm] = useState('')
-  const prop = { rowsPerPage, allemp: data ? data.allemp : [], emptyRows, page, searchTerm, handleChangePage, handleChangeRowsPerPage }
+  const prop = { setPage,rowsPerPage, setState, allemp: data ? data.allemp.filter(allemp => allemp.nume.toLowerCase().startsWith(searchTerm)) : [], page, searchTerm, handleChangePage, handleChangeRowsPerPage }
   const searchProp = { setSearchTerm }
   return (
     <TableContainer style={{ paddingBottom: 20 }}>
-      <SearchBar {...searchProp} />
+      <SearchBar {...searchProp}/>
       <Table className='tabela' aria-label='custom pagination table'>
         <Head />
         <TableBBun {...prop} />

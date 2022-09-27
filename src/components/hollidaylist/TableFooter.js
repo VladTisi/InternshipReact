@@ -1,15 +1,15 @@
 import React from 'react'
 import { TablePagination, TableFooter } from '@material-ui/core'
 import PropTypes from 'prop-types'
-import PagActions from './PagActions'
+import PagActions from 'components/hollidaymenu/PagActions'
 
 export default function TableFoot(props) {
-  const { aprobate, refuzate, rowsPerPage, page, handleChangePage, handleChangeRowsPerPage } = props
+  const { concedii, refuzate, rowsPerPage, page, handleChangePage, handleChangeRowsPerPage } = props
   return (
     <TableFooter>
       <TablePagination
         rowsPerPageOptions={[]}
-        count={aprobate.length}
+        count={concedii.length}
         rowsPerPage={rowsPerPage}
         page={page}
         SelectProps={{ inputProps: { 'aria-label': 'rows per page' } }}
@@ -21,7 +21,7 @@ export default function TableFoot(props) {
   )
 }
 TableFoot.propTypes = {
-  aprobate: PropTypes.array.isRequired,
+  concedii: PropTypes.array.isRequired,
   refuzate: PropTypes.array.isRequired,
   page: PropTypes.number.isRequired,
   rowsPerPage: PropTypes.number.isRequired,

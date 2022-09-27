@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 export default function HMButtons(props) {
   const { t } = useTranslation()
-  const { setData, setPage, lista } = props
+  const { setData, setPage, concedii } = props
   try {
     return (
       <div className='buttons-container'>
@@ -13,7 +13,7 @@ export default function HMButtons(props) {
           className='buttons'
           variant='contained'
           onClick={() => {
-            setData(lista.filter(lista => lista.status == 'Aprobat'))
+            setData(concedii.filter(lista => lista.status == 'Aprobat'))
             setPage(0)
           }}
         >
@@ -23,21 +23,11 @@ export default function HMButtons(props) {
           className='buttons'
           variant='contained'
           onClick={() => {
-            setData(lista.filter(lista => lista.status == 'Refuzat'))
+            setData(concedii.filter(lista => lista.status == 'Refuzat'))
             setPage(0)
           }}
         >
           {t('Button.Refused')}
-        </Button>
-        <Button
-          className='buttons'
-          variant='contained'
-          onClick={() => {
-            setData(lista.filter(lista => lista.status == 'In Asteptare'))
-            setPage(0)
-          }}
-        >
-          {t('Button.Pending')}
         </Button>
       </div>
     )
@@ -46,7 +36,7 @@ export default function HMButtons(props) {
   }
 }
 HMButtons.propTypes = {
-  lista: PropTypes.object.isRequired,
+  concedii: PropTypes.array.isRequired,
   setPage: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired
 }
