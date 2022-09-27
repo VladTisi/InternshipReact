@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 export default function HMButtons(props) {
   const { t } = useTranslation()
-  const { setData, setPage, aprobate } = props
+  const { setData, setPage, aprobate, refuzate } = props
   return (
     <div className='buttons-container'>
       <Button
@@ -21,7 +21,7 @@ export default function HMButtons(props) {
         className='buttons'
         variant='contained'
         onClick={() => {
-          setData(aprobate.filter(lista => lista.status == 'Refuzat'))
+          setData(refuzate.filter(lista => lista.status == 'Refuzat'))
           setPage(0)
         }}
       >
@@ -52,6 +52,7 @@ export default function HMButtons(props) {
 }
 HMButtons.propTypes = {
   aprobate: PropTypes.array.isRequired,
+  refuzate: PropTypes.array.isRequired,
   setPage: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired
 }
