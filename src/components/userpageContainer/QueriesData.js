@@ -6,8 +6,8 @@ query User($userId: Int) {
     id
     nume
     prenume
-    echipa
-    functie
+    idEchipa
+    idFunctie
     sex
     email
     numarTelefon
@@ -16,5 +16,11 @@ query User($userId: Int) {
     dataAngajarii
   }
 }
-
 `
+export const ECHIPE = gql `
+query Echipe {
+  Echipe {
+    nume
+    id
+  }
+}`

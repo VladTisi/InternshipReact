@@ -6,11 +6,10 @@ export const UPDATE_DATA = gql`
       Id
       Nume
       Prenume
-      Echipa {Nume}
-      Functie
-      {Nume}
+      idEchipa 
+      idFunctie
       Sex
-      Email {Email}
+      Email 
       Numar_telefon
       Salariu
       Overtime

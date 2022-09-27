@@ -2,19 +2,32 @@ export const initialState = {
   dataInceperii: new Date(),
   dataSfarsitului: new Date(),
   cmbInlocuitor: null,
-  cmbTipConcediu: null
+  cmbTipConcediu: null,
+  dataAngajarii: new Date(),
+  nume: null,
+  prenume:null, 
+  idEchipa: 2,
+  idFunctie: 2,
+  sex: "M",
+  email: null,
+  numarTelefon: null,
+  salariu: null,
+  overtime: null,
+  numeechipa: null
+
 }
 
-export function reducer(state, action) {
-  let newState
-  const { propname } = action
+
+export function  reducer(state, action) {
+  let newState;
+  const { propname,e} = action
   switch (action.type) {
     case 'update':
       newState = { ...state, [action.propname]: action.e }
       break
-    case 'setDataSfarsitului':
-      newState = { ...state, dataSfarsitului: action.e }
-      break
+    case 'fillData':
+      newState = { ...state, [action.propname]: e }
+       break;
       
    
     default:
