@@ -23,6 +23,7 @@
     "Prenume": "Prenume",
     "Functie": "Functie"
   },
+  "SearchByName": "Cautare dupa nume...",
   "NavBar": {
     "Dashboard": "Panou central",
     "EmployeesMenu":"Angajati",
