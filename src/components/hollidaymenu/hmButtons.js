@@ -6,15 +6,14 @@ import { GET_APROBATE } from './QuerriesHM'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 export default function HMButtons(props) {
   const { t } = useTranslation()
-  const { setData, setPage, lista } = props
-
-  return(
+  const { setData, setPage, aprobate } = props
+  return (
     <div className='buttons-container'>
       <Button
         className='buttons'
         variant='contained'
         onClick={() => {
-          setData(lista.filter(lista => lista.stareConcediuId == 2))
+          setData(aprobate.filter(lista => lista.status == 'Aprobat'))
           setPage(0)
         }}
       >
@@ -24,7 +23,7 @@ export default function HMButtons(props) {
         className='buttons'
         variant='contained'
         onClick={() => {
-          setData(lista.filter(lista => lista.stareConcediuId == 3))
+          setData(aprobate.filter(lista => lista.status == 'Refuzat'))
           setPage(0)
         }}
       >
@@ -34,7 +33,7 @@ export default function HMButtons(props) {
         className='buttons'
         variant='contained'
         onClick={() => {
-          setData(lista.filter(lista => lista.stareConcediuId == 1))
+          setData(aprobate.filter(lista => lista.status == 'In Asteptare'))
           setPage(0)
         }}
       >
@@ -44,7 +43,7 @@ export default function HMButtons(props) {
         className='buttons'
         variant='contained'
         onClick={() => {
-          setData(lista)
+          setData(aprobate)
           setPage(0)
         }}
       >
@@ -54,7 +53,7 @@ export default function HMButtons(props) {
   )
 }
 HMButtons.propTypes = {
-  lista: PropTypes.object.isRequired,
+  aprobate: PropTypes.array.isRequired,
   setPage: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired
 }

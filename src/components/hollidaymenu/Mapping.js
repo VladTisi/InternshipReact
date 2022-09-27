@@ -6,13 +6,13 @@ export default function Mapping(props) {
     return (
       <TableRow key={props.idAngajatFromAngajat} className='rand'>
         <TableCell style={{ width: 160 }} align='center' className='celula'>
-          {props.dataInceput}
+          {props.dataInceput.toString().slice(0, 10)}
         </TableCell>
         <TableCell style={{ width: 160 }} align='center' className='celula'>
-          {props.dataSfarsit}
+          {props.dataSfarsit.toString().slice(0, 10)}
         </TableCell>
         <TableCell style={{ width: 160 }} align='center' className='celula'>
-         {"nothing"}
+          {props.status}
         </TableCell>
       </TableRow>
     )
