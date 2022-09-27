@@ -1,20 +1,20 @@
 const lista = [
-  { id: 1, inceput: '22/08/2022', sfarsit: '26/08/2022', status: 'Aprobat' },
-  { id: 2, inceput: '29/08/2022', sfarsit: '30/08/2022', status: 'Refuzat' },
-  { id: 3, inceput: '05/09/2022', sfarsit: '06/09/2022', status: 'Aprobat' },
-  { id: 4, inceput: '12/09/2022', sfarsit: '13/09/2022', status: 'In Asteptare' },
-  { id: 5, inceput: '22/08/2022', sfarsit: '26/08/2022', status: 'Aprobat' },
-  { id: 6, inceput: '29/08/2022', sfarsit: '30/08/2022', status: 'Refuzat' },
-  { id: 7, inceput: '05/09/2022', sfarsit: '06/09/2022', status: 'Aprobat' },
-  { id: 8, inceput: '12/09/2022', sfarsit: '13/09/2022', status: 'In Asteptare' },
-  { id: 9, inceput: '22/08/2022', sfarsit: '26/08/2022', status: 'Aprobat' },
-  { id: 10, inceput: '29/08/2022', sfarsit: '30/08/2022', status: 'Refuzat' },
-  { id: 11, inceput: '05/09/2022', sfarsit: '06/09/2022', status: 'Aprobat' },
-  { id: 12, inceput: '12/09/2022', sfarsit: '13/09/2022', status: 'In Asteptare' },
-  { id: 13, inceput: '22/08/2022', sfarsit: '26/08/2022', status: 'Aprobat' },
-  { id: 14, inceput: '29/08/2022', sfarsit: '30/08/2022', status: 'Refuzat' },
-  { id: 15, inceput: '05/09/2022', sfarsit: '06/09/2022', status: 'Aprobat' },
-  { id: 16, inceput: '12/09/2022', sfarsit: '13/09/2022', status: 'In Asteptare' }
+  { idAngajatFromAngajat: 1, dataInceput: '22/08/2022', dataSfarsit: '26/08/2022', status: 'Aprobat' },
+  { idAngajatFromAngajat: 2, dataInceput: '29/08/2022', dataSfarsit: '30/08/2022', status: 'Refuzat' },
+  { idAngajatFromAngajat: 3, dataInceput: '05/09/2022', dataSfarsit: '06/09/2022', status: 'Aprobat' },
+  { idAngajatFromAngajat: 4, dataInceput: '12/09/2022', dataSfarsit: '13/09/2022', status: 'In Asteptare' },
+  { idAngajatFromAngajat: 5, dataInceput: '22/08/2022', dataSfarsit: '26/08/2022', status: 'Aprobat' },
+  { idAngajatFromAngajat: 6, dataInceput: '29/08/2022', dataSfarsit: '30/08/2022', status: 'Refuzat' },
+  { idAngajatFromAngajat: 7, dataInceput: '05/09/2022', dataSfarsit: '06/09/2022', status: 'Aprobat' },
+  { idAngajatFromAngajat: 8, dataInceput: '12/09/2022', dataSfarsit: '13/09/2022', status: 'In Asteptare' },
+  { idAngajatFromAngajat: 9, dataInceput: '22/08/2022', dataSfarsit: '26/08/2022', status: 'Aprobat' },
+  { idAngajatFromAngajat: 10, dataInceput: '29/08/2022', dataSfarsit: '30/08/2022', status: 'Refuzat' },
+  { idAngajatFromAngajat: 11, dataInceput: '05/09/2022', dataSfarsit: '06/09/2022', status: 'Aprobat' },
+  { idAngajatFromAngajat: 12, dataInceput: '12/09/2022', dataSfarsit: '13/09/2022', status: 'In Asteptare' },
+  { idAngajatFromAngajat: 13, dataInceput: '22/08/2022', dataSfarsit: '26/08/2022', status: 'Aprobat' },
+  { idAngajatFromAngajat: 14, dataInceput: '29/08/2022', dataSfarsit: '30/08/2022', status: 'Refuzat' },
+  { idAngajatFromAngajat: 15, dataInceput: '05/09/2022', dataSfarsit: '06/09/2022', status: 'Aprobat' },
+  { idAngajatFromAngajat: 16, dataInceput: '12/09/2022', dataSfarsit: '13/09/2022', status: 'In Asteptare' }
 ]
 
 export default lista

@@ -2,6 +2,8 @@ import React from 'react'
 import { Button } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
+import { GET_APROBATE } from './QuerriesHM'
+import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 export default function HMButtons(props) {
   const { t } = useTranslation()
   const { setData, setPage, aprobate, refuzate } = props

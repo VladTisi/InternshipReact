@@ -1,7 +1,7 @@
-import { TableBody, TableRow, TableCell } from '@material-ui/core'
+import { TableBody,TableRow,TableCell } from '@material-ui/core'
 import React from 'react'
 import MappingBun from './MappingBun'
-import PropTypes from 'prop-types'
+import  PropTypes  from 'prop-types'
 
 export default function TableBBun(props) {
   const { rowsPerPage, page, allemp, searchTerm, emptyRows } = props

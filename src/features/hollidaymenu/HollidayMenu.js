@@ -10,6 +10,7 @@ export default function HollidayMenu() {
   const { t }= useTranslation()
   return (
       <Card className="card-container">
+        
         <h2 className="card-header">{t('PersonalHollidays')}</h2>
         <HollidayM/>
       </Card>
