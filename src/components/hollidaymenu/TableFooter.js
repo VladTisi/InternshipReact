@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import PagActions from './PagActions'
 
 export default function TableFoot(props) {
-  const { aprobate, rowsPerPage, page, handleChangePage, handleChangeRowsPerPage } = props
+  const { aprobate, refuzate, rowsPerPage, page, handleChangePage, handleChangeRowsPerPage } = props
   return (
     <TableFooter>
       <TablePagination
@@ -22,6 +22,7 @@ export default function TableFoot(props) {
 }
 TableFoot.propTypes = {
   aprobate: PropTypes.array.isRequired,
+  refuzate: PropTypes.array.isRequired,
   page: PropTypes.number.isRequired,
   rowsPerPage: PropTypes.number.isRequired,
   handleChangeRowsPerPage: PropTypes.func.isRequired,

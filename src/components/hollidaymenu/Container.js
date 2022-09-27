@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import lista from './data'
 import 'assets/css/hollidaylist.css'
 import { TableContainer, Table } from '@material-ui/core'
 import { CacheProvider } from '@emotion/react'
@@ -10,7 +9,7 @@ import TableB from './TableBody'
 import HMButtons from './HMButtons'
 import { useReducer } from 'react'
 import { reducer } from 'features/CreareConcediu/reducerHook'
-import { GET_APROBATE } from './QuerriesHM'
+import { GET_APROBATE, GET_REFUZATE } from './QuerriesHM'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 
 const cache = createCache({
@@ -18,7 +17,6 @@ const cache = createCache({
   prepend: true
 })
 
-const initialState = { lista }
 export default function HollidayM() {
   const [state, setState] = useState(null)
 
@@ -29,8 +27,18 @@ export default function HollidayM() {
     }
   })
 
+  const { data1, loading1 } = useQueryWithErrorHandling(GET_REFUZATE, {
+    variables: { refuzateId: 2 },
+    onCompleted: data => {
+      setState(data.refuzate)
+    }
+  })
+
   useEffect(() => {
-    if (loading || !data) return setState(data?.apronbate), console.log(data?.aprobate)
+    if (loading || !data) return setState(data?.aprobate)
+  }, [data])
+  useEffect(() => {
+    if (loading || !data) return setState(data?.refuzate)
   }, [data])
 
   const [page, setPage] = React.useState(0)
@@ -54,6 +62,7 @@ export default function HollidayM() {
     setState,
     setPage,
     aprobate: data ? data.aprobate : [],
+    refuzate: data ? data.refuzate : [],
     emptyRows,
     rowsPerPage,
     page,
