@@ -14,7 +14,7 @@ export default function CustomPaginationActionsTable() {
 
   const { data, loading } = useQueryWithErrorHandling(Get_All, {
     onCompleted: data => {
-      setState(data.allemp), console.log(data)
+      setState(data.allemp)
     }
   })
 
