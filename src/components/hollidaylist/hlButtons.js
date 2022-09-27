@@ -29,16 +29,6 @@ export default function HMButtons(props) {
         >
           {t('Button.Refused')}
         </Button>
-        <Button
-          className='buttons'
-          variant='contained'
-          onClick={() => {
-            setData(concedii.filter(lista => lista.status == 'In Asteptare'))
-            setPage(0)
-          }}
-        >
-          {t('Button.Pending')}
-        </Button>
       </div>
     )
   } catch (err) {

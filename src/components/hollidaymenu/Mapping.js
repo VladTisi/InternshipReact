@@ -10,9 +10,9 @@ export default function Mapping(props) {
         </TableCell>
         <TableCell style={{ width: 160 }} align='center' className='celula'>
           {props.dataSfarsit.toString().slice(0, 10)}
-        </TableCell>
+        </TableCell> 
         <TableCell style={{ width: 160 }} align='center' className='celula'>
-          {props.status}
+          {(props.stareConcediuId==1 ? "In Asteptare" : props.stareConcediuId==2 ? "Aprobat" : props.stareConcediuId==3 ? "Refuzat": "")}
         </TableCell>
       </TableRow>
     )

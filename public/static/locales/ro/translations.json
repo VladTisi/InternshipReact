@@ -9,6 +9,14 @@
     "Sfarsit": "Data Sfarsit",
     "Status": "Stare"
   },
+  "HollidayList":{
+    "Inceput": "Data Inceput",
+    "Sfarsit": "Data Sfarsit",
+    "Status": "Stare",
+    "Name": "Nume",
+    "FirstName": "Prenume",
+    "Role": "Functie"
+  },
   "EmployeeList": "Lista Angajati",
   "Button":{
     "Refused":"Refuzate",

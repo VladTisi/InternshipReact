@@ -17,6 +17,14 @@
     "Sfarsit": "Ending Date",
     "Status": "Status"
   },
+  "HollidayList":{
+    "Inceput": "Starting Date",
+    "Sfarsit": "Ending Date",
+    "Status": "Status",
+    "Name": "Last Name",
+    "FirstName": "First Name",
+    "Role": "Role"
+  },
   "EmployeeList": "Employee List",
   "Button":{
     "Refused":"Refused",
