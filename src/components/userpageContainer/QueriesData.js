@@ -24,3 +24,10 @@ query Echipe {
     id
   }
 }`
+export const EMAIL = gql `
+query Email {
+  email {
+    id
+    email
+  }
+}`

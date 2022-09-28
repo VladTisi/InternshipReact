@@ -9,7 +9,7 @@ function ComboBoxCC(props) {
       <Autocomplete
         options={data}
         style={{ width: 300 }}
-        getOptionLabel={option => option.name}
+        getOptionLabel={option => option.nume}
         onChange={(event, value) => onChangeHandler(value.id, propname)}
         //onChange={handleChange}
         renderInput={params => <TextField {...params} label={labelname} />}

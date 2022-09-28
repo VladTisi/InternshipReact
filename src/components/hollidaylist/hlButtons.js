@@ -2,10 +2,15 @@ import React from 'react'
 import { Button } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
+import { PUT_APROBA, PUT_REFUZA } from './QuerriesHL'
+import { useMutation } from '@apollo/client'
+
 
 export default function HMButtons(props) {
   const { t } = useTranslation()
-  const { a } = props
+  const { rowId, setRowId } = props
+  const [refuza]= useMutation(PUT_REFUZA)
+  const [aproba]= useMutation(PUT_APROBA)
   try {
     return (
       <div className='buttons-container'>
@@ -13,7 +18,8 @@ export default function HMButtons(props) {
           className='buttons'
           variant='contained'
           onClick={() => {
-            
+            setRowId(0)
+            aproba({variables: {aprobaconcediuId: rowId }})
           }}
         >
           {t('Button.Approve')}
@@ -22,7 +28,8 @@ export default function HMButtons(props) {
           className='buttons'
           variant='contained'
           onClick={() => {
-            
+            setRowId(0)
+            refuza({variables: {aprobaconcediuId: rowId }})
           }}
         >
           {t('Button.Refuse')}
@@ -34,5 +41,5 @@ export default function HMButtons(props) {
   }
 }
 HMButtons.propTypes = {
-  
+  rowId: PropTypes.number.isRequired
 }

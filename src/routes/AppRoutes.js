@@ -13,6 +13,7 @@ import UserPage from 'features/userPage/UserPage'
 import HollidayList from 'features/hollidaylist/HollidayList'
 import TeamsMenu from 'features/teamsmenu/TeamsMenu'
 import ChangePassword from 'features/ChangePassword/changepassword.js'
+import HirePeople from 'features/HirePeople/HirePeople.js'
 export default function AppRoutes() {
   return (
     <Switch>
@@ -32,6 +33,8 @@ export default function AppRoutes() {
       <Redirect exact from='/' to='/hollidaylist' />
       <CustomRoute isPrivate={false} exact path='/teamsmenu' component={TeamsMenu} />
       <Redirect exact from='/' to='/teamsmenu' />
+      <CustomRoute isPrivate={false} exact path='/HirePeople' component={HirePeople} />
+      <Redirect exact from='/' to='/HirePeople' />
       <CustomRoute isPrivate={false} exact path='/forbidden' component={Forbidden} />
       <CustomRoute isPrivate={false} render={() => <NotFound title='PageNotFound'></NotFound>} />
     </Switch>
