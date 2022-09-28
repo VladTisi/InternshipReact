@@ -2,6 +2,7 @@ import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 import { useEffect, useState } from 'react'
 import { USER_DATA_QUERY } from './queries'
 const { useApolloClient } = require('@apollo/client')
+import { useQuery } from '@apollo/client'
 
 const useUserData = () => {
   const client = useApolloClient()
