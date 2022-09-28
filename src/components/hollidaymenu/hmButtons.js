@@ -38,5 +38,5 @@ export default function HMButtons(props) {
   )
 }
 HMButtons.propTypes = {
-  setSearchTerm: PropTypes.func.isRequired,
+  setSearchTerm: PropTypes.func.isRequired
 }
