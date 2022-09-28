@@ -5,7 +5,7 @@ function MyTextField(props) {
   try {
     return (
       <div className='textfield'>
-        <TextField defaultValue={props.whattodisplay} />
+        <TextField value={props.whattodisplay} />
       </div>
     )
   } catch (err) {
