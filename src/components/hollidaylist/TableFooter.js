@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import PagActions from 'components/hollidaymenu/PagActions'
 
 export default function TableFoot(props) {
-  const { concedii, refuzate, rowsPerPage, page, handleChangePage, handleChangeRowsPerPage } = props
+  const { concedii, rowsPerPage, page, handleChangePage, handleChangeRowsPerPage } = props
   return (
     <TableFooter>
       <TablePagination
@@ -22,7 +22,6 @@ export default function TableFoot(props) {
 }
 TableFoot.propTypes = {
   concedii: PropTypes.array.isRequired,
-  refuzate: PropTypes.array.isRequired,
   page: PropTypes.number.isRequired,
   rowsPerPage: PropTypes.number.isRequired,
   handleChangeRowsPerPage: PropTypes.func.isRequired,
