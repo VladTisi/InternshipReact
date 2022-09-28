@@ -1,0 +1,29 @@
+.ContainerHirePeople {
+  background-color: #f9f5f0;
+  font-family: 'Open Sans', sans-serif;
+  height: 600px;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.CardHP1 {
+  background-color: #f2ead3;
+  width: 50%;
+  border-radius: 50px 0px 0px 30px;
+  border: 0px;
+  border-bottom: 3px;
+  border-color: #f4991a;
+  border-style: groove;
+}
+
+.CardHP2 {
+  padding-top: 35px;
+  background-color: #f2ead3;
+  width: 50%;
+  border-radius: 0px 50px 30px 0px;
+  border: 0px;
+  border-bottom: 3px;
+  border-color: #f4991a;
+  border-style: groove;
+  align-items: center;
+}
