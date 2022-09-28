@@ -27,6 +27,8 @@
   },
   "EmployeeList": "Employee List",
   "Button":{
+    "Approve": "Approve",
+    "Refuse": "Refuse",
     "Refused":"Refused",
     "Approved":"Approved",
     "Pending" :"Pending"

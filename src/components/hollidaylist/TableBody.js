@@ -4,10 +4,12 @@ import PropTypes from 'prop-types'
 import Mapping from './Mapping'
 
 export default function TableB(props) {
-  const { concedii, page, rowsPerPage, emptyRows } = props
+  const { concedii, page, rowsPerPage, emptyRows, setRowId } = props
   return (
     <TableBody>
-      {(rowsPerPage > 0 ? concedii.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : concedii).map(row => Mapping(row))}
+      {(rowsPerPage > 0 ? concedii.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : concedii).map(row => (
+        <Mapping key={row.id} row={row} setRowId={setRowId}/>
+      ))}
       {emptyRows > 0 && (
         <TableRow style={{ height: 55.9 * emptyRows }}>
           <TableCell colSpan={6} />
@@ -20,5 +22,6 @@ TableB.propTypes = {
   concedii: PropTypes.array.isRequired,
   emptyRows: PropTypes.number.isRequired,
   page: PropTypes.number.isRequired,
-  rowsPerPage: PropTypes.number.isRequired
+  rowsPerPage: PropTypes.number.isRequired,
+  setRowId: PropTypes.func.isRequired
 }

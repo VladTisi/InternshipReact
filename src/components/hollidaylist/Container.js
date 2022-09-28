@@ -18,7 +18,7 @@ export default function HollidayL() {
   const [page, setPage] = React.useState(0)
   const [rowsPerPage, setRowsPerPage] = React.useState(5)
   const [state, setState] = useState(null)
-  const [rowId, setRowId] =useState(0)
+  const [rowId, setRowId] = useState(0)
 
   const { data, loading } = useQueryWithErrorHandling(GET_ALL, {
     variables: { concediiId: 13 },
@@ -26,7 +26,6 @@ export default function HollidayL() {
       setState(data.concedii)
     }
   })
-
   useEffect(() => {
     if (loading || !data) return setState(data?.concedii)
   }, [data, loading])
@@ -39,34 +38,17 @@ export default function HollidayL() {
     setRowsPerPage(parseInt(event.target.value, 10))
     setPage(0)
   }
-  const handleChange = (event) => {
-    setRowId(event.target.value);
-  };
-
-  const prop = {
-    setState,
-    setPage,
-    setRowId,
-    handleChange,
-    rowId,
-    concedii: data ? data.concedii : [],
-    emptyRows,
-    rowsPerPage,
-    page,
-    data,
-    handleChangeRowsPerPage,
-    handleChangePage
-  }
+  console.log(rowId)
   return (
     <CacheProvider value={cache}>
       <TableContainer>
         <Table className='tabela'>
           <TableHeader />
-          <TableB {...prop} />
-          <TableFoot {...prop} />
+          <TableB concedii={data ? data.concedii : []} page={page} rowsPerPage={rowsPerPage} emptyRows={emptyRows} setRowId={setRowId} />
+          <TableFoot concedii={data ? data.concedii : []} rowsPerPage={rowsPerPage} page={page} handleChangePage={handleChangePage} handleChangeRowsPerPage={handleChangeRowsPerPage} />
         </Table>
       </TableContainer>
-      <HLButtons {...prop} />
+      <HLButtons/>
     </CacheProvider>
   )
 }

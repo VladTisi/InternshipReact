@@ -8,7 +8,7 @@ import TableHeader from './TableHeader'
 import TableB from './TableBody'
 import HMButtons from './HMButtons'
 import { useTranslation } from 'react-i18next'
-import { GET_APROBATE } from './QuerriesHM'
+import { GET_ALL } from './QuerriesHM'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 
 const cache = createCache({
@@ -19,21 +19,21 @@ const cache = createCache({
 export default function HollidayM() {
   const [state, setState] = useState(null)
   const {t}=useTranslation()
-  const { data, loading } = useQueryWithErrorHandling(GET_APROBATE, {
-    variables: { aprobateId: 2 },
+  const { data, loading } = useQueryWithErrorHandling(GET_ALL, {
+    variables: { allId: 2 },
     onCompleted: data => {
-      setState(data.aprobate)
+      setState(data.all)
     }
   })
 
   useEffect(() => {
-    if (loading || !data) return setState(data?.aprobate)
+    if (loading || !data) return setState(data?.all)
   }, [data, loading])
   
   const [page, setPage] = React.useState(0)
   const [rowsPerPage, setRowsPerPage] = React.useState(5)
-
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data?.aprobate.length) : 0
+  const [searchTerm, setSearchTerm] = useState(1);
+  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data?.all.length) : 0
   const handleChangePage = (event, newPage) => {
     setPage(newPage)
   }
@@ -42,58 +42,16 @@ export default function HollidayM() {
     setRowsPerPage(parseInt(event.target.value, 10))
     setPage(0)
   }
-  const prop = {
-    setState,
-    setPage,
-    aprobate: data ? data.aprobate : [],
-    emptyRows,
-    rowsPerPage,
-    page,
-    data,
-    handleChangeRowsPerPage,
-    handleChangePage
-  }
   return (
     <CacheProvider value={cache}>
       <TableContainer>
         <Table className='tabela'>
           <TableHeader />
-          <TableB {...prop} />
-          <TableFoot {...prop} />
+          <TableB all={data ? data.all.filter(all=>all.stareConcediuId===(searchTerm)) : []} page={page} rowsPerPage={rowsPerPage} emptyRows={emptyRows} />
+          <TableFoot all={data ? data.all.filter(all=>all.stareConcediuId===(searchTerm)) : []} rowsPerPage={rowsPerPage} page={page} handleChangePage={handleChangePage} handleChangeRowsPerPage={handleChangeRowsPerPage} />
         </Table>
       </TableContainer>
-      <div className='buttons-container'>
-      <Button
-        className='buttons'
-        variant='contained'
-        onClick={() => {
-          setState(data?.aprobate.filter(aprobate => aprobate.stareConcediuId == 2))
-          setPage(0)
-        }}
-      >
-        {t('Button.Approved')}
-      </Button>
-      <Button
-        className='buttons'
-        variant='contained'
-        onClick={() => {
-          setState(data?.aprobate.filter(aprobate => aprobate.stareConcediuId == 3))
-          setPage(0)
-        }}
-      >
-        {t('Button.Refused')}
-      </Button>
-      <Button
-        className='buttons'
-        variant='contained'
-        onClick={() => {
-          setState(data?.aprobate.filter(aprobate => aprobate.stareConcediuId == 1))
-          setPage(0)
-        }}
-      >
-        {t('Button.Pending')}
-      </Button>
-    </div>
+      <HMButtons setSearchTerm={setSearchTerm}/>
     </CacheProvider>
   )
 }
