@@ -12,15 +12,15 @@ import { reducer, initialState } from './reducerHook.js'
 import ContainedButtons from 'components/CreareConcediu/btnSubmit.js'
 import CreateIcon from '@material-ui/icons/Create'
 import { useMutation } from '@apollo/client'
-import { INSERT_CERERE_CONCEDIU } from './QueriesCC.js'
+import { INSERT_CERERE_CONCEDIU, INLOCUITORI_QUERRY, TIPCONCEDIU_QUEERY } from './QueriesCC.js'
 import PropTypes from 'prop-types'
+import { useQueryWithErrorHandling } from 'hooks/errorHandling.js'
 
 var data = [
   { id: 0, name: 'Concediu Odihna' },
   { id: 1, name: 'Concediu Maternitate' },
   { id: 2, name: 'Concediu Paternitate' }
 ]
-var data2 = []
 
 function ComponentaCreareConcediu(props) {
   const [insertCerereConcediu] = useMutation(INSERT_CERERE_CONCEDIU)
@@ -42,6 +42,15 @@ function ComponentaCreareConcediu(props) {
       }
     })
   }
+
+  const { data: myData, loading: myLoading } = useQueryWithErrorHandling(INLOCUITORI_QUERRY, { variables: { inlocuitoriId: 13 } })
+  const { data: myData2, loading: myLoading2 } = useQueryWithErrorHandling(TIPCONCEDIU_QUEERY)
+  useEffect(() => {
+    if (myLoading || !myData) return
+  }, [myData])
+  useEffect(() => {
+    if (myLoading2 || !myData2) return
+  }, [myData2])
 
   return (
     <div className='container22'>
@@ -68,8 +77,8 @@ function ComponentaCreareConcediu(props) {
           <div className='tipConcediu'>
             <ComboBoxCC
               onChangeHandler={onChangeHandler}
-              data={data}
-              value={state.cmbTipConcediu}
+              data={myData2 ? myData2.tipConcediu : data}
+              value={state.tipConcediuId}
               propname='cmbTipConcediu'
               labelname='Tip Concediu'
             ></ComboBoxCC>
@@ -77,8 +86,8 @@ function ComponentaCreareConcediu(props) {
           <div className='Inlocuitor'>
             <ComboBoxCC
               onChangeHandler={onChangeHandler}
-              data={data2}
-              value={state.cmbTipConcediu}
+              data={myData ? myData.inlocuitori : data}
+              value={state.inlocuitoriId}
               propname='cmbInlocuitor'
               labelname='Inlocuitor'
             ></ComboBoxCC>

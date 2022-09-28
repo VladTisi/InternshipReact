@@ -5,31 +5,29 @@ export const initialState = {
   cmbTipConcediu: null,
   dataAngajarii: new Date(),
   nume: null,
-  prenume:null, 
+  prenume: null,
   idEchipa: 2,
   idFunctie: 2,
-  sex: "M",
+  sex: 'M',
   email: null,
   numarTelefon: null,
   salariu: null,
   overtime: null,
-  numeechipa: null
-
+  numeechipa: null,
+  inlocuitorId: null
 }
 
-
-export function  reducer(state, action) {
-  let newState;
-  const { propname,e} = action
+export function reducer(state, action) {
+  let newState
+  const { propname, e } = action
   switch (action.type) {
     case 'update':
       newState = { ...state, [action.propname]: action.e }
       break
     case 'fillData':
       newState = { ...state, [action.propname]: e }
-       break;
-      
-   
+      break
+
     default:
       throw new Error()
   }
