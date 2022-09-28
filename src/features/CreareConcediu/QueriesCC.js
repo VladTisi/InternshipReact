@@ -12,17 +12,8 @@ export const CONCEDII_QUERY = gql`
   }
 `
 
-const ConcediiDataProvider = () => {
-  const client = useApolloClient()
-  useQueryWithErrorHandling(CONCEDII_QUERY, {
-    onCompleted: data => {
-      client.writeQuery({
-        query: CONCEDII_QUERY,
-        data: { concediiData: data.userData }
-      })
-    }
-  })
-  return <></>
-}
-
-export default ConcediiDataProvider
+export const INSERT_CERERE_CONCEDIU = gql`
+  mutation insertCerereConcediu($input: CerereConcediu!) {
+    insertCerereConcediu(input: $input)
+  }
+`

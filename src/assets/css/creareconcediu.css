@@ -16,14 +16,11 @@
   display: flex;
 }
 .card111 {
-  
   align-items: 'center';
   text-align: 'center';
   width: 50%;
 }
 .card222 {
-  
-  
   align-items: 'center';
   text-align: 'center';
   width: 50%;
@@ -85,6 +82,7 @@
 }
 .Inlocuitor {
   margin-top: 25px;
+  margin-left: 8%;
 }
 
 .Comentarii {
@@ -98,4 +96,3 @@
 .TextBoxComentarii {
   margin-left: 20px;
 }
-

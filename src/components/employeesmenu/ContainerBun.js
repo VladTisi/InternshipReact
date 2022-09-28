@@ -33,7 +33,7 @@ export default function CustomPaginationActionsTable() {
     setPage(0)
   }
 
-  const prop = { setPage,rowsPerPage, setState, allemp: data ? data.allemp.filter(allemp => allemp.nume.toLowerCase().startsWith(searchTerm)) : [], page, searchTerm, handleChangePage, handleChangeRowsPerPage }
+  const prop = { setPage,rowsPerPage, setState, allemp: data ? data.allemp.filter(allemp => allemp.nume.toLowerCase().startsWith(searchTerm.toLowerCase())) : [], page, searchTerm, handleChangePage, handleChangeRowsPerPage }
   const searchProp = { setSearchTerm }
   return (
     <TableContainer style={{ paddingBottom: 20 }}>

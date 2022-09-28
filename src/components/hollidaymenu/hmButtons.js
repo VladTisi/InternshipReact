@@ -4,15 +4,14 @@ import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 export default function HMButtons(props) {
   const { t } = useTranslation()
-  const { setState, setPage, aprobate } = props
+  const { setSearchTerm } = props
   return (
     <div className='buttons-container'>
       <Button
         className='buttons'
         variant='contained'
         onClick={() => {
-          setState(aprobate.filter(aprobate => aprobate.stareConcediuId == 2))
-          setPage(0)
+          setSearchTerm(2)
         }}
       >
         {t('Button.Approved')}
@@ -21,8 +20,7 @@ export default function HMButtons(props) {
         className='buttons'
         variant='contained'
         onClick={() => {
-          setState(aprobate.filter(aprobate => aprobate.stareConcediuId == 3))
-          setPage(0)
+          setSearchTerm(3)
         }}
       >
         {t('Button.Refused')}
@@ -31,8 +29,7 @@ export default function HMButtons(props) {
         className='buttons'
         variant='contained'
         onClick={() => {
-          setState(aprobate.filter(aprobate => aprobate.stareConcediuId == 1))
-          setPage(0)
+          setSearchTerm(1)
         }}
       >
         {t('Button.Pending')}
@@ -41,7 +38,5 @@ export default function HMButtons(props) {
   )
 }
 HMButtons.propTypes = {
-  aprobate: PropTypes.array.isRequired,
-  setState: PropTypes.func.isRequired,
-  setPage: PropTypes.func.isRequired
+  setSearchTerm: PropTypes.func.isRequired
 }

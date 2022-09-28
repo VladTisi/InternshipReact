@@ -19,6 +19,8 @@
   },
   "EmployeeList": "Lista Angajati",
   "Button":{
+    "Approve": "Aproba",
+    "Refuse": "Refuza",
     "Refused":"Refuzate",
     "Approved":"Aprobate",
     "Pending" :"In Asteptare"
