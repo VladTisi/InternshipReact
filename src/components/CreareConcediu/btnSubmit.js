@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
-import SaveIcon from '@material-ui/icons/Save';
+import SaveIcon from '@material-ui/icons/Save'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -11,13 +11,18 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ContainedButtons() {
+export default function ContainedButtons(props) {
   const classes = useStyles()
-
-  return (
-    <div className='modificareSave'>
-      <Button>Trimite <SaveIcon/> </Button> 
-      
-    </div>
-  )
+  const { func } = props
+  try {
+    return (
+      <div className='modificareSave'>
+        <Button onClick={func}>
+          Trimite <SaveIcon />{' '}
+        </Button>
+      </div>
+    )
+  } catch (err) {
+    console.log(err)
+  }
 }
