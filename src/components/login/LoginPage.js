@@ -40,7 +40,7 @@ const LoginPage = props => {
       return
     }
     setError(false)
-    setToken('token')
+    setToken(localState.userName)
   }
 
   return (
