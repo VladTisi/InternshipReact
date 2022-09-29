@@ -27,8 +27,6 @@ export default function MyProfileContainers() {
   const { data, loading } = useQueryWithErrorHandling(LOAD_DATA, { variables: { userId: 13 } })
   const { data: myData, loading: myLoading } = useQueryWithErrorHandling(ECHIPE)
 
-  // const { data, loading } = useQueryWithErrorHandling(GET_GOT, { variables: { id: null }, onCompleted: data => setState(data.team) })
-
   const { data: myDataEmail, loading: myLoadingEmail } = useQueryWithErrorHandling(EMAIL, { variables: { emailId: 13 } })
   const { data: myDataFunctii, loading: myLoadingFunctii } = useQueryWithErrorHandling(FUNCTII)
 
@@ -93,6 +91,7 @@ export default function MyProfileContainers() {
               <ComboBoxEchipa
                 onChangeHandler={onChangeHandler}
                 data={myData ? myData.Echipe : dataEc}
+                //defaultValue={myData ? myData[state.idEchipa] : state.idEchipa}
                 value={state.idEchipa}
                 propname='cmbEchipa'
               ></ComboBoxEchipa>{' '}

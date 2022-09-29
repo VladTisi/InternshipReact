@@ -4,10 +4,12 @@ export const initialState = {
   cmbInlocuitor: null,
   cmbTipConcediu: null,
   dataAngajarii: new Date(),
+  NumeEchipa: '',
+  NumeFunctie: '',
   nume: null,
   prenume: null,
-  idEchipa: 2,
-  idFunctie: 2,
+  idEchipa: null,
+  idFunctie: null,
   sex: 'M',
   email: null,
   numarTelefon: null,
@@ -19,7 +21,11 @@ export const initialState = {
   dataAngajariiRec: new Date(),
   dataNasteriiRec: new Date(),
   sexRec: null,
-  inlocuitorId: null
+  inlocuitorId: null,
+  ZileRamaseOdihna: null,
+  ZileRamaseNeplatite: null,
+  ZileRamaseMedical: null,
+  ZileRamaseDeces: null
 }
 
 export function reducer(state, action) {
