@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 
 function ComboBoxEchipa(props) {
-  const { onChangeHandler, data, value, propname, labelname } = props
+  const { defaultValue, inputValue, onChangeHandler, data, value, propname, labelname } = props
 
   try {
     return (
@@ -11,6 +11,7 @@ function ComboBoxEchipa(props) {
         options={data}
         style={{ width: 300 }}
         getOptionLabel={option => option.nume}
+        defaultValue={defaultValue}
         onChange={(event, value) => onChangeHandler(value.id, propname)}
         //onChange={handleChange}
         renderInput={params => <TextField {...params} label={labelname} />}
