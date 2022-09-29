@@ -14,7 +14,11 @@ export const initialState = {
   salariu: null,
   overtime: null,
   numeechipa: null,
-  inlocuitorId: null
+  inlocuitorId: null,
+  ZileRamaseOdihna: null,
+  ZileRamaseNeplatite: null,
+  ZileRamaseMedical: null,
+  ZileRamaseDeces: null
 }
 
 export function reducer(state, action) {

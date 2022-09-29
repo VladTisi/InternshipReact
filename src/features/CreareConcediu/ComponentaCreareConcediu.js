@@ -12,9 +12,19 @@ import { reducer, initialState } from './reducerHook.js'
 import ContainedButtons from 'components/CreareConcediu/btnSubmit.js'
 import CreateIcon from '@material-ui/icons/Create'
 import { useMutation } from '@apollo/client'
-import { INSERT_CERERE_CONCEDIU, INLOCUITORI_QUERRY, TIPCONCEDIU_QUEERY } from './QueriesCC.js'
+import {
+  INSERT_CERERE_CONCEDIU,
+  INLOCUITORI_QUERRY,
+  TIPCONCEDIU_QUEERY,
+  ZileRamaseNeplatite,
+  ZileRamaseMedical,
+  ZileRamaseDeces,
+  ZileRamaseOdihna
+} from './QueriesCC.js'
 import PropTypes from 'prop-types'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling.js'
+import MyTextField from '../../components/homepagedata/MyTextField.js'
+import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 
 var data = [
   { id: 0, name: 'Concediu Odihna' },
@@ -26,8 +36,17 @@ function ComponentaCreareConcediu(props) {
   const [insertCerereConcediu] = useMutation(INSERT_CERERE_CONCEDIU)
 
   const { state, onChangeHandler } = props
+  const addToast = useToast()
 
   const insertHandler = async () => {
+    if (!state.cmbInlocuitor) {
+      addToast('Inlocuitor gol', 'error')
+      return
+    }
+    if (!state.cmbTipConcediu) {
+      addToast('Tip concediu nedifinit', 'error')
+      return
+    }
     const { data } = await insertCerereConcediu({
       variables: {
         input: {
@@ -35,15 +54,32 @@ function ComponentaCreareConcediu(props) {
           data_inceput: state.dataInceperii,
           data_sfarsit: state.dataSfarsitului,
           stareConcediuId: 1,
-          comentarii: 'Momentan nu2',
+          comentarii: 'Nu sunt comentarii',
           angajatId: 7,
           inlocuitorId: state.cmbInlocuitor
         }
       }
     })
+    if (data) addToast('Concediul a fost inserat', 'success')
   }
 
   const { data: myData, loading: myLoading } = useQueryWithErrorHandling(INLOCUITORI_QUERRY, { variables: { inlocuitoriId: 13 } })
+
+  const { data: ZileRamaseOdihnaQ, loading: ZileRamaseOdihnaLoading } = useQueryWithErrorHandling(ZileRamaseOdihna, {
+    variables: { angajatId: 13 }
+  })
+
+  const { data: ZileRamaseDecesQ, loading: ZileRamaseDecesLoading } = useQueryWithErrorHandling(ZileRamaseDeces, {
+    variables: { angajatId: 13 }
+  })
+
+  const { data: ZileRamaseMedicalQ, loading: ZileRamaseMedicalLoading } = useQueryWithErrorHandling(ZileRamaseMedical, {
+    variables: { angajatId: 13 }
+  })
+
+  const { data: ZileRamaseNeplatiteQ, loading: ZileRamaseNeplatiteLoading } = useQueryWithErrorHandling(ZileRamaseNeplatite, {
+    variables: { angajatId: 13 }
+  })
   const { data: myData2, loading: myLoading2 } = useQueryWithErrorHandling(TIPCONCEDIU_QUEERY)
   useEffect(() => {
     if (myLoading || !myData) return
@@ -51,6 +87,22 @@ function ComponentaCreareConcediu(props) {
   useEffect(() => {
     if (myLoading2 || !myData2) return
   }, [myData2])
+  useEffect(() => {
+    if (ZileRamaseOdihnaLoading || !ZileRamaseOdihnaQ) return
+    onChangeHandler(ZileRamaseOdihnaQ.ZileRamaseOdihna, 'ZileRamaseOdihna')
+  }, [ZileRamaseOdihnaQ])
+  useEffect(() => {
+    if (ZileRamaseDecesLoading || !ZileRamaseDecesQ) return
+    onChangeHandler(ZileRamaseDecesQ.ZileRamaseDeces, 'ZileRamaseDeces')
+  }, [ZileRamaseOdihnaQ])
+  useEffect(() => {
+    if (ZileRamaseMedicalLoading || !ZileRamaseMedicalQ) return
+    onChangeHandler(ZileRamaseMedicalQ.ZileRamaseMedical, 'ZileRamaseMedical')
+  }, [ZileRamaseMedicalQ])
+  useEffect(() => {
+    if (ZileRamaseNeplatiteLoading || !ZileRamaseNeplatiteQ) return
+    onChangeHandler(ZileRamaseNeplatiteQ.ZileRamaseNeplatite, 'ZileRamaseNeplatite')
+  }, [ZileRamaseOdihnaQ])
 
   return (
     <div className='container22'>
@@ -92,26 +144,19 @@ function ComponentaCreareConcediu(props) {
               labelname='Inlocuitor'
             ></ComboBoxCC>
           </div>
-
-          <div className='Comentarii'>
-            <div className='TextComentarii'>Comentarii:</div>
-            <div className='TextBoxComentarii'>
-              <TextField></TextField>
-            </div>
-          </div>
         </div>
         <div className='card222'>
           <div className='ZileRamase'>
-            <div className='ZileRamaseText'>Zile ramase: </div>
+            <div className='ZileRamaseText'>Zile ramase </div>
 
-            <div className='ZileRamaseOdihna'>Odihna: </div>
+            <div className='ZileRamaseOdihna'>Odihna : {state.ZileRamaseOdihna}</div>
 
-            <div className='ZileRamaseDeces'>Deces: </div>
+            <div className='ZileRamaseDeces'>Deces : {state.ZileRamaseDeces}</div>
 
-            <div className='ZileRamaseMedical'>Medical: </div>
+            <div className='ZileRamaseMedical'>Medical : {state.ZileRamaseMedical}</div>
 
-            <div className='ZileRamaseNeplatite'>Neplatite: </div>
-            <ContainedButtons func={insertHandler}></ContainedButtons>
+            <div className='ZileRamaseNeplatite'>Neplatite : {state.ZileRamaseNeplatite}</div>
+            <ContainedButtons insertHandler={insertHandler}></ContainedButtons>
           </div>
         </div>
       </div>
