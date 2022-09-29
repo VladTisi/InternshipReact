@@ -14,6 +14,11 @@ export const initialState = {
   salariu: null,
   overtime: null,
   numeechipa: null,
+  idFunctieRec: 1,
+  idEchipaRec: 1,
+  dataAngajariiRec: new Date(),
+  dataNasteriiRec: new Date(),
+  sexRec: null,
   inlocuitorId: null
 }
 

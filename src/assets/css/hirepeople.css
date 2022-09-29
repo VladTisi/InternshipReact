@@ -1,12 +1,12 @@
 .ContainerHirePeople {
   background-color: #f9f5f0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif !important;
   height: 600px;
+  width: 950px;
   border-radius: 20px;
-  padding: 20px;
 }
 
-.CardHP1 {
+/* .CardHP1 {
   background-color: #f2ead3;
   width: 50%;
   border-radius: 50px 0px 0px 30px;
@@ -26,4 +26,23 @@
   border-color: #f4991a;
   border-style: groove;
   align-items: center;
+} */
+
+.CardHP1 {
+  padding-top: 30px;
+  padding-left: 15px;
+}
+.Nume {
+}
+
+.titleHP {
+  text-align: center;
+  background-color: white;
+  border-radius: 20px;
+  height: 75px !important;
+}
+
+.titletextHP {
+  padding-top: 25px;
+  font-size: 25px;
 }
