@@ -8,14 +8,14 @@ import MyTextFieldNume from 'components/homepagedata/MyTextFieldNume.js'
 import DatePick from 'components/CreareConcediu/DateTimePicker.js'
 import { reducer, initialState } from '../../features/CreareConcediu/reducerHook.js'
 import { ApolloProvider } from '@apollo/client'
-import { LOAD_DATA, ECHIPE, EMAIL } from './QueriesData.js'
+import { LOAD_DATA, ECHIPE, EMAIL, FUNCTII } from './QueriesData.js'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling.js'
 import ComboBoxEchipa from './ComboEchipa.js'
 
 var dataEc = [
-  { id: 1, name: 'GameOfThrones' },
-  { id: 2, name: 'PrisonBreak' },
-  { id: 3, name: 'BreakingBad' }
+  { id: 1, name: 'Ggcfgcfgfnes' },
+  { id: 2, name: 'gcfgcfgcf' },
+  { id: 3, name: 'gcfgcfg' }
 ]
 
 export default function MyProfileContainers() {
@@ -26,7 +26,11 @@ export default function MyProfileContainers() {
   const [state, dispatch] = useReducer(reducer, initialState)
   const { data, loading } = useQueryWithErrorHandling(LOAD_DATA, { variables: { userId: 13 } })
   const { data: myData, loading: myLoading } = useQueryWithErrorHandling(ECHIPE)
+
+  // const { data, loading } = useQueryWithErrorHandling(GET_GOT, { variables: { id: null }, onCompleted: data => setState(data.team) })
+
   const { data: myDataEmail, loading: myLoadingEmail } = useQueryWithErrorHandling(EMAIL, { variables: { emailId: 13 } })
+  const { data: myDataFunctii, loading: myLoadingFunctii } = useQueryWithErrorHandling(FUNCTII)
 
   useEffect(() => {
     if (loading || !data) return
@@ -40,20 +44,19 @@ export default function MyProfileContainers() {
     dispatch({ type: 'fillData', propname: 'numarTelefon', e: data.user[0].numarTelefon })
     dispatch({ type: 'fillData', propname: 'idEchipa', e: data.user[0].idEchipa })
     dispatch({ type: 'fillData', propname: 'idFunctie', e: data.user[0].idFunctie })
-    //dispatch({ type: 'fillData', propname:'email',e:data.user[0].email.email})
   }, [data])
 
   useEffect(() => {
     if (myLoading || !myData) return
-
-    // dispatch({type: 'fillData',propname: 'numeechipa', e:data2.ech})
   }, [myData])
 
   useEffect(() => {
     if (myLoadingEmail || !myDataEmail) return
-    console.log(myDataEmail)
-    // dispatch({type: 'fillData',propname: 'numeechipa', e:data2.ech})
   }, [myDataEmail])
+
+  useEffect(() => {
+    if (myLoadingFunctii || !myDataFunctii) return
+  }, [myDataFunctii])
 
   return (
     <div className='container1'>
@@ -95,7 +98,15 @@ export default function MyProfileContainers() {
               ></ComboBoxEchipa>{' '}
             </div>
 
-            <div className='nume'>Functie: </div>
+            <div className='nume'>
+              Functii:
+              <ComboBoxEchipa
+                onChangeHandler={onChangeHandler}
+                data={myDataFunctii ? myDataFunctii.Functii : dataEc}
+                value={state.idFunctie}
+                propname='cmbFunctie'
+              ></ComboBoxEchipa>{' '}
+            </div>
             <div className='nume'>
               Sex: <MyTextField whattodisplay={state.sex}> </MyTextField>{' '}
             </div>
@@ -104,7 +115,7 @@ export default function MyProfileContainers() {
 
         <div className='card2'>
           <div className='nume'>
-            Email: <MyTextField whattodisplay={myDataEmail?.email}> </MyTextField>{' '}
+            Email: <MyTextField whattodisplay={myDataEmail?.email.email}> </MyTextField>{' '}
           </div>
           <div className='nume'>
             Numar telefon: <MyTextField whattodisplay={state.numarTelefon}> </MyTextField>{' '}
