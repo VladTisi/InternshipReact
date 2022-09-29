@@ -47,6 +47,11 @@ function ComponentaCreareConcediu(props) {
       addToast('Tip concediu nedifinit', 'error')
       return
     }
+
+    if (state.dataSfarsitului < state.dataInceperii) {
+      addToast('Data sfarsitului nu poate fi mai mica decat data inceputului', 'error')
+      return
+    }
     const { data } = await insertCerereConcediu({
       variables: {
         input: {
@@ -94,7 +99,7 @@ function ComponentaCreareConcediu(props) {
   useEffect(() => {
     if (ZileRamaseDecesLoading || !ZileRamaseDecesQ) return
     onChangeHandler(ZileRamaseDecesQ.ZileRamaseDeces, 'ZileRamaseDeces')
-  }, [ZileRamaseOdihnaQ])
+  }, [ZileRamaseDecesQ])
   useEffect(() => {
     if (ZileRamaseMedicalLoading || !ZileRamaseMedicalQ) return
     onChangeHandler(ZileRamaseMedicalQ.ZileRamaseMedical, 'ZileRamaseMedical')
