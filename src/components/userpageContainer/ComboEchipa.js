@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 
 function ComboBoxEchipa(props) {
-  const { defaultValue, inputValue, onChangeHandler, data, value, propname, labelname } = props
+  const { defaultValue, inputValue, onChangeHandler, data, value, propname, labelname, editableField } = props
 
   try {
     const dateechipa = useMemo(() => {
@@ -12,8 +12,9 @@ function ComboBoxEchipa(props) {
 
     return (
       <Autocomplete
+        disabled={!editableField}
         options={data}
-        value={dateechipa}
+        value={dateechipa || ''}
         style={{ width: 300 }}
         getOptionLabel={option => option.nume}
         onChange={(event, value) => onChangeHandler(value.id, propname)}

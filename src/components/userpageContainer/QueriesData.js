@@ -14,6 +14,7 @@ export const LOAD_DATA = gql`
       salariu
       overtime
       dataAngajarii
+      poza
     }
   }
 `
