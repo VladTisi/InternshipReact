@@ -5,7 +5,9 @@ import PropTypes from 'prop-types'
 import { PUT_APROBA, PUT_REFUZA } from './QuerriesHL'
 import { useMutation } from '@apollo/client'
 
-
+function refreshPage() {
+  window.location.reload(false);
+}
 export default function HMButtons(props) {
   const { t } = useTranslation()
   const { rowId, setRowId } = props
@@ -20,6 +22,7 @@ export default function HMButtons(props) {
           onClick={() => {
             setRowId(0)
             aproba({variables: {aprobaconcediuId: rowId }})
+            refreshPage()
           }}
         >
           {t('Button.Approve')}
@@ -30,6 +33,7 @@ export default function HMButtons(props) {
           onClick={() => {
             setRowId(0)
             refuza({variables: {aprobaconcediuId: rowId }})
+            refreshPage()
           }}
         >
           {t('Button.Refuse')}

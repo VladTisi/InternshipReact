@@ -9,19 +9,23 @@ import TableFoot from './TableFooter'
 import TableHeader from './TableHeader'
 import TableB from './TableBody'
 import HLButtons from './hlButtons'
+import useUserData from 'components/login/useUserData'
 
 const cache = createCache({
   key: 'css',
   prepend: true
 })
 export default function HollidayL() {
+  const userData= useUserData()
+  console.log(userData)
   const [page, setPage] = React.useState(0)
   const [rowsPerPage, setRowsPerPage] = React.useState(5)
   const [state, setState] = useState(null)
   const [rowId, setRowId] = useState(0)
 
   const { data, loading } = useQueryWithErrorHandling(GET_ALL, {
-    variables: { concediiId: 13 },
+    variables: { concediiId: userData.id },
+    skip: !userData.id,
     onCompleted: data => {
       setState(data.concedii)
     }

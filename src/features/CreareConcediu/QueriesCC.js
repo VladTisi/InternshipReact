@@ -33,3 +33,24 @@ export const TIPCONCEDIU_QUEERY = gql`
     }
   }
 `
+
+export const ZileRamaseNeplatite = gql`
+  query Query($angajatId: Int) {
+    ZileRamaseNeplatite(AngajatId: $angajatId)
+  }
+`
+export const ZileRamaseMedical = gql`
+  query Query($angajatId: Int) {
+    ZileRamaseMedical(AngajatId: $angajatId)
+  }
+`
+export const ZileRamaseDeces = gql`
+  query Query($angajatId: Int) {
+    ZileRamaseDeces(AngajatId: $angajatId)
+  }
+`
+export const ZileRamaseOdihna = gql`
+  query Query($angajatId: Int) {
+    ZileRamaseOdihna(AngajatId: $angajatId)
+  }
+`

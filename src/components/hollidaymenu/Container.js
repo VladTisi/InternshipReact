@@ -10,6 +10,7 @@ import HMButtons from './HMButtons'
 import { useTranslation } from 'react-i18next'
 import { GET_ALL } from './QuerriesHM'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
+import useUserData from 'components/login/useUserData'
 
 const cache = createCache({
   key: 'css',
@@ -17,10 +18,12 @@ const cache = createCache({
 })
 
 export default function HollidayM() {
+  const userData=useUserData()
   const [state, setState] = useState(null)
   const {t}=useTranslation()
   const { data, loading } = useQueryWithErrorHandling(GET_ALL, {
-    variables: { allId: 2 },
+    variables: { allId: userData.id },
+    skip: !userData.id,
     onCompleted: data => {
       setState(data.all)
     }

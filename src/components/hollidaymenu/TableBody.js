@@ -10,8 +10,8 @@ export default function TableB(props) {
       {(rowsPerPage > 0 ? all.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : all).map(row => 
         <Mapping key={row.idAngajatFromAngajat} row={row} />)}
       {emptyRows > 0 && (
-        <TableRow style={{ height: 55.9 * emptyRows }}>
-          <TableCell colSpan={6} />
+        <TableRow className="table-body"  style={{ height: 55.9 * emptyRows }}>
+          <TableCell  className="table-body"  colSpan={6} />
         </TableRow>
       )}
     </TableBody>

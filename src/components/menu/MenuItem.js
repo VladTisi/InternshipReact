@@ -8,7 +8,9 @@ import menuStyle from 'assets/jss/components/menuStyle'
 import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles(menuStyle)
-
+function refreshPage() {
+  window.location.reload(false)
+}
 const MenuItem = ({ menu, drawerOpen, activeRoute, isSubMenuItem, subMenuOpen, onToggleSubMenu, withGradient }) => {
   const { children, path, icon, text } = menu
   const isSubMenu = Boolean(children)
@@ -38,17 +40,21 @@ const MenuItem = ({ menu, drawerOpen, activeRoute, isSubMenuItem, subMenuOpen, o
   const Item = isSubMenu ? ListItem : NavLink
   const itemProps = isSubMenu ? { onClick: onToggleSubMenu, button: true } : { to: path }
 
+  const buttonAction = text => {
+    if (text.currentTarget.innerText === t('NavBar.Delogare')) {
+      localStorage.removeItem('token')
+      refreshPage()
+    }
+  }
+
   return (
     <Tooltip disableHoverListener={!drawerOpen} title={translatedText}>
-      <ListItem className={classes.menuItem}>
+      <ListItem className={classes.menuItem} onClick={buttonAction}>
         <Item {...itemProps} className={navLinkClasses}>
           <ListItemIcon className={menuItemIconClasses}>{icon}</ListItemIcon>
           <ListItemText
             primary={translatedText}
-            secondary={
-              isSubMenu &&
-              (subMenuOpen ? <ArrowDropUp className={classes.caret} /> : <ArrowDropDown className={classes.caret} />)
-            }
+            secondary={isSubMenu && (subMenuOpen ? <ArrowDropUp className={classes.caret} /> : <ArrowDropDown className={classes.caret} />)}
             disableTypography={true}
             className={itemTextClasses}
           />

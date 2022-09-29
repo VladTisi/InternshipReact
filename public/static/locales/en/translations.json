@@ -12,12 +12,12 @@
   "DECIMAL2": "{{number,intlDecimal2}}",
   "MyProfile": "My Profile",
   "Forbidden": "Not allowed to see this page!",
-  "HollidayMenu":{
+  "HollidayMenu": {
     "Inceput": "Starting Date",
     "Sfarsit": "Ending Date",
     "Status": "Status"
   },
-  "HollidayList":{
+  "HollidayList": {
     "Inceput": "Starting Date",
     "Sfarsit": "Ending Date",
     "Status": "Status",
@@ -26,16 +26,16 @@
     "Role": "Role"
   },
   "EmployeeList": "Employee List",
-  "Button":{
+  "Button": {
     "Approve": "Approve",
     "Refuse": "Refuse",
-    "Refused":"Refused",
-    "Approved":"Approved",
-    "Pending" :"Pending"
+    "Refused": "Refused",
+    "Approved": "Approved",
+    "Pending": "Pending"
   },
-  "PersonalHollidays":"Personal Hollidays",
-  "EveryonesHollidays":"Holliday Management",
-  "EmployeesMenu":{
+  "PersonalHollidays": "Personal Hollidays",
+  "EveryonesHollidays": "Holliday Management",
+  "EmployeesMenu": {
     "Picture": "Picture",
     "Nume": "Last name",
     "Prenume": "First name",
@@ -50,7 +50,8 @@
     "EmployeesMenu": "Employees",
     "Settings": "Settings",
     "Privacy": "Privacy",
-    "Security": "Security"
+    "Security": "Security",
+    "Delogare": "Logout"
   },
   "Tooltips": {
     "Logout": "Logout",
@@ -87,18 +88,18 @@
       "Unique": "The value of {{selector}} must be unique"
     }
   },
-  "MyProfile" : {
+  "MyProfile": {
     "PersonalData": "PersonalData",
-    "Nume" : "Last name",
-    "Prenume" : "First name",
-    "Functie" : "Function",
-    "Echipa" : "Team",
-    "Email" : "Email",
-    "NumarTelefon" : "Telephone number",
-    "Salariu" : "Salary",
-    
-    "DataAngajare" : "Hiring date",
-    "ModificareDate" : "Edit data",
-    "SalvareDate" : "Save data"
+    "Nume": "Last name",
+    "Prenume": "First name",
+    "Functie": "Function",
+    "Echipa": "Team",
+    "Email": "Email",
+    "NumarTelefon": "Telephone number",
+    "Salariu": "Salary",
+
+    "DataAngajare": "Hiring date",
+    "ModificareDate": "Edit data",
+    "SalvareDate": "Save data"
   }
 }

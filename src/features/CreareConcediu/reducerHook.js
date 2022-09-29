@@ -21,7 +21,11 @@ export const initialState = {
   dataAngajariiRec: new Date(),
   dataNasteriiRec: new Date(),
   sexRec: null,
-  inlocuitorId: null
+  inlocuitorId: null,
+  ZileRamaseOdihna: null,
+  ZileRamaseNeplatite: null,
+  ZileRamaseMedical: null,
+  ZileRamaseDeces: null
 }
 
 export function reducer(state, action) {
