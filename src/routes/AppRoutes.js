@@ -15,7 +15,9 @@ import TeamsMenu from 'features/teamsmenu/TeamsMenu'
 import ChangePassword from 'features/ChangePassword/changepassword.js'
 import HirePeople from 'features/HirePeople/HirePeople.js'
 import LoginPage from 'components/login/LoginPage'
+import useUserData from 'components/login/useUserData'
 export default function AppRoutes() {
+  const userData=useUserData()
   return (
     <Switch>
       <CustomRoute isPrivate={false} exact path='/dashboard' component={Dashboard} />
@@ -30,11 +32,11 @@ export default function AppRoutes() {
       <Redirect exact from='/' to='/userPage' />
       <CustomRoute isPrivate={false} exact path='/changePassword' component={ChangePassword} />
       <Redirect exact from='/' to='/changePassword' />
-      <CustomRoute isPrivate={false} exact path='/hollidaylist' component={HollidayList} />
+      <CustomRoute isPrivate={userData.esteAdmin ? false : userData.idFunctie==3 ? false : true} exact path='/hollidaylist' component={HollidayList} />
       <Redirect exact from='/' to='/hollidaylist' />
       <CustomRoute isPrivate={false} exact path='/teamsmenu' component={TeamsMenu} />
       <Redirect exact from='/' to='/teamsmenu' />
-      <CustomRoute isPrivate={false} exact path='/HirePeople' component={HirePeople} />
+      <CustomRoute isPrivate={userData.esteAdmin ? false : userData.idFunctie==3 ? false : true} exact path='/HirePeople' component={HirePeople} />
       <Redirect exact from='/' to='/HirePeople' />
       {/* <CustomRoute isPrivate={false} exact path='/MenuItems' component={UserPage} /> */}
       <CustomRoute isPrivate={false} exact path='/forbidden' component={Forbidden} />

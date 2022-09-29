@@ -25,6 +25,7 @@ import PropTypes from 'prop-types'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling.js'
 import MyTextField from '../../components/homepagedata/MyTextField.js'
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
+import useUserData from 'components/login/useUserData.js'
 
 var data = [
   { id: 0, name: 'Concediu Odihna' },
@@ -33,6 +34,7 @@ var data = [
 ]
 
 function ComponentaCreareConcediu(props) {
+  const userData=useUserData()
   const [insertCerereConcediu] = useMutation(INSERT_CERERE_CONCEDIU)
 
   const { state, onChangeHandler } = props
@@ -60,7 +62,7 @@ function ComponentaCreareConcediu(props) {
           data_sfarsit: state.dataSfarsitului,
           stareConcediuId: 1,
           comentarii: 'Nu sunt comentarii',
-          angajatId: 7,
+          angajatId: userData.id,
           inlocuitorId: state.cmbInlocuitor
         }
       }
@@ -68,22 +70,22 @@ function ComponentaCreareConcediu(props) {
     if (data) addToast('Concediul a fost inserat', 'success')
   }
 
-  const { data: myData, loading: myLoading } = useQueryWithErrorHandling(INLOCUITORI_QUERRY, { variables: { inlocuitoriId: 13 } })
+  const { data: myData, loading: myLoading } = useQueryWithErrorHandling(INLOCUITORI_QUERRY, { variables: { inlocuitoriId: userData.id } })
 
   const { data: ZileRamaseOdihnaQ, loading: ZileRamaseOdihnaLoading } = useQueryWithErrorHandling(ZileRamaseOdihna, {
-    variables: { angajatId: 13 }
+    variables: { angajatId: userData.id }
   })
 
   const { data: ZileRamaseDecesQ, loading: ZileRamaseDecesLoading } = useQueryWithErrorHandling(ZileRamaseDeces, {
-    variables: { angajatId: 13 }
+    variables: { angajatId: userData.id }
   })
 
   const { data: ZileRamaseMedicalQ, loading: ZileRamaseMedicalLoading } = useQueryWithErrorHandling(ZileRamaseMedical, {
-    variables: { angajatId: 13 }
+    variables: { angajatId: userData.id }
   })
 
   const { data: ZileRamaseNeplatiteQ, loading: ZileRamaseNeplatiteLoading } = useQueryWithErrorHandling(ZileRamaseNeplatite, {
-    variables: { angajatId: 13 }
+    variables: { angajatId: userData.id }
   })
   const { data: myData2, loading: myLoading2 } = useQueryWithErrorHandling(TIPCONCEDIU_QUEERY)
   useEffect(() => {
@@ -107,7 +109,7 @@ function ComponentaCreareConcediu(props) {
   useEffect(() => {
     if (ZileRamaseNeplatiteLoading || !ZileRamaseNeplatiteQ) return
     onChangeHandler(ZileRamaseNeplatiteQ.ZileRamaseNeplatite, 'ZileRamaseNeplatite')
-  }, [ZileRamaseOdihnaQ])
+  }, [ZileRamaseNeplatiteQ])
 
   return (
     <div className='container22'>

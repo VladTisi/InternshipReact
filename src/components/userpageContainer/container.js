@@ -11,6 +11,7 @@ import { ApolloProvider, useMutation } from '@apollo/client'
 import { LOAD_DATA, ECHIPE, EMAIL, FUNCTII, UPDATE_PERSON } from './QueriesData.js'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling.js'
 import ComboBoxEchipa from './ComboEchipa.js'
+import useUserData from 'components/login/useUserData.js'
 
 var dataEc = [
   { id: 1, name: 'Ggcfgcfgfnes' },
@@ -19,16 +20,17 @@ var dataEc = [
 ]
 
 export default function MyProfileContainers() {
+  const userData = useUserData()
   function onChangeHandler(e, propname) {
     dispatch({ type: 'update', e: e, propname: propname })
   }
 
   const [updatePerson] = useMutation(UPDATE_PERSON)
   const [state, dispatch] = useReducer(reducer, initialState)
-  const { data, loading } = useQueryWithErrorHandling(LOAD_DATA, { variables: { userId: 13 } })
+  const { data, loading } = useQueryWithErrorHandling(LOAD_DATA, { variables: { userId: userData.id } })
   const { data: myData, loading: myLoading } = useQueryWithErrorHandling(ECHIPE)
 
-  const { data: myDataEmail, loading: myLoadingEmail } = useQueryWithErrorHandling(EMAIL, { variables: { emailId: 13 } })
+  const { data: myDataEmail, loading: myLoadingEmail } = useQueryWithErrorHandling(EMAIL, { variables: { emailId: userData.id } })
   const { data: myDataFunctii, loading: myLoadingFunctii } = useQueryWithErrorHandling(FUNCTII)
 
   useEffect(() => {
