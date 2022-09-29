@@ -11,6 +11,7 @@ import { ApolloProvider } from '@apollo/client'
 import { LOAD_DATA, ECHIPE, EMAIL, FUNCTII } from './QueriesData.js'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling.js'
 import ComboBoxEchipa from './ComboEchipa.js'
+import useUserData from 'components/login/useUserData.js'
 
 var dataEc = [
   { id: 1, name: 'Ggcfgcfgfnes' },
@@ -19,6 +20,7 @@ var dataEc = [
 ]
 
 export default function MyProfileContainers() {
+  const userData= useUserData()
   function onChangeHandler(e, propname) {
     dispatch({ type: 'update', e: e, propname: propname })
   }
@@ -91,8 +93,8 @@ export default function MyProfileContainers() {
               <ComboBoxEchipa
                 onChangeHandler={onChangeHandler}
                 data={myData ? myData.Echipe : dataEc}
-                //defaultValue={myData ? myData[state.idEchipa] : state.idEchipa}
-                value={state.idEchipa}
+                // defaultValue={myData ? myData[state.idEchipa] : state.idEchipa}
+                value={userData.idEchipa}
                 propname='cmbEchipa'
               ></ComboBoxEchipa>{' '}
             </div>

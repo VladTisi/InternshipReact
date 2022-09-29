@@ -47,7 +47,7 @@ export default function HollidayM() {
   }
   return (
     <CacheProvider value={cache}>
-      <TableContainer>
+      <TableContainer className="table-container">
         <Table className='tabela'>
           <TableHeader />
           <TableB all={data ? data.all.filter(all=>all.stareConcediuId===(searchTerm)) : []} page={page} rowsPerPage={rowsPerPage} emptyRows={emptyRows} />
