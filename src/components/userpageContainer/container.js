@@ -115,7 +115,7 @@ export default function MyProfileContainers() {
 
         <div className='card2'>
           <div className='nume'>
-            Email: <MyTextField whattodisplay={myDataEmail?.email}> </MyTextField>{' '}
+            Email: <MyTextField whattodisplay={myDataEmail?.email.email}> </MyTextField>{' '}
           </div>
           <div className='nume'>
             Numar telefon: <MyTextField whattodisplay={state.numarTelefon}> </MyTextField>{' '}

@@ -26,8 +26,8 @@ export const ECHIPE = gql`
   }
 `
 export const EMAIL = gql`
-  query Email {
-    email {
+  query email($emailId: Int) {
+    email(id: $emailId) {
       id
       email
     }
