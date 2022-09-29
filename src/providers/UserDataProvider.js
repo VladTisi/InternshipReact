@@ -3,9 +3,9 @@ import { useApolloClient } from '@apollo/client'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 import { USER_DATA_QUERY } from 'components/login/queries'
 
-const email = JSON.parse(localStorage.getItem('token'))
-
 const UserDataProvider = () => {
+  const email = JSON.parse(localStorage.getItem('token'))
+
   const client = useApolloClient()
   useQueryWithErrorHandling(USER_DATA_QUERY, {
     variables: { email: email },
