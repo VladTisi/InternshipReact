@@ -7,8 +7,8 @@ import plumi from '../../assets/img/plumeria.png'
 import MyTextFieldNume from 'components/homepagedata/MyTextFieldNume.js'
 import DatePick from 'components/CreareConcediu/DateTimePicker.js'
 import { reducer, initialState } from '../../features/CreareConcediu/reducerHook.js'
-import { ApolloProvider } from '@apollo/client'
-import { LOAD_DATA, ECHIPE, EMAIL, FUNCTII } from './QueriesData.js'
+import { ApolloProvider, useMutation } from '@apollo/client'
+import { LOAD_DATA, ECHIPE, EMAIL, FUNCTII, UPDATE_PERSON } from './QueriesData.js'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling.js'
 import ComboBoxEchipa from './ComboEchipa.js'
 
@@ -23,6 +23,7 @@ export default function MyProfileContainers() {
     dispatch({ type: 'update', e: e, propname: propname })
   }
 
+  const [updatePerson] = useMutation(UPDATE_PERSON)
   const [state, dispatch] = useReducer(reducer, initialState)
   const { data, loading } = useQueryWithErrorHandling(LOAD_DATA, { variables: { userId: 13 } })
   const { data: myData, loading: myLoading } = useQueryWithErrorHandling(ECHIPE)

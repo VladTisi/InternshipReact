@@ -42,3 +42,11 @@ export const FUNCTII = gql`
     }
   }
 `
+
+export const UPDATE_PERSON = gql`
+  mutation UserUpdated($input: personUpd!) {
+    userUpdated(input: $input) {
+      result
+    }
+  }
+`
