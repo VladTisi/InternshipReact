@@ -6,7 +6,7 @@ export const Post_update = gql`
   }
 `
 export const Get_pass = gql`
-  query query($passwordId: Int) {
-    Password(id: $passwordId)
+  query query($input: GetPassword) {
+    password(input: $input)
   }
 `

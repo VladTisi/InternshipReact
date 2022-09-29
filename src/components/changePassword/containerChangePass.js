@@ -1,24 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import 'assets/css/changepassword.css'
 import { TextField } from '@material-ui/core'
-import ContainedButtons from 'components/changePassword/buttonSave.js'
+import { Button } from '@material-ui/core'
 import DoneIcon from '@material-ui/icons/Done'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 import { Get_pass, Post_update } from './queries'
+import { useMutation } from '@apollo/client'
+import useUserData from 'components/login/useUserData'
+import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
+import { dataIndexOf } from 'react-widgets/cjs/Accessors'
 
 function ChangePasswordContainers() {
-  const [state, setState] = useState(null)
-
-  const { data, loading } = useQueryWithErrorHandling(Get_pass, {
-    variables: { passwordId: 2 },
-    onCompleted: data => {
-      setState(data.pass)
-      console.log(data)
-    }
+  const userData = useUserData()
+  const [inputPass, setInputPass] = useState('')
+  const [newPass, setNewPass] = useState('')
+  const [newPassCopy, setNewPassCopy] = useState('')
+  const [updatePassword] = useMutation(Post_update)
+  const addToast = useToast()
+  const [myFlag, setMyFlag] = useState(false)
+  const { data: MyQueryData222, loading } = useQueryWithErrorHandling(Get_pass, {
+    variables: { input: { angajatId: userData.id, oldPassword: inputPass } },
+    skip: !myFlag
   })
-  useEffect(() => {
-    if (loading || !data) return setState(data?.pass)
-  }, [data, loading])
+
+  const handleClick = () => {
+    setMyFlag(true)
+  }
+
+  //if (updatePassword({ variables: { newPassword: newPass, angajatId: userData.id } })) addToast('Parola a fost schimbata')
 
   return (
     <div className='container111'>
@@ -29,19 +38,32 @@ function ChangePasswordContainers() {
       </div>
       <div className='card0123'>
         <div className='camp22'>
-          <TextField label='Parola veche'></TextField>
+          <TextField
+            onChange={event => {
+              setInputPass(event.target.value)
+            }}
+            label='Parola veche'
+          ></TextField>
         </div>
         <div className='camp22'>
-          <TextField label='Parola noua'></TextField>
+          <TextField
+            onChange={event => {
+              setNewPass(event.target.value)
+            }}
+            label='Parola noua'
+          ></TextField>
         </div>
         <div className='camp22'>
-          <TextField label='Confirmare parola noua '></TextField>
+          <TextField
+            onChange={event => {
+              setNewPassCopy(event.target.value)
+            }}
+            label='Confirmare parola noua '
+          ></TextField>
         </div>
-        <ContainedButtons>
-          <button>
-            <DoneIcon />
-          </button>
-        </ContainedButtons>
+        <Button onClick={handleClick}>
+          Salvare parola <DoneIcon />{' '}
+        </Button>
       </div>
     </div>
   )
