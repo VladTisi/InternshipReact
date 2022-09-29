@@ -1,17 +1,22 @@
-import React, { useState } from 'react'
+import React, { useMemo } from 'react'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 
 function ComboBoxEchipa(props) {
-  const { defaultValue, inputValue, onChangeHandler, data, value, propname, labelname } = props
+  const { defaultValue, inputValue, onChangeHandler, data, value, propname, labelname, editableField } = props
 
   try {
+    const dateechipa = useMemo(() => {
+      return data.find(x => x.id === value)
+    }, [value, data])
+
     return (
       <Autocomplete
+        disabled={!editableField}
         options={data}
+        value={dateechipa || ''}
         style={{ width: 300 }}
         getOptionLabel={option => option.nume}
-        defaultValue={defaultValue}
         onChange={(event, value) => onChangeHandler(value.id, propname)}
         //onChange={handleChange}
         renderInput={params => <TextField {...params} label={labelname} />}

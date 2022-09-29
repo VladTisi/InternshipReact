@@ -9,6 +9,7 @@ function DateTimePicker(props) {
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <Grid container justifyContent='space-around'>
           <KeyboardDatePicker
+            disabled={props.editableField}
             disableToolbar
             variant='inline'
             format='MM/dd/yyyy'

@@ -2,35 +2,62 @@ import React, { useEffect, useState, useReducer } from 'react'
 import 'assets/css/userpage.css'
 import CreateIcon from '@material-ui/icons/Create'
 import MyTextField from '../homepagedata/MyTextField.js'
-import ContainedButtons from 'components/homepagedata/buttonModif.js'
+import ButtonModif from 'components/homepagedata/ButtonModif.js'
 import plumi from '../../assets/img/plumeria.png'
 import MyTextFieldNume from 'components/homepagedata/MyTextFieldNume.js'
 import DatePick from 'components/CreareConcediu/DateTimePicker.js'
 import { reducer, initialState } from '../../features/CreareConcediu/reducerHook.js'
-import { ApolloProvider } from '@apollo/client'
-import { LOAD_DATA, ECHIPE, EMAIL, FUNCTII } from './QueriesData.js'
+import { ApolloProvider, useMutation } from '@apollo/client'
+import { LOAD_DATA, ECHIPE, EMAIL, FUNCTII, UPDATE_PERSON } from './QueriesData.js'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling.js'
 import ComboBoxEchipa from './ComboEchipa.js'
 import useUserData from 'components/login/useUserData.js'
+import ButtonSave from 'components/homepagedata/buttonSave.js'
+import { Get_All } from 'components/employeesmenu/queries.js'
+import { TextField } from '@material-ui/core'
 
 var dataEc = [
-  { id: 1, name: 'Ggcfgcfgfnes' },
-  { id: 2, name: 'gcfgcfgcf' },
-  { id: 3, name: 'gcfgcfg' }
+  { id: 1, nume: 'Ggcfgcfgfnes' },
+  { id: 2, nume: 'gcfgcfgcf' },
+  { id: 3, nume: 'gcfgcfg' }
 ]
 
 export default function MyProfileContainers() {
-  const userData= useUserData()
+  const userData = useUserData()
   function onChangeHandler(e, propname) {
     dispatch({ type: 'update', e: e, propname: propname })
   }
 
+  const [updatePerson] = useMutation(UPDATE_PERSON)
   const [state, dispatch] = useReducer(reducer, initialState)
-  const { data, loading } = useQueryWithErrorHandling(LOAD_DATA, { variables: { userId: userData.id } })
+  const { data, loading } = useQueryWithErrorHandling(LOAD_DATA, { variables: { userId: userData.id }, skip: !userData.id })
   const { data: myData, loading: myLoading } = useQueryWithErrorHandling(ECHIPE)
+  const [editableField, setEditableField] = useState(false)
 
-  const { data: myDataEmail, loading: myLoadingEmail } = useQueryWithErrorHandling(EMAIL, { variables: { emailId: userData.id } })
+  const { data: myDataEmail, loading: myLoadingEmail } = useQueryWithErrorHandling(EMAIL, {
+    variables: { emailId: userData.id },
+    skip: !userData.id
+  })
   const { data: myDataFunctii, loading: myLoadingFunctii } = useQueryWithErrorHandling(FUNCTII)
+
+  const updateHandler = async () => {
+    const dataUpdatePerson = await updatePerson({
+      variables: {
+        input: {
+          id: userData.id,
+          salariu: parseInt(state.salariu),
+          nume: state.nume,
+          prenume: state.prenume,
+          idEchipa: state.idEchipa,
+          idFunctie: state.idFunctie,
+          sex: state.sex,
+          numarTelefon: state.numarTelefon,
+          overtime: parseInt(state.overtime),
+          dataAngajarii: state.dataAngajarii
+        }
+      }
+    })
+  }
 
   useEffect(() => {
     if (loading || !data) return
@@ -44,7 +71,8 @@ export default function MyProfileContainers() {
     dispatch({ type: 'fillData', propname: 'numarTelefon', e: data.user[0].numarTelefon })
     dispatch({ type: 'fillData', propname: 'idEchipa', e: data.user[0].idEchipa })
     dispatch({ type: 'fillData', propname: 'idFunctie', e: data.user[0].idFunctie })
-  }, [data])
+    dispatch({ type: 'fillData', propname: 'poza', e: data.user[0].poza })
+  }, [data, loading])
 
   useEffect(() => {
     if (myLoading || !myData) return
@@ -65,24 +93,37 @@ export default function MyProfileContainers() {
           <header>Date personale</header>
         </div>
       </div>
-      <ContainedButtons>
-        <button className='modificare'>
-          Modificare date
-          <CreateIcon />
-        </button>
-      </ContainedButtons>
+      <div>
+        <ButtonSave setEditableField={setEditableField}> </ButtonSave>
+      </div>
       <body className='corp'>
         <div className='card1'>
           <div className='card1-1'>
             <div>
-              <img className='boxImg' src={plumi} width='150' height='180' />
+              <img className='boxImg' src={`data:image/*;base64,${state.poza}`} width='150' height='180' />
             </div>
             <div className='cevrei'>
               <div className='nume-prenume'>
-                Nume: <MyTextField whattodisplay={state.nume}> </MyTextField>{' '}
+                Nume:{' '}
+                <MyTextFieldNume
+                  onChangeHandler={onChangeHandler}
+                  propname={'nume'}
+                  whattodisplay={state.nume}
+                  editableField={editableField}
+                >
+                  {' '}
+                </MyTextFieldNume>{' '}
               </div>
               <div className='nume-prenume'>
-                Prenume: <MyTextField whattodisplay={state.prenume}> </MyTextField>{' '}
+                Prenume:{' '}
+                <MyTextFieldNume
+                  onChangeHandler={onChangeHandler}
+                  propname={'prenume'}
+                  whattodisplay={state.prenume}
+                  editableField={editableField}
+                >
+                  {' '}
+                </MyTextFieldNume>{' '}
               </div>
             </div>
           </div>
@@ -91,41 +132,70 @@ export default function MyProfileContainers() {
             <div className='nume'>
               Echipa:
               <ComboBoxEchipa
+                editableField={editableField}
                 onChangeHandler={onChangeHandler}
                 data={myData ? myData.Echipe : dataEc}
-                // defaultValue={myData ? myData[state.idEchipa] : state.idEchipa}
-                value={userData.idEchipa}
-                propname='cmbEchipa'
+                value={state.idEchipa}
+                propname='idEchipa'
               ></ComboBoxEchipa>{' '}
             </div>
 
             <div className='nume'>
               Functii:
               <ComboBoxEchipa
+                editableField={editableField}
                 onChangeHandler={onChangeHandler}
-                data={myDataFunctii ? myDataFunctii.Functii : dataEc}
+                data={myDataFunctii ? myDataFunctii.Functii : []}
                 value={state.idFunctie}
-                propname='cmbFunctie'
+                propname='idFunctie'
               ></ComboBoxEchipa>{' '}
             </div>
             <div className='nume'>
-              Sex: <MyTextField whattodisplay={state.sex}> </MyTextField>{' '}
+              Sex:{' '}
+              <MyTextFieldNume onChangeHandler={onChangeHandler} propname={'sex'} whattodisplay={state.sex} editableField={editableField}>
+                {' '}
+              </MyTextFieldNume>{' '}
             </div>
           </div>
         </div>
 
         <div className='card2'>
           <div className='nume'>
-            Email: <MyTextField whattodisplay={myDataEmail?.email.email}> </MyTextField>{' '}
+            Email:{' '}
+            <MyTextFieldNume onChangeHandler={onChangeHandler} whattodisplay={myDataEmail?.email.email}>
+              {' '}
+            </MyTextFieldNume>{' '}
           </div>
           <div className='nume'>
-            Numar telefon: <MyTextField whattodisplay={state.numarTelefon}> </MyTextField>{' '}
+            Numar telefon:{' '}
+            <MyTextFieldNume
+              onChangeHandler={onChangeHandler}
+              propname={'numarTelefon'}
+              whattodisplay={state.numarTelefon}
+              editableField={editableField}
+            >
+              {' '}
+            </MyTextFieldNume>{' '}
           </div>
           <div className='txtsod'>
-            Salariu: <MyTextField whattodisplay={state.salariu}> </MyTextField>
+            Salariu:{' '}
+            <MyTextFieldNume
+              onChangeHandler={onChangeHandler}
+              propname={'salariu'}
+              whattodisplay={state.salariu}
+              editableField={editableField}
+            >
+              {' '}
+            </MyTextFieldNume>
           </div>
           <div className='txtsod'>
-            Overtime: <MyTextField whattodisplay={state.overtime}> </MyTextField>{' '}
+            Overtime:{' '}
+            <MyTextFieldNume
+              onChangeHandler={onChangeHandler}
+              propname={'overtime'}
+              whattodisplay={state.overtime}
+              editableField={editableField}
+            />
           </div>
           <div className='dataAngajare'>Data angajare:</div>
           <div className='date'>
@@ -133,11 +203,13 @@ export default function MyProfileContainers() {
             {DatePick({
               label: null,
               value: state.dataAngajarii,
+              editableField: !editableField,
               func: e => dispatch({ type: 'update', e: e, propname: 'dataAngajarii' })
             })}
           </div>
         </div>
       </body>
+      <ButtonModif updateHandler={updateHandler} />
     </div>
   )
 }

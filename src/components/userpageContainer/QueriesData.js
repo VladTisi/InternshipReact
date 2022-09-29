@@ -14,6 +14,7 @@ export const LOAD_DATA = gql`
       salariu
       overtime
       dataAngajarii
+      poza
     }
   }
 `
@@ -39,6 +40,14 @@ export const FUNCTII = gql`
     Functii {
       nume
       id
+    }
+  }
+`
+
+export const UPDATE_PERSON = gql`
+  mutation UserUpdated($input: personUpd!) {
+    userUpdated(input: $input) {
+      result
     }
   }
 `
