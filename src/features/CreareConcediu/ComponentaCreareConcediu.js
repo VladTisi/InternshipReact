@@ -107,7 +107,7 @@ function ComponentaCreareConcediu(props) {
   useEffect(() => {
     if (ZileRamaseNeplatiteLoading || !ZileRamaseNeplatiteQ) return
     onChangeHandler(ZileRamaseNeplatiteQ.ZileRamaseNeplatite, 'ZileRamaseNeplatite')
-  }, [ZileRamaseOdihnaQ])
+  }, [ZileRamaseNeplatiteQ])
 
   return (
     <div className='container22'>
