@@ -91,10 +91,10 @@ export default function MyProfileContainers() {
               Echipa:
               <ComboBoxEchipa
                 onChangeHandler={onChangeHandler}
-                data={myData ? myData.Echipe : dataEc}
+                data={myData ? myData.Echipe : []}
                 //defaultValue={myData ? myData[state.idEchipa] : state.idEchipa}
                 value={state.idEchipa}
-                propname='cmbEchipa'
+                propname='idEchipa'
               ></ComboBoxEchipa>{' '}
             </div>
 
@@ -102,9 +102,9 @@ export default function MyProfileContainers() {
               Functii:
               <ComboBoxEchipa
                 onChangeHandler={onChangeHandler}
-                data={myDataFunctii ? myDataFunctii.Functii : dataEc}
+                data={myDataFunctii ? myDataFunctii.Functii : []}
                 value={state.idFunctie}
-                propname='cmbFunctie'
+                propname='idFunctie'
               ></ComboBoxEchipa>{' '}
             </div>
             <div className='nume'>
