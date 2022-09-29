@@ -19,7 +19,8 @@ import {
   ZileRamaseNeplatite,
   ZileRamaseMedical,
   ZileRamaseDeces,
-  ZileRamaseOdihna
+  ZileRamaseOdihna,
+  GetConcediiInlocuitor
 } from './QueriesCC.js'
 import PropTypes from 'prop-types'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling.js'
@@ -34,7 +35,7 @@ var data = [
 ]
 
 function ComponentaCreareConcediu(props) {
-  const userData=useUserData()
+  const userData = useUserData()
   const [insertCerereConcediu] = useMutation(INSERT_CERERE_CONCEDIU)
 
   const { state, onChangeHandler } = props
@@ -54,6 +55,7 @@ function ComponentaCreareConcediu(props) {
       addToast('Data sfarsitului nu poate fi mai mica decat data inceputului', 'error')
       return
     }
+
     const { data } = await insertCerereConcediu({
       variables: {
         input: {
@@ -70,22 +72,32 @@ function ComponentaCreareConcediu(props) {
     if (data) addToast('Concediul a fost inserat', 'success')
   }
 
-  const { data: myData, loading: myLoading } = useQueryWithErrorHandling(INLOCUITORI_QUERRY, { variables: { inlocuitoriId: userData.id } })
+  const { data: myData, loading: myLoading } = useQueryWithErrorHandling(INLOCUITORI_QUERRY, {
+    variables: { inlocuitoriId: userData.id },
+    skip: !userData.id || userData.id === 0
+  })
 
+  // const { data: ConcediiInlocuitor, loading: ConcediiInlocuitorLoading } = useQueryWithErrorHandling(GetConcediiInlocuitor, {
+  //   variables: { angajatId: userData.id }
+  // })
   const { data: ZileRamaseOdihnaQ, loading: ZileRamaseOdihnaLoading } = useQueryWithErrorHandling(ZileRamaseOdihna, {
-    variables: { angajatId: userData.id }
+    variables: { angajatId: userData.id },
+    skip: !userData.id || userData.id === 0
   })
 
   const { data: ZileRamaseDecesQ, loading: ZileRamaseDecesLoading } = useQueryWithErrorHandling(ZileRamaseDeces, {
-    variables: { angajatId: userData.id }
+    variables: { angajatId: userData.id },
+    skip: !userData.id || userData.id === 0
   })
 
   const { data: ZileRamaseMedicalQ, loading: ZileRamaseMedicalLoading } = useQueryWithErrorHandling(ZileRamaseMedical, {
-    variables: { angajatId: userData.id }
+    variables: { angajatId: userData.id },
+    skip: !userData.id || userData.id === 0
   })
 
   const { data: ZileRamaseNeplatiteQ, loading: ZileRamaseNeplatiteLoading } = useQueryWithErrorHandling(ZileRamaseNeplatite, {
-    variables: { angajatId: userData.id }
+    variables: { angajatId: userData.id },
+    skip: !userData.id || userData.id === 0
   })
   const { data: myData2, loading: myLoading2 } = useQueryWithErrorHandling(TIPCONCEDIU_QUEERY)
   useEffect(() => {

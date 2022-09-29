@@ -54,3 +54,8 @@ export const ZileRamaseOdihna = gql`
     ZileRamaseOdihna(AngajatId: $angajatId)
   }
 `
+export const GetConcediiInlocuitor = gql`
+  query Query($input: ConcediuInlocuitor) {
+    GetConcediiInlocuitor(input: $input)
+  }
+`
