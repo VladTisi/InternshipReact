@@ -18,7 +18,8 @@ export const initialState = {
   idEchipaRec: 1,
   dataAngajariiRec: new Date(),
   dataNasteriiRec: new Date(),
-  sexRec: null
+  sexRec: null,
+  inlocuitorId: null
 }
 
 export function reducer(state, action) {

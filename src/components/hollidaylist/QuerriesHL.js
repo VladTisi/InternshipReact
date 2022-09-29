@@ -14,3 +14,15 @@ export const GET_ALL = gql`
     }
   }
 `
+
+export const PUT_REFUZA = gql`
+mutation refuzaconcediu($refuzaconcediuId: Int) {
+  refuzaconcediu(id: $refuzaconcediuId)
+}
+`
+
+export const PUT_APROBA = gql`
+mutation aprobaconcediu($aprobaconcediuId: Int) {
+  aprobaconcediu(id: $aprobaconcediuId)
+}
+`

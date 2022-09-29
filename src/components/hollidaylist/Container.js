@@ -48,7 +48,7 @@ export default function HollidayL() {
           <TableFoot concedii={data ? data.concedii : []} rowsPerPage={rowsPerPage} page={page} handleChangePage={handleChangePage} handleChangeRowsPerPage={handleChangeRowsPerPage} />
         </Table>
       </TableContainer>
-      <HLButtons/>
+      <HLButtons rowId={rowId} setRowId={setRowId}/>
     </CacheProvider>
   )
 }

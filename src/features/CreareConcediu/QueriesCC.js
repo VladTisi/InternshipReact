@@ -17,3 +17,19 @@ export const INSERT_CERERE_CONCEDIU = gql`
     insertCerereConcediu(input: $input)
   }
 `
+export const INLOCUITORI_QUERRY = gql`
+  query Inlocuitori($inlocuitoriId: Int) {
+    inlocuitori(id: $inlocuitoriId) {
+      id
+      nume
+    }
+  }
+`
+export const TIPCONCEDIU_QUEERY = gql`
+  query TipConcediu($tipConcediuId: Int) {
+    tipConcediu(id: $tipConcediuId) {
+      id
+      nume
+    }
+  }
+`
