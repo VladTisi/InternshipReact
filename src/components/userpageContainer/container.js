@@ -26,10 +26,10 @@ export default function MyProfileContainers() {
   }
 
   const [state, dispatch] = useReducer(reducer, initialState)
-  const { data, loading } = useQueryWithErrorHandling(LOAD_DATA, { variables: { userId: 13 } })
+  const { data, loading } = useQueryWithErrorHandling(LOAD_DATA, { variables: { userId: userData.id } })
   const { data: myData, loading: myLoading } = useQueryWithErrorHandling(ECHIPE)
 
-  const { data: myDataEmail, loading: myLoadingEmail } = useQueryWithErrorHandling(EMAIL, { variables: { emailId: 13 } })
+  const { data: myDataEmail, loading: myLoadingEmail } = useQueryWithErrorHandling(EMAIL, { variables: { emailId: userData.id } })
   const { data: myDataFunctii, loading: myLoadingFunctii } = useQueryWithErrorHandling(FUNCTII)
 
   useEffect(() => {
