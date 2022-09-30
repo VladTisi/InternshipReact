@@ -10,7 +10,7 @@ const menuItems = [
   { icon: <PermContactCalendar />, text: 'NavBar.HollidayMenu', path: '/hollidaymenu', name: 'HollidayMenu' },
   { icon: <FormatListNumbered />, text: 'NavBar.HollidayList', path: '/hollidaylist', name: 'HollidayList' },
   { icon: <GroupWork />, text: 'NavBar.TeamsMenu', path: '/teamsmenu', name: 'TeamsMenu' },
-  { icon: <AddBox />, text: 'CreareConcediu', path: '/CreareConcediu', name: 'CreareConcediu' },
+  { icon: <AddBox />, text: 'NavBar.CreareConcediu', path: '/CreareConcediu', name: 'CreareConcediu' },
   //{ icon: <PersonAddIcon />, text: 'Recrutare', path: '/HirePeople', name: 'Recrutare' },
   { icon: <ExitToApp />, text: 'NavBar.Delogare', path: '/', name: 'Delogare' }
 ]

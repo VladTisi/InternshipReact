@@ -9,7 +9,7 @@
     "Sfarsit": "Data Sfarsit",
     "Status": "Stare"
   },
-  "CreareConcediu": "Cerere concediu",
+  
   "HollidayList": {
     "Inceput": "Data Inceput",
     "Sfarsit": "Data Sfarsit",
@@ -36,6 +36,7 @@
   },
   "SearchByName": "Cautare dupa nume...",
   "NavBar": {
+    "CreareConcediu": "Cerere concediu",
     "Dashboard": "Panou central",
     "EmployeesMenu": "Angajati",
     "TeamsMenu": "Echipe",

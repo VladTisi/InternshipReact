@@ -44,6 +44,7 @@
   },
   "SearchByName": "Search by name...",
   "NavBar": {
+    "CreareConcediu": "Holiday request",
     "Dashboard": "Dashboard",
     "HollidayMenu": "Holliday menu",
     "TeamsMenu": "Teams menu",
