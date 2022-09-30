@@ -45,7 +45,7 @@ export default function HollidayL() {
   console.log(rowId)
   return (
     <CacheProvider value={cache}>
-      <TableContainer>
+      <TableContainer className="table-container">
         <Table className='tabela'>
           <TableHeader />
           <TableB concedii={data ? data.concedii : []} page={page} rowsPerPage={rowsPerPage} emptyRows={emptyRows} setRowId={setRowId} />

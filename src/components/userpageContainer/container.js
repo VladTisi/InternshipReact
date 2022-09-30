@@ -15,7 +15,7 @@ import useUserData from 'components/login/useUserData.js'
 import ButtonSave from 'components/homepagedata/buttonSave.js'
 import { Get_All } from 'components/employeesmenu/queries.js'
 import { TextField } from '@material-ui/core'
-
+import { useTranslation } from 'react-i18next'
 var dataEc = [
   { id: 1, nume: 'Ggcfgcfgfnes' },
   { id: 2, nume: 'gcfgcfgcf' },
@@ -27,7 +27,7 @@ export default function MyProfileContainers() {
   function onChangeHandler(e, propname) {
     dispatch({ type: 'update', e: e, propname: propname })
   }
-
+  const {t}=useTranslation()
   const [updatePerson] = useMutation(UPDATE_PERSON)
   const [state, dispatch] = useReducer(reducer, initialState)
   const { data, loading } = useQueryWithErrorHandling(LOAD_DATA, { variables: { userId: userData.id }, skip: !userData.id })
@@ -90,7 +90,7 @@ export default function MyProfileContainers() {
     <div className='container1'>
       <div className='title'>
         <div className='titletext'>
-          <header>Date personale</header>
+          <header>{t('MyProfile.PersonalData')}</header>
         </div>
       </div>
       <div>
@@ -104,7 +104,7 @@ export default function MyProfileContainers() {
             </div>
             <div className='cevrei'>
               <div className='nume-prenume'>
-                Nume:{' '}
+                {t('MyProfile.Nume')}:{' '}
                 <MyTextFieldNume
                   onChangeHandler={onChangeHandler}
                   propname={'nume'}
@@ -115,7 +115,7 @@ export default function MyProfileContainers() {
                 </MyTextFieldNume>{' '}
               </div>
               <div className='nume-prenume'>
-                Prenume:{' '}
+              {t('MyProfile.Prenume')}:{' '}
                 <MyTextFieldNume
                   onChangeHandler={onChangeHandler}
                   propname={'prenume'}
@@ -130,7 +130,7 @@ export default function MyProfileContainers() {
 
           <div className='card1-2'>
             <div className='nume'>
-              Echipa:
+            {t('MyProfile.Echipa')}:
               <ComboBoxEchipa
                 editableField={editableField}
                 onChangeHandler={onChangeHandler}
@@ -141,7 +141,7 @@ export default function MyProfileContainers() {
             </div>
 
             <div className='nume'>
-              Functii:
+            {t('MyProfile.Functie')}:
               <ComboBoxEchipa
                 editableField={editableField}
                 onChangeHandler={onChangeHandler}
@@ -167,7 +167,7 @@ export default function MyProfileContainers() {
             </MyTextFieldNume>{' '}
           </div>
           <div className='nume'>
-            Numar telefon:{' '}
+          {t('MyProfile.NumarTelefon')}:{' '}
             <MyTextFieldNume
               onChangeHandler={onChangeHandler}
               propname={'numarTelefon'}
@@ -178,7 +178,7 @@ export default function MyProfileContainers() {
             </MyTextFieldNume>{' '}
           </div>
           <div className='txtsod'>
-            Salariu:{' '}
+          {t('MyProfile.Salariu')}:{' '}
             <MyTextFieldNume
               onChangeHandler={onChangeHandler}
               propname={'salariu'}
@@ -197,7 +197,7 @@ export default function MyProfileContainers() {
               editableField={editableField}
             />
           </div>
-          <div className='dataAngajare'>Data angajare:</div>
+          <div className='dataAngajare'>{t('MyProfile.DataAngajare')}:</div>
           <div className='date'>
             {' '}
             {DatePick({

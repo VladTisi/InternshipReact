@@ -36,7 +36,7 @@ export default function CustomPaginationActionsTable() {
   const prop = { setPage,rowsPerPage, setState, allemp: data ? data.allemp.filter(allemp => allemp.nume.toLowerCase().startsWith(searchTerm.toLowerCase())) : [], page, searchTerm, handleChangePage, handleChangeRowsPerPage }
   const searchProp = { setSearchTerm }
   return (
-    <TableContainer style={{ paddingBottom: 20 }}>
+    <TableContainer  style={{ paddingBottom: 20 }}>
       <SearchBar {...searchProp}/>
       <Table className='tabela' aria-label='custom pagination table'>
         <Head />

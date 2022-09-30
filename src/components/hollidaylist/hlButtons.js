@@ -11,8 +11,8 @@ function refreshPage() {
 export default function HMButtons(props) {
   const { t } = useTranslation()
   const { rowId, setRowId } = props
-  const [refuza]= useMutation(PUT_REFUZA)
-  const [aproba]= useMutation(PUT_APROBA)
+  const [refuza, {loading: refuzaLoading}]= useMutation(PUT_REFUZA)
+  const [aproba, loading ]= useMutation(PUT_APROBA)
   try {
     return (
       <div className='buttons-container'>
@@ -20,9 +20,11 @@ export default function HMButtons(props) {
           className='buttons'
           variant='contained'
           onClick={() => {
-            setRowId(0)
+            if(rowId!== 0){
             aproba({variables: {aprobaconcediuId: rowId }})
-            refreshPage()
+            if(loading){
+              setRowId(0)
+              refreshPage()}}
           }}
         >
           {t('Button.Approve')}
@@ -30,11 +32,12 @@ export default function HMButtons(props) {
         <Button
           className='buttons'
           variant='contained'
-          onClick={() => {
+          onClick={async() => {
+            if(rowId!== 0){
+            await refuza({variables: {refuzaconcediuId: rowId }})
             setRowId(0)
-            refuza({variables: {aprobaconcediuId: rowId }})
-            refreshPage()
-          }}
+            refreshPage()}}
+          }
         >
           {t('Button.Refuse')}
         </Button>

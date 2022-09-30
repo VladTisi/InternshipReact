@@ -17,6 +17,7 @@
     "Sfarsit": "Ending Date",
     "Status": "Status"
   },
+  "CreareConcediu": "Holiday request",
   "HollidayList": {
     "Inceput": "Starting Date",
     "Sfarsit": "Ending Date",
@@ -89,17 +90,16 @@
     }
   },
   "MyProfile": {
-    "PersonalData": "PersonalData",
+    "PersonalData": "My Profile",
     "Nume": "Last name",
     "Prenume": "First name",
-    "Functie": "Function",
+    "Functie": "Role",
     "Echipa": "Team",
     "Email": "Email",
-    "NumarTelefon": "Telephone number",
+    "NumarTelefon": "Phone number",
     "Salariu": "Salary",
-
     "DataAngajare": "Hiring date",
     "ModificareDate": "Edit data",
-    "SalvareDate": "Save data"
+    "SalvareDate": "Save changes"
   }
 }

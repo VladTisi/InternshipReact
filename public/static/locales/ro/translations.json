@@ -9,6 +9,7 @@
     "Sfarsit": "Data Sfarsit",
     "Status": "Stare"
   },
+  "CreareConcediu": "Cerere concediu",
   "HollidayList": {
     "Inceput": "Data Inceput",
     "Sfarsit": "Data Sfarsit",
@@ -81,7 +82,7 @@
     }
   },
   "MyProfile": {
-    "PersonalData": "Date Personale",
+    "PersonalData": "Profilul meu",
     "Nume": "Nume",
     "Prenume": "Prenume",
     "Functie": "Functie",
@@ -89,7 +90,6 @@
     "Email": "Email",
     "NumarTelefon": "Numar telefon",
     "Salariu": "Salariu",
-
     "DataAngajare": "Data angajare",
     "ModificareDate": "Modificare date",
     "SalvareDate": "Salvare date"
