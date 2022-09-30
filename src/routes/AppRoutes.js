@@ -17,26 +17,37 @@ import HirePeople from 'features/HirePeople/HirePeople.js'
 import LoginPage from 'components/login/LoginPage'
 import useUserData from 'components/login/useUserData'
 export default function AppRoutes() {
-  const userData=useUserData()
+  const userData = useUserData()
   return (
     <Switch>
-      <CustomRoute isPrivate={false} exact path='/dashboard' component={Dashboard} />
-      <Redirect exact from='/' to='/dashboard' />
+      {/* <CustomRoute isPrivate={false} exact path='/dashboard' component={Dashboard} />
+      <Redirect exact from='/' to='/dashboard' /> */}
+      <CustomRoute isPrivate={false} exact path='/userPage' component={UserPage} />
+      <Redirect exact from='/' to='/userPage' />
       <CustomRoute isPrivate={false} exact path='/CreareConcediu' component={creareConcediu} />
       <Redirect exact from='/' to='/CreareConcediu' />
       <CustomRoute isPrivate={false} exact path='/employeesmenu' component={EmployeesMenu} />
       <Redirect exact from='/' to='/employeesmenu' />
       <CustomRoute isPrivate={false} exact path='/hollidaymenu' component={HollidayMenu} />
       <Redirect exact from='/' to='/hollidaymenu' />
-      <CustomRoute isPrivate={false} exact path='/userPage' component={UserPage} />
-      <Redirect exact from='/' to='/userPage' />
+
       <CustomRoute isPrivate={false} exact path='/changePassword' component={ChangePassword} />
       <Redirect exact from='/' to='/changePassword' />
-      <CustomRoute isPrivate={userData.esteAdmin ? false : userData.idFunctie==3 ? false : true} exact path='/hollidaylist' component={HollidayList} />
+      <CustomRoute
+        isPrivate={userData.esteAdmin ? false : userData.idFunctie == 3 ? false : true}
+        exact
+        path='/hollidaylist'
+        component={HollidayList}
+      />
       <Redirect exact from='/' to='/hollidaylist' />
       <CustomRoute isPrivate={false} exact path='/teamsmenu' component={TeamsMenu} />
       <Redirect exact from='/' to='/teamsmenu' />
-      <CustomRoute isPrivate={userData.esteAdmin ? false : userData.idFunctie==3 ? false : true} exact path='/HirePeople' component={HirePeople} />
+      <CustomRoute
+        isPrivate={userData.esteAdmin ? false : userData.idFunctie == 3 ? false : true}
+        exact
+        path='/HirePeople'
+        component={HirePeople}
+      />
       <Redirect exact from='/' to='/HirePeople' />
       {/* <CustomRoute isPrivate={false} exact path='/MenuItems' component={UserPage} /> */}
       <CustomRoute isPrivate={false} exact path='/forbidden' component={Forbidden} />

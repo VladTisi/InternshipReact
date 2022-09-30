@@ -5,7 +5,7 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd'
 import GroupIcon from '@material-ui/icons/Group'
 
 const menuItems = [
-  { icon: <Dashboard />, text: 'NavBar.Dashboard', path: '/dashboard', name: 'Dashboard' },
+  // { icon: <Dashboard />, text: 'NavBar.Dashboard', path: '/dashboard', name: 'Dashboard' },
   { icon: <GroupIcon />, text: 'NavBar.EmployeesMenu', path: '/employeesmenu', name: 'EmployeesMenu' },
   { icon: <PermContactCalendar />, text: 'NavBar.HollidayMenu', path: '/hollidaymenu', name: 'HollidayMenu' },
   { icon: <FormatListNumbered />, text: 'NavBar.HollidayList', path: '/hollidaylist', name: 'HollidayList' },
